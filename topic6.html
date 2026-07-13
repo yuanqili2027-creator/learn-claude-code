@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Markdown · 和 AI 一起用电脑</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="backdrop" id="backdrop"></div>
+<aside class="sidebar" id="sidebar">
+  <a class="s-brand" href="index.html"><span class="s-logo"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 6 16"/><line x1="12" y1="16" x2="18" y2="16"/></svg></span><span class="s-name">和 AI 一起用电脑</span></a>
+  <div class="s-search"><span class="s-search-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.6" y2="16.6"/></svg></span><input id="navFilter" type="text" placeholder="筛选章节…" autocomplete="off"></div>
+  <nav class="s-scroll">
+    <div class="s-group"><a class="s-item" href="index.html"><span class="s-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a2 2 0 0 0-2 2z"/><path d="M6 20a2 2 0 0 1-2-2"/></svg></span><span class="s-txt">总览</span></a></div>
+    <div id="topicGroup"><div class="s-group"><div class="s-label">第一课 · 电脑基本功</div><a class="s-item" href="topic1.html" data-name="操作系统 & 终端"><span class="s-num">01</span><span class="s-txt">操作系统 & 终端</span></a><a class="s-item" href="topic2.html" data-name="命令行核心命令"><span class="s-num">02</span><span class="s-txt">命令行核心命令</span></a><a class="s-item" href="topic3.html" data-name="文件系统 & 组织"><span class="s-num">03</span><span class="s-txt">文件系统 & 组织</span></a><a class="s-item" href="topic4.html" data-name="Homebrew"><span class="s-num">04</span><span class="s-txt">Homebrew</span></a><a class="s-item" href="topic5.html" data-name="Claude Code 初识"><span class="s-num">05</span><span class="s-txt">Claude Code 初识</span></a><a class="s-item active" href="topic6.html" data-name="Markdown"><span class="s-num">06</span><span class="s-txt">Markdown</span></a><a class="s-item" href="topic7.html" data-name="LaTeX & Overleaf"><span class="s-num">07</span><span class="s-txt">LaTeX & Overleaf</span></a><a class="s-item" href="topic8.html" data-name="VS Code & Python"><span class="s-num">08</span><span class="s-txt">VS Code & Python</span></a></div><div class="s-group"><div class="s-label">第二课 · Claude Code 实战</div><a class="s-item" href="c01-overview.html" data-name="课程总览"><span class="s-num">09</span><span class="s-txt">课程总览</span></a><a class="s-item" href="c02-mac-setup.html" data-name="Mac 安装配置"><span class="s-num">10</span><span class="s-txt">Mac 安装配置</span></a><a class="s-item" href="c03-windows-setup.html" data-name="Windows 方案"><span class="s-num">11</span><span class="s-txt">Windows 方案</span></a><a class="s-item" href="c04-github-gh.html" data-name="GitHub & gh"><span class="s-num">12</span><span class="s-txt">GitHub & gh</span></a><a class="s-item" href="c05-github-pages.html" data-name="GitHub Pages"><span class="s-num">13</span><span class="s-txt">GitHub Pages</span></a><a class="s-item" href="c06-web-slides.html" data-name="网页幻灯片"><span class="s-num">14</span><span class="s-txt">网页幻灯片</span></a><a class="s-item" href="c07-prompt-skills.html" data-name="提问的艺术"><span class="s-num">15</span><span class="s-txt">提问的艺术</span></a><a class="s-item" href="c08-best-practices.html" data-name="案例与最佳实践"><span class="s-num">16</span><span class="s-txt">案例与最佳实践</span></a><a class="s-item" href="c09-prompt-patterns.html" data-name="任务型 Prompt"><span class="s-num">17</span><span class="s-txt">任务型 Prompt</span></a><a class="s-item" href="c10-cheatsheet.html" data-name="命令速查表"><span class="s-num">18</span><span class="s-txt">命令速查表</span></a><a class="s-item" href="c11-prompts.html" data-name="Prompt 模板"><span class="s-num">19</span><span class="s-txt">Prompt 模板</span></a></div></div>
+    <div class="s-empty" id="navEmpty" hidden>没有匹配的章节</div>
+  </nav>
+  <div class="s-foot">2026-07-13 实战课 · 综合笔记</div>
+</aside>
+<div class="content">
+  <div class="mtop">
+    <button class="burger" id="burger" aria-label="菜单"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <a class="m-brand" href="index.html">和 AI 一起用电脑</a>
+  </div>
+  <div class="page">
+
+<div class="doc-head">
+  <div class="crumb">第一课 · 06 / 19</div>
+  <h1>Markdown</h1>
+  <p class="sub">用纯文本优雅记笔记，也是和 AI 对话的原生语言</p>
+</div>
+
+<div class="doc-layout">
+  <article class="article md">
+<h1
+id="markdown用纯文本记笔记也是和-ai-对话的原生语言">Markdown：用纯文本记笔记，也是和
+AI 对话的原生语言</h1>
+<p>你有没有过这种烦恼：在 Word
+里调字体、点粗体按钮、改标题样式，鼠标点来点去，半天没写几个字？Markdown
+就是来解决这个问题的。它让你<strong>双手不离开键盘</strong>，用几个简单的符号就能写出带标题、列表、粗体、代码、公式的漂亮文档。学会它，记笔记会快一倍，和
+AI 聊天也会顺手一大截。</p>
+<h2 id="一markdown-是什么为什么好用">一、Markdown
+是什么，为什么好用</h2>
+<p>Markdown 是一种「轻量级标记语言」，由 John Gruber 在 2004
+年发明。它的核心思想只有一句话：<strong>用纯文本 +
+几个约定俗成的符号，来表达文档结构</strong>。比如一行前面加
+<code>#</code> 就是标题，用 <code>**</code> 把字包起来就是粗体。</p>
+<p>它好在四点：</p>
+<ol type="1">
+<li><strong>纯文本</strong>：本质就是记事本能打开的
+<code>.txt</code>，永远不会因为软件升级而打不开，几十年后还能读。</li>
+<li><strong>易读</strong>：就算不渲染，看源码也一目了然——<code># 标题</code>
+你一眼就知道是标题。</li>
+<li><strong>跨平台</strong>：GitHub、知乎、语雀、Obsidian、微信公众号编辑器……到处都认它，复制粘贴不走样。</li>
+<li><strong>AI 原生</strong>：这是重点，后面单独讲。</li>
+</ol>
+<p>和 Word 对比一下就更清楚了：</p>
+<table>
+<thead>
+<tr>
+<th>对比项</th>
+<th>Word</th>
+<th>Markdown</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>文件本质</td>
+<td>二进制，专用软件才能开</td>
+<td>纯文本，任何编辑器都能开</td>
+</tr>
+<tr>
+<td>排版方式</td>
+<td>鼠标点按钮、选样式</td>
+<td>键盘敲符号</td>
+</tr>
+<tr>
+<td>版本管理</td>
+<td>难以对比改动</td>
+<td>一行行 diff 清清楚楚</td>
+</tr>
+<tr>
+<td>专注度</td>
+<td>容易陷入调格式</td>
+<td>专注写内容</td>
+</tr>
+</tbody>
+</table>
+<h2 id="二完整语法逐项讲">二、完整语法逐项讲</h2>
+<p>下面每个例子都用「代码块」展示 Markdown 源码，你照着敲即可。</p>
+<h3 id="标题一到六级">标题（一到六级）</h3>
+<p>用 <code>#</code> 开头，几个 <code>#</code>
+就是几级标题，<code>#</code> 后面要空一格：</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 一级标题</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">## 二级标题</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### 三级标题</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 四级标题</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">##### 五级标题</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">###### 六级标题</span></span></code></pre></div>
+<h3 id="段落与换行新手第一大坑">段落与换行（新手第一大坑）</h3>
+<p><strong>Markdown 里，必须用空行来分段。</strong>
+你在编辑器里按一次回车，渲染出来往往还是同一段！看这个反例：</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>第一行</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>第二行</span></code></pre></div>
+<p>上面渲染出来会挤成一行「第一行 第二行」。正确写法是中间空一行：</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>第一行</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>第二行</span></code></pre></div>
+<p>如果你确实想「换行但不换段」（同一段内硬换行），在行尾打<strong>两个空格</strong>再回车：</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>第一行（这里行尾有两个空格）  </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>第二行</span></code></pre></div>
+<h3 id="粗体斜体删除线">粗体、斜体、删除线</h3>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>**粗体** 或 __粗体__</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>*斜体* 或 _斜体_</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>***粗斜体***</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>~~删除线~~</span></code></pre></div>
+<p>效果：<strong>粗体</strong>、<em>斜体</em>、<em><strong>粗斜体</strong></em>、<del>删除线</del>。</p>
+<h3 id="有序列表--无序列表--嵌套">有序列表 / 无序列表 / 嵌套</h3>
+<p>有序用 <code>数字.</code>，无序用 <code>-</code>（<code>*</code>
+<code>+</code> 也行），符号后都要空一格：</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>第一项</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>第二项</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>第三项</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>苹果</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>香蕉</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>橙子</span></code></pre></div>
+<p>小贴士：有序列表的数字不必写对，全写 <code>1.</code> 也会自动排成
+1、2、3。嵌套只要<strong>缩进</strong>（一般 2 或 4 个空格）：</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>水果</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>苹果</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>香蕉</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>蔬菜</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>白菜</span></code></pre></div>
+<h3 id="任务列表">任务列表</h3>
+<p>方括号里空格是未完成，<code>x</code> 是已完成：</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 还没做的事</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[x]</span> 已经做完的事</span></code></pre></div>
+<h3 id="行内代码与代码块">行内代码与代码块</h3>
+<p>单个反引号包住是行内代码，三个反引号包住是代码块，开头写语言名可获得语法高亮：</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>这是 <span class="in">`行内代码`</span>。</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hello():</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Hello, Markdown!&quot;</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<h3 id="引用分割线">引用、分割线</h3>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 这是一段引用。</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 引用可以有多行。</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>---</span></code></pre></div>
+<p><code>---</code>（也可以是 <code>***</code> 或
+<code>___</code>）单独一行就是一条水平分割线。</p>
+<h3 id="链接与图片">链接与图片</h3>
+<p>图片就是链接前面加一个 <code>!</code>，方括号里是「替代文字」：</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">百度一下</span><span class="co">](https://www.baidu.com)</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="al">![一张图片的说明](https://example.com/photo.png)</span></span></code></pre></div>
+<h3 id="表格">表格</h3>
+<p>用 <code>|</code> 分隔单元格，第二行用 <code>---</code>
+分隔表头，<code>:</code> 可控制对齐：</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 姓名 <span class="pp">|</span> 年龄 <span class="pp">|</span> 城市 <span class="pp">|</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="pp">| :---</span> <span class="pp">|</span> :--: <span class="pp">| ---:</span> <span class="pp">|</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 小明 <span class="pp">|</span> 18 <span class="pp">|</span> 北京 <span class="pp">|</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 小红 <span class="pp">|</span> 20 <span class="pp">|</span> 上海 <span class="pp">|</span></span></code></pre></div>
+<h3 id="转义字符">转义字符</h3>
+<p>想显示符号本身（比如真的要打一个 <code>*</code>），前面加反斜杠
+<code>\</code>：</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="sc">\*</span>这里不会变成斜体<span class="sc">\*</span></span></code></pre></div>
+<h2 id="三数学公式-与-">三、数学公式：$ 与 $$</h2>
+<p>Markdown 用 LaTeX 语法写数学公式。<strong>行内公式</strong>用单个
+<code>$</code> 包裹，跟文字排在一行；<strong>块级公式</strong>用
+<code>$$</code> 包裹，会单独居中占一行：</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>质能方程是 $E = mc^2$，写在句子里。</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>\sum_{i=1}^{n} i = \frac{n(n+1)}{2}</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>$$</span></code></pre></div>
+<p>注意：公式渲染依赖 <strong>KaTeX</strong> 或 <strong>MathJax</strong>
+这类引擎，普通记事本不认，需要在支持它的环境（如
+Obsidian、语雀、支持数学的 Markdown 预览器）里才显示成漂亮公式。</p>
+<p>常见 LaTeX 数学符号简表：</p>
+<table>
+<thead>
+<tr>
+<th>用途</th>
+<th>写法</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>上标</td>
+<td><code>x^2</code></td>
+<td>x 的平方</td>
+</tr>
+<tr>
+<td>下标</td>
+<td><code>x_i</code></td>
+<td>x 下标 i</td>
+</tr>
+<tr>
+<td>分数</td>
+<td><code>\frac{a}{b}</code></td>
+<td>a 分之 b</td>
+</tr>
+<tr>
+<td>求和</td>
+<td><code>\sum_{i=1}^{n}</code></td>
+<td>从 i=1 求和到 n</td>
+</tr>
+<tr>
+<td>根号</td>
+<td><code>\sqrt{x}</code></td>
+<td>根号 x</td>
+</tr>
+<tr>
+<td>希腊字母</td>
+<td><code>\alpha \beta \pi</code></td>
+<td>α β π</td>
+</tr>
+<tr>
+<td>无穷</td>
+<td><code>\infty</code></td>
+<td>∞</td>
+</tr>
+<tr>
+<td>乘除</td>
+<td><code>\times \div</code></td>
+<td>× ÷</td>
+</tr>
+</tbody>
+</table>
+<h2 id="四为什么说-markdown-是ai-的原生语言">四、为什么说 Markdown
+是「AI 的原生语言」</h2>
+<p>你留意过没有：ChatGPT、Claude 这些 AI
+回复你时，标题、列表、粗体、代码块——<strong>本身就是用 Markdown
+写的</strong>，只是聊天界面帮你渲染好了。因为这些模型的训练数据里有海量
+Markdown 文本，它们「天生」就习惯用这套格式来组织答案。</p>
+<p>所以对你有两个好处：一是<strong>看得懂</strong>，你把 AI
+回复复制到笔记软件里，格式几乎完美保留；二是<strong>问得好</strong>，你提问时用
+Markdown 把需求列成标题和列表，结构清晰，AI
+理解得更准、回答得更有条理。可以说，学会 Markdown = 学会了和 AI
+高效对话的通用语。</p>
+<h2 id="五常用工具">五、常用工具</h2>
+<ul>
+<li><strong>VS Code</strong>：程序员最爱，写好 <code>.md</code> 后按
+<code>Cmd+K</code> 再按 <code>V</code>
+打开侧边实时预览（或点右上角的预览小图标）。</li>
+<li><strong>Typora</strong>：所见即所得，边写边渲染，几乎看不到源码，最适合新手。</li>
+<li><strong>Obsidian</strong>：本地知识库神器，支持双向链接和数学公式，做长期笔记首选。</li>
+<li><strong>语雀 / 飞书文档</strong>：国内在线协作平台，天然支持
+Markdown，适合团队。</li>
+</ul>
+<h2 id="语法速查表">语法速查表</h2>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>写法</th>
+<th>效果说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>标题</td>
+<td><code># 到 ######</code></td>
+<td>一到六级标题</td>
+</tr>
+<tr>
+<td>粗体</td>
+<td><code>**文字**</code></td>
+<td>加粗</td>
+</tr>
+<tr>
+<td>斜体</td>
+<td><code>*文字*</code></td>
+<td>倾斜</td>
+</tr>
+<tr>
+<td>删除线</td>
+<td><code>~~文字~~</code></td>
+<td>中间划线</td>
+</tr>
+<tr>
+<td>分段</td>
+<td>空一行</td>
+<td>分成两段（关键！）</td>
+</tr>
+<tr>
+<td>段内换行</td>
+<td>行尾两空格</td>
+<td>换行不换段</td>
+</tr>
+<tr>
+<td>有序列表</td>
+<td><code>1. 内容</code></td>
+<td>自动编号</td>
+</tr>
+<tr>
+<td>无序列表</td>
+<td><code>- 内容</code></td>
+<td>圆点列表</td>
+</tr>
+<tr>
+<td>任务列表</td>
+<td><code>- [ ]</code> / <code>- [x]</code></td>
+<td>待办 / 已完成</td>
+</tr>
+<tr>
+<td>行内代码</td>
+<td><code>`代码`</code></td>
+<td>等宽小段代码</td>
+</tr>
+<tr>
+<td>代码块</td>
+<td><code>```语言</code></td>
+<td>带高亮代码框</td>
+</tr>
+<tr>
+<td>引用</td>
+<td><code>&gt; 内容</code></td>
+<td>引用块</td>
+</tr>
+<tr>
+<td>分割线</td>
+<td><code>---</code></td>
+<td>水平线</td>
+</tr>
+<tr>
+<td>链接</td>
+<td><code>[文字](网址)</code></td>
+<td>可点击链接</td>
+</tr>
+<tr>
+<td>图片</td>
+<td><code>![说明](网址)</code></td>
+<td>插入图片</td>
+</tr>
+<tr>
+<td>表格</td>
+<td><code>| 列 | 列 |</code></td>
+<td>表格</td>
+</tr>
+<tr>
+<td>行内公式</td>
+<td><code>$E=mc^2$</code></td>
+<td>随文数学公式</td>
+</tr>
+<tr>
+<td>块级公式</td>
+<td><code>$$ ... $$</code></td>
+<td>独占一行居中公式</td>
+</tr>
+<tr>
+<td>转义</td>
+<td><code>\*</code></td>
+<td>显示符号本身</td>
+</tr>
+</tbody>
+</table>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li><a href="https://markdown.com.cn/basic-syntax/">Markdown
+中文教程（markdown.com.cn）</a> ——
+最简明的中文入门站，逐项讲解基础与扩展语法，新手首选，已核实可访问。</li>
+<li><a href="https://www.markdownguide.org/basic-syntax/">Markdown Guide
+官方站（基础语法）</a> —— 英文权威参考，附速查表（Cheat
+Sheet），语法解释最全面。</li>
+<li><a href="https://commonmark.org/help/tutorial/">CommonMark
+交互式教程</a> —— 10
+分钟边写边练的官方标准教程，帮你消除各平台语法歧义。</li>
+<li><a href="https://www.runoob.com/markdown/md-tutorial.html">菜鸟教程
+Markdown</a> ——
+中文老牌教程，从第一个文件到表格、数学公式都有例子，适合边看边试。</li>
+<li><a
+href="https://docs.github.com/zh/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">GitHub
+官方语法说明</a> —— GitHub Flavored
+Markdown（含任务列表、表格、删除线）官方文档，中文版。</li>
+<li><a href="https://klab.tw/2026/04/markdown-guide/">Markdown
+完整指南（繁中，含 GFM 差异）</a> —— 讲清原生语法 / CommonMark / GFM
+的区别，想深入平台兼容性可读。</li>
+</ul>
+
+  </article>
+  <aside class="toc"><div class="t-title">本页目录</div><a class="lvl2" href="#一markdown-是什么为什么好用">一、Markdown
+是什么，为什么好用</a>
+<a class="lvl2" href="#二完整语法逐项讲">二、完整语法逐项讲</a>
+<a class="lvl3" href="#标题一到六级">标题（一到六级）</a>
+<a class="lvl3" href="#段落与换行新手第一大坑">段落与换行（新手第一大坑）</a>
+<a class="lvl3" href="#粗体斜体删除线">粗体、斜体、删除线</a>
+<a class="lvl3" href="#有序列表--无序列表--嵌套">有序列表 / 无序列表 / 嵌套</a>
+<a class="lvl3" href="#任务列表">任务列表</a>
+<a class="lvl3" href="#行内代码与代码块">行内代码与代码块</a>
+<a class="lvl3" href="#引用分割线">引用、分割线</a>
+<a class="lvl3" href="#链接与图片">链接与图片</a>
+<a class="lvl3" href="#表格">表格</a>
+<a class="lvl3" href="#转义字符">转义字符</a>
+<a class="lvl2" href="#三数学公式-与-">三、数学公式：$ 与 $$</a>
+<a class="lvl2" href="#四为什么说-markdown-是ai-的原生语言">四、为什么说 Markdown
+是「AI 的原生语言」</a>
+<a class="lvl2" href="#五常用工具">五、常用工具</a>
+<a class="lvl2" href="#语法速查表">语法速查表</a>
+<a class="lvl2" href="#参考资料">参考资料</a></aside>
+</div>
+
+<nav class="pager">
+  <a href="topic5.html"><span class="lab">← 上一篇</span><span class="ttl">Claude Code 初识</span></a>
+  <a class="next" href="topic7.html"><span class="lab">下一篇 →</span><span class="ttl">LaTeX & Overleaf</span></a>
+</nav>
+
+  </div>
+</div>
+<script src="assets/nav.js"></script>
+<script src="assets/toc.js"></script>
+</body>
+</html>

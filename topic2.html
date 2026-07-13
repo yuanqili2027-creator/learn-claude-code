@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>命令行核心命令 · 和 AI 一起用电脑</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="backdrop" id="backdrop"></div>
+<aside class="sidebar" id="sidebar">
+  <a class="s-brand" href="index.html"><span class="s-logo"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 6 16"/><line x1="12" y1="16" x2="18" y2="16"/></svg></span><span class="s-name">和 AI 一起用电脑</span></a>
+  <div class="s-search"><span class="s-search-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.6" y2="16.6"/></svg></span><input id="navFilter" type="text" placeholder="筛选章节…" autocomplete="off"></div>
+  <nav class="s-scroll">
+    <div class="s-group"><a class="s-item" href="index.html"><span class="s-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a2 2 0 0 0-2 2z"/><path d="M6 20a2 2 0 0 1-2-2"/></svg></span><span class="s-txt">总览</span></a></div>
+    <div id="topicGroup"><div class="s-group"><div class="s-label">第一课 · 电脑基本功</div><a class="s-item" href="topic1.html" data-name="操作系统 & 终端"><span class="s-num">01</span><span class="s-txt">操作系统 & 终端</span></a><a class="s-item active" href="topic2.html" data-name="命令行核心命令"><span class="s-num">02</span><span class="s-txt">命令行核心命令</span></a><a class="s-item" href="topic3.html" data-name="文件系统 & 组织"><span class="s-num">03</span><span class="s-txt">文件系统 & 组织</span></a><a class="s-item" href="topic4.html" data-name="Homebrew"><span class="s-num">04</span><span class="s-txt">Homebrew</span></a><a class="s-item" href="topic5.html" data-name="Claude Code 初识"><span class="s-num">05</span><span class="s-txt">Claude Code 初识</span></a><a class="s-item" href="topic6.html" data-name="Markdown"><span class="s-num">06</span><span class="s-txt">Markdown</span></a><a class="s-item" href="topic7.html" data-name="LaTeX & Overleaf"><span class="s-num">07</span><span class="s-txt">LaTeX & Overleaf</span></a><a class="s-item" href="topic8.html" data-name="VS Code & Python"><span class="s-num">08</span><span class="s-txt">VS Code & Python</span></a></div><div class="s-group"><div class="s-label">第二课 · Claude Code 实战</div><a class="s-item" href="c01-overview.html" data-name="课程总览"><span class="s-num">09</span><span class="s-txt">课程总览</span></a><a class="s-item" href="c02-mac-setup.html" data-name="Mac 安装配置"><span class="s-num">10</span><span class="s-txt">Mac 安装配置</span></a><a class="s-item" href="c03-windows-setup.html" data-name="Windows 方案"><span class="s-num">11</span><span class="s-txt">Windows 方案</span></a><a class="s-item" href="c04-github-gh.html" data-name="GitHub & gh"><span class="s-num">12</span><span class="s-txt">GitHub & gh</span></a><a class="s-item" href="c05-github-pages.html" data-name="GitHub Pages"><span class="s-num">13</span><span class="s-txt">GitHub Pages</span></a><a class="s-item" href="c06-web-slides.html" data-name="网页幻灯片"><span class="s-num">14</span><span class="s-txt">网页幻灯片</span></a><a class="s-item" href="c07-prompt-skills.html" data-name="提问的艺术"><span class="s-num">15</span><span class="s-txt">提问的艺术</span></a><a class="s-item" href="c08-best-practices.html" data-name="案例与最佳实践"><span class="s-num">16</span><span class="s-txt">案例与最佳实践</span></a><a class="s-item" href="c09-prompt-patterns.html" data-name="任务型 Prompt"><span class="s-num">17</span><span class="s-txt">任务型 Prompt</span></a><a class="s-item" href="c10-cheatsheet.html" data-name="命令速查表"><span class="s-num">18</span><span class="s-txt">命令速查表</span></a><a class="s-item" href="c11-prompts.html" data-name="Prompt 模板"><span class="s-num">19</span><span class="s-txt">Prompt 模板</span></a></div></div>
+    <div class="s-empty" id="navEmpty" hidden>没有匹配的章节</div>
+  </nav>
+  <div class="s-foot">2026-07-13 实战课 · 综合笔记</div>
+</aside>
+<div class="content">
+  <div class="mtop">
+    <button class="burger" id="burger" aria-label="菜单"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <a class="m-brand" href="index.html">和 AI 一起用电脑</a>
+  </div>
+  <div class="page">
+
+<div class="doc-head">
+  <div class="crumb">第一课 · 02 / 19</div>
+  <h1>命令行核心命令</h1>
+  <p class="sub">cd / ls / pwd / mkdir / rm / open、路径与快捷键，照着敲就会</p>
+</div>
+
+<div class="doc-layout">
+  <article class="article md">
+<h1
+id="命令行核心命令与操作从零学会用敲字指挥电脑">命令行核心命令与操作：从零学会用「敲字」指挥电脑</h1>
+<p>平时你用鼠标点图标、拖文件；命令行（Terminal /
+终端）则是用<strong>打字</strong>来指挥电脑。它看起来像「黑客界面」，其实原理很简单：你敲一行字、按回车，电脑就执行一个动作。学会它，你能更快、更精确地操作文件，也是学编程绕不开的第一步。</p>
+<hr />
+<h2 id="一先建立心智模型">一、先建立心智模型</h2>
+<p>打开终端（Mac 上按
+<code>Command + 空格</code>，输入「终端」或「Terminal」回车），你会看到一行结尾是
+<code>$</code> 或 <code>%</code>
+的文字，这叫<strong>提示符</strong>，意思是「我准备好了，请下命令」。</p>
+<p><strong>当前工作目录</strong>是核心概念：终端任何时候都「站」在某个文件夹里，你不写完整路径时，命令默认就对这个文件夹生效。就像你在文件管理器里打开了某个窗口，操作的就是这个窗口里的东西。</p>
+<p>一条命令通常由三部分组成：</p>
+<pre><code>命令   选项(flag)   参数
+ls     -l          Desktop
+（做什么）（怎么做）  （对谁做）</code></pre>
+<p>选项前面的横杠 <code>-</code>
+就是「flag（标志）」，用来微调命令行为，比如 <code>-l</code> 让
+<code>ls</code>
+显示详细信息。<strong>注意：命令区分大小写，各部分之间用空格隔开。</strong></p>
+<hr />
+<h2 id="二逐个讲透核心命令">二、逐个讲透核心命令</h2>
+<h3 id="pwd--我现在在哪">pwd —— 我现在在哪</h3>
+<ul>
+<li><strong>全称</strong>：print working directory（打印工作目录）</li>
+<li><strong>作用</strong>：显示当前所在文件夹的完整路径</li>
+<li><strong>例子</strong>：<code>pwd</code></li>
+<li><strong>输出</strong>：<code>/Users/xiaoming/Desktop</code> ——
+你正站在小明桌面这个文件夹里。迷路时先敲它。</li>
+</ul>
+<h3 id="ls--看看这里有什么">ls —— 看看这里有什么</h3>
+<ul>
+<li><strong>全称</strong>：list（列出）</li>
+<li><strong>作用</strong>：列出当前目录里的文件和文件夹</li>
+<li><strong>常用组合</strong>：
+<ul>
+<li><code>ls</code> 简单列出可见文件</li>
+<li><code>ls -a</code> 连隐藏文件也显示（以 <code>.</code>
+开头的文件默认藏起来）</li>
+<li><code>ls -l</code> 长格式，一行一个，显示详细信息</li>
+<li><code>ls -lh</code> 在 <code>-l</code> 基础上把大小显示成人类易读的
+<code>4.0K</code>、<code>2.3M</code>（h = human）</li>
+</ul></li>
+<li><strong>怎么读 <code>ls -l</code>
+的每一列</strong>（示例一行）：</li>
+</ul>
+<pre><code>-rw-r--r--  1  xiaoming  staff  1024  7 11 09:30  note.txt
+   ①        ②     ③       ④     ⑤       ⑥          ⑦</code></pre>
+<ul>
+<li>① 权限：第一个字符 <code>-</code> 是文件、<code>d</code>
+是文件夹；后面九个字符表示读(r)/写(w)/执行(x)权限</li>
+<li>② 链接数（新手可忽略）</li>
+<li>③ 所有者：谁的文件</li>
+<li>④ 所属组</li>
+<li>⑤ 大小（字节，配 <code>-h</code> 更好读）</li>
+<li>⑥ 最后修改日期时间</li>
+<li>⑦ 文件名</li>
+</ul>
+<h3 id="cd--进出文件夹">cd —— 进出文件夹</h3>
+<ul>
+<li><strong>全称</strong>：change directory（切换目录）</li>
+<li><strong>作用</strong>：走进/走出文件夹</li>
+<li><strong>用法大全</strong>：
+<ul>
+<li><code>cd Desktop</code> 进入当前目录下的 Desktop 文件夹</li>
+<li><code>cd ..</code> 返回上一级</li>
+<li><code>cd ~</code> 或直接 <code>cd</code>
+回到用户主目录（你的「家」）</li>
+<li><code>cd /</code> 去往根目录（整块硬盘的最顶层）</li>
+<li><code>cd -</code>
+回到上一次待的目录（在两个目录间来回跳很方便）</li>
+</ul></li>
+</ul>
+<h3 id="mkdir--新建文件夹">mkdir —— 新建文件夹</h3>
+<ul>
+<li><strong>全称</strong>：make directory</li>
+<li><strong>作用</strong>：创建新文件夹</li>
+<li><strong>例子</strong>：<code>mkdir photos</code> 建一个 photos
+文件夹；<code>mkdir a b c</code> 一次建三个</li>
+<li><strong>进阶
+<code>-p</code></strong>：<code>mkdir -p work/2026/jan</code>
+一次性创建多层嵌套文件夹，父文件夹不存在也会自动补齐，不报错。</li>
+</ul>
+<h3 id="rm--删除warning-最危险的命令">rm —— 删除（⚠️ 最危险的命令）</h3>
+<ul>
+<li><strong>全称</strong>：remove</li>
+<li><strong>作用</strong>：删除文件或文件夹</li>
+<li><strong>例子</strong>：
+<ul>
+<li><code>rm note.txt</code> 删一个文件</li>
+<li><code>rm -r photos</code> 删一个文件夹及里面所有东西（r = recursive
+递归）</li>
+<li><code>rm -rf photos</code> 强制删除、不询问（f = force）</li>
+</ul></li>
+<li><strong>⚠️ 核心警告</strong>：命令行的
+<code>rm</code><strong>没有回收站/废纸篓，删了就是永久消失，无法恢复</strong>。更安全的做法：删前先用
+<code>ls</code> 确认路径，或加 <code>-i</code>
+让它每删一个都问你一次：<code>rm -i note.txt</code>。</li>
+</ul>
+<h3 id="open--用默认软件打开">open —— 用默认软件打开</h3>
+<ul>
+<li><strong>作用</strong>：像双击一样，用系统默认程序打开文件/文件夹（macOS
+专属）</li>
+<li><strong>例子</strong>：<code>open note.txt</code>（用文本编辑器打开）、<code>open .</code>（在访达里打开当前文件夹）</li>
+</ul>
+<h3 id="小白必备的几个补充命令">小白必备的几个补充命令</h3>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cat</code></td>
+<td>直接在终端里显示文件内容</td>
+<td><code>cat note.txt</code></td>
+</tr>
+<tr>
+<td><code>cp</code></td>
+<td>复制文件（复制文件夹要加 <code>-r</code>）</td>
+<td><code>cp a.txt b.txt</code> / <code>cp -r dir1 dir2</code></td>
+</tr>
+<tr>
+<td><code>mv</code></td>
+<td>移动文件，或重命名（Linux/Mac 没有单独的改名命令）</td>
+<td><code>mv old.txt new.txt</code>（改名）/
+<code>mv a.txt ~/Desktop/</code>（移动）</td>
+</tr>
+<tr>
+<td><code>touch</code></td>
+<td>新建一个空文件</td>
+<td><code>touch note.txt</code></td>
+</tr>
+<tr>
+<td><code>man</code></td>
+<td>查看某命令的说明书（manual），按 <code>q</code> 退出</td>
+<td><code>man ls</code></td>
+</tr>
+<tr>
+<td><code>clear</code></td>
+<td>清屏（等同 <code>Ctrl+L</code>）</td>
+<td><code>clear</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="三路径绝对-vs-相对">三、路径：绝对 vs 相对</h2>
+<ul>
+<li><strong>绝对路径</strong>：从根目录 <code>/</code>
+写起的完整地址，无论你在哪敲都指向同一处，如
+<code>/Users/xiaoming/Desktop/note.txt</code>。</li>
+<li><strong>相对路径</strong>：相对「当前所在位置」来写，如你已在
+Desktop 里，直接写 <code>note.txt</code> 即可。</li>
+</ul>
+<p>四个特殊符号务必记牢：</p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.</code></td>
+<td>当前目录</td>
+</tr>
+<tr>
+<td><code>..</code></td>
+<td>上一级目录</td>
+</tr>
+<tr>
+<td><code>~</code></td>
+<td>你的用户主目录（家）</td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>根目录（硬盘最顶层）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>文件名带空格或中文怎么办？</strong> 两种办法：① 用引号包起来
+<code>cd "my folder"</code>；② 用反斜杠转义空格
+<code>cd my\ folder</code>。中文文件名通常直接写即可，但善用下面的 Tab
+补全最省心。</p>
+<hr />
+<h2
+id="四效率技巧老手和新手的差距全在这">四、效率技巧（老手和新手的差距全在这）</h2>
+<ul>
+<li><strong>Tab 自动补全</strong>：敲一半按
+<code>Tab</code>，自动补全命令或文件名，既快又能避免打错。名字太长时先敲头几个字母再按
+Tab。</li>
+<li><strong>上/下方向键</strong>：翻看并重复执行历史命令，不用重敲。</li>
+<li><strong>Ctrl + L</strong>：清屏，界面太乱时按一下。</li>
+<li><strong>Ctrl +
+C</strong>：终止当前正在运行的程序（卡住、跑不停时的「急停键」）。</li>
+<li><strong>Ctrl + A / Ctrl + E</strong>：光标跳到行首 / 行尾。</li>
+<li><strong>Cmd + T / Cmd + W</strong>：新建标签页 / 关闭当前标签页（Mac
+终端）。</li>
+</ul>
+<hr />
+<h2
+id="五安全警告专题别把自己电脑删了">五、安全警告专题：别把自己电脑删了</h2>
+<p>网上流传一句臭名昭著的「恶作剧命令」：</p>
+<pre><code>rm -rf /</code></pre>
+<p>它的意思是「从根目录 <code>/</code>
+开始，强制、递归地删除一切」——也就是<strong>删光整块硬盘的所有文件</strong>，系统直接报废。类似危险的还有
+<code>rm -rf ~</code>（删光你的主目录）、<code>rm -rf *</code>（删光当前目录所有东西）。</p>
+<p><strong>为什么危险</strong>：<code>rm</code>
+不进回收站、不可恢复；<code>-r</code>
+让它钻进每一层子文件夹，<code>-f</code>
+让它不再向你确认，一路删到底。</p>
+<p><strong>如何避免误删</strong>：</p>
+<ol type="1">
+<li>敲 <code>rm</code> 前先用 <code>pwd</code> + <code>ls</code>
+确认「我在哪、要删的是不是它」。</li>
+<li>新手养成用 <code>rm -i</code>（逐个确认）的习惯。</li>
+<li><strong>绝不复制粘贴看不懂的命令</strong>，尤其带
+<code>sudo rm -rf</code> 的——<code>sudo</code>
+会赋予最高权限，破坏力更大。</li>
+<li>重要文件先备份，练手就在专门建的测试文件夹里操作。</li>
+</ol>
+<hr />
+<h2 id="命令速查表">命令速查表</h2>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>全称</th>
+<th>作用</th>
+<th>常用例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pwd</code></td>
+<td>print working directory</td>
+<td>显示当前所在目录</td>
+<td><code>pwd</code></td>
+</tr>
+<tr>
+<td><code>ls</code></td>
+<td>list</td>
+<td>列出目录内容</td>
+<td><code>ls -lh</code></td>
+</tr>
+<tr>
+<td><code>cd</code></td>
+<td>change directory</td>
+<td>切换目录</td>
+<td><code>cd ..</code> / <code>cd ~</code> / <code>cd -</code></td>
+</tr>
+<tr>
+<td><code>mkdir</code></td>
+<td>make directory</td>
+<td>新建文件夹</td>
+<td><code>mkdir -p a/b/c</code></td>
+</tr>
+<tr>
+<td><code>rm</code></td>
+<td>remove</td>
+<td>删除文件/文件夹（⚠️无回收站）</td>
+<td><code>rm -i note.txt</code></td>
+</tr>
+<tr>
+<td><code>open</code></td>
+<td>open</td>
+<td>用默认软件打开</td>
+<td><code>open .</code></td>
+</tr>
+<tr>
+<td><code>cat</code></td>
+<td>concatenate</td>
+<td>显示文件内容</td>
+<td><code>cat note.txt</code></td>
+</tr>
+<tr>
+<td><code>cp</code></td>
+<td>copy</td>
+<td>复制</td>
+<td><code>cp -r dir1 dir2</code></td>
+</tr>
+<tr>
+<td><code>mv</code></td>
+<td>move</td>
+<td>移动 / 重命名</td>
+<td><code>mv old.txt new.txt</code></td>
+</tr>
+<tr>
+<td><code>touch</code></td>
+<td>touch</td>
+<td>新建空文件</td>
+<td><code>touch note.txt</code></td>
+</tr>
+<tr>
+<td><code>man</code></td>
+<td>manual</td>
+<td>查看命令说明书</td>
+<td><code>man ls</code></td>
+</tr>
+<tr>
+<td><code>clear</code></td>
+<td>clear</td>
+<td>清屏</td>
+<td><code>clear</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>上手练习流程</strong>（复制到终端一步步敲，最后自己清理）：</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span>              <span class="co"># 看我在哪</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~             <span class="co"># 回家</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> test       <span class="co"># 建练习文件夹</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> test          <span class="co"># 进去</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> a.txt      <span class="co"># 建个空文件</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span>            <span class="co"># 查看，读一读每一列</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..            <span class="co"># 退回上级</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-ri</span> test      <span class="co"># 逐个确认着删掉练习文件夹</span></span></code></pre></div>
+<hr />
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li><a
+href="https://www.freecodecamp.org/news/the-linux-commands-handbook/">The
+Linux Command Handbook – freeCodeCamp</a> —— 英文经典入门手册，系统讲解
+ls/cd/cp/mv/rm 等命令及其原理。</li>
+<li><a
+href="https://www.digitalocean.com/community/tutorials/linux-commands">50+
+Essential Linux Commands – DigitalOcean</a> ——
+权威社区教程，命令齐全、例子清晰，适合当查询字典。</li>
+<li><a
+href="https://www.geeksforgeeks.org/linux-unix/basic-linux-commands/">Basic
+Linux Commands – GeeksforGeeks</a> —— 逐命令配示例截图，讲解
+<code>-p</code>、<code>-r</code> 等常用选项。</li>
+<li><a
+href="https://www.freecodecamp.org/chinese/news/command-line-for-beginners/">面向初学者的命令行教程
+– freeCodeCamp 中文</a> —— 中文，解释终端/shell/CLI
+的区别与基本原理，含危险命令警示。</li>
+<li><a href="https://sspai.com/post/45534">玩转 Terminal
+终端：入门指南及进阶技巧 – 少数派</a> —— 中文，专为 Mac
+用户，讲清哪些能碰、哪些是雷区，附实用技巧。</li>
+<li><a
+href="https://www.bilibili.com/video/BV1RGQvBQErC/">3分钟学会打开终端（Windows
+&amp; Linux 全攻略）– Bilibili 视频</a> —— 3
+分钟短视频，手把手教多种系统打开终端并附快捷键速查。</li>
+</ul>
+
+  </article>
+  <aside class="toc"><div class="t-title">本页目录</div><a class="lvl2" href="#一先建立心智模型">一、先建立心智模型</a>
+<a class="lvl2" href="#二逐个讲透核心命令">二、逐个讲透核心命令</a>
+<a class="lvl3" href="#pwd--我现在在哪">pwd —— 我现在在哪</a>
+<a class="lvl3" href="#ls--看看这里有什么">ls —— 看看这里有什么</a>
+<a class="lvl3" href="#cd--进出文件夹">cd —— 进出文件夹</a>
+<a class="lvl3" href="#mkdir--新建文件夹">mkdir —— 新建文件夹</a>
+<a class="lvl3" href="#rm--删除warning-最危险的命令">rm —— 删除（⚠️ 最危险的命令）</a>
+<a class="lvl3" href="#open--用默认软件打开">open —— 用默认软件打开</a>
+<a class="lvl3" href="#小白必备的几个补充命令">小白必备的几个补充命令</a>
+<a class="lvl2" href="#三路径绝对-vs-相对">三、路径：绝对 vs 相对</a>
+<a class="lvl2" href="#命令速查表">命令速查表</a>
+<a class="lvl2" href="#参考资料">参考资料</a></aside>
+</div>
+
+<nav class="pager">
+  <a href="topic1.html"><span class="lab">← 上一篇</span><span class="ttl">操作系统 & 终端</span></a>
+  <a class="next" href="topic3.html"><span class="lab">下一篇 →</span><span class="ttl">文件系统 & 组织</span></a>
+</nav>
+
+  </div>
+</div>
+<script src="assets/nav.js"></script>
+<script src="assets/toc.js"></script>
+</body>
+</html>

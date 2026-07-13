@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mac 安装与配置 · 和 AI 一起用电脑</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="backdrop" id="backdrop"></div>
+<aside class="sidebar" id="sidebar">
+  <a class="s-brand" href="index.html"><span class="s-logo"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 6 16"/><line x1="12" y1="16" x2="18" y2="16"/></svg></span><span class="s-name">和 AI 一起用电脑</span></a>
+  <div class="s-search"><span class="s-search-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.6" y2="16.6"/></svg></span><input id="navFilter" type="text" placeholder="筛选章节…" autocomplete="off"></div>
+  <nav class="s-scroll">
+    <div class="s-group"><a class="s-item" href="index.html"><span class="s-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a2 2 0 0 0-2 2z"/><path d="M6 20a2 2 0 0 1-2-2"/></svg></span><span class="s-txt">总览</span></a></div>
+    <div id="topicGroup"><div class="s-group"><div class="s-label">第一课 · 电脑基本功</div><a class="s-item" href="topic1.html" data-name="操作系统 & 终端"><span class="s-num">01</span><span class="s-txt">操作系统 & 终端</span></a><a class="s-item" href="topic2.html" data-name="命令行核心命令"><span class="s-num">02</span><span class="s-txt">命令行核心命令</span></a><a class="s-item" href="topic3.html" data-name="文件系统 & 组织"><span class="s-num">03</span><span class="s-txt">文件系统 & 组织</span></a><a class="s-item" href="topic4.html" data-name="Homebrew"><span class="s-num">04</span><span class="s-txt">Homebrew</span></a><a class="s-item" href="topic5.html" data-name="Claude Code 初识"><span class="s-num">05</span><span class="s-txt">Claude Code 初识</span></a><a class="s-item" href="topic6.html" data-name="Markdown"><span class="s-num">06</span><span class="s-txt">Markdown</span></a><a class="s-item" href="topic7.html" data-name="LaTeX & Overleaf"><span class="s-num">07</span><span class="s-txt">LaTeX & Overleaf</span></a><a class="s-item" href="topic8.html" data-name="VS Code & Python"><span class="s-num">08</span><span class="s-txt">VS Code & Python</span></a></div><div class="s-group"><div class="s-label">第二课 · Claude Code 实战</div><a class="s-item" href="c01-overview.html" data-name="课程总览"><span class="s-num">09</span><span class="s-txt">课程总览</span></a><a class="s-item active" href="c02-mac-setup.html" data-name="Mac 安装配置"><span class="s-num">10</span><span class="s-txt">Mac 安装配置</span></a><a class="s-item" href="c03-windows-setup.html" data-name="Windows 方案"><span class="s-num">11</span><span class="s-txt">Windows 方案</span></a><a class="s-item" href="c04-github-gh.html" data-name="GitHub & gh"><span class="s-num">12</span><span class="s-txt">GitHub & gh</span></a><a class="s-item" href="c05-github-pages.html" data-name="GitHub Pages"><span class="s-num">13</span><span class="s-txt">GitHub Pages</span></a><a class="s-item" href="c06-web-slides.html" data-name="网页幻灯片"><span class="s-num">14</span><span class="s-txt">网页幻灯片</span></a><a class="s-item" href="c07-prompt-skills.html" data-name="提问的艺术"><span class="s-num">15</span><span class="s-txt">提问的艺术</span></a><a class="s-item" href="c08-best-practices.html" data-name="案例与最佳实践"><span class="s-num">16</span><span class="s-txt">案例与最佳实践</span></a><a class="s-item" href="c09-prompt-patterns.html" data-name="任务型 Prompt"><span class="s-num">17</span><span class="s-txt">任务型 Prompt</span></a><a class="s-item" href="c10-cheatsheet.html" data-name="命令速查表"><span class="s-num">18</span><span class="s-txt">命令速查表</span></a><a class="s-item" href="c11-prompts.html" data-name="Prompt 模板"><span class="s-num">19</span><span class="s-txt">Prompt 模板</span></a></div></div>
+    <div class="s-empty" id="navEmpty" hidden>没有匹配的章节</div>
+  </nav>
+  <div class="s-foot">2026-07-13 实战课 · 综合笔记</div>
+</aside>
+<div class="content">
+  <div class="mtop">
+    <button class="burger" id="burger" aria-label="菜单"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <a class="m-brand" href="index.html">和 AI 一起用电脑</a>
+  </div>
+  <div class="page">
+
+<div class="doc-head">
+  <div class="crumb">第二课 · 10 / 19</div>
+  <h1>Mac 安装与配置</h1>
+  <p class="sub">Homebrew → git/gh/node → Claude Code 代理配置 → 启动参数详解</p>
+</div>
+
+<div class="doc-layout">
+  <article class="article md">
+<h1 id="mac-安装与配置从裸机到-claude-code-跑起来">Mac
+安装与配置：从裸机到 Claude Code 跑起来</h1>
+<p>本章假设一台<strong>全新的 Mac</strong>。四步：装 Homebrew → 装工具 →
+配置 Claude Code → 启动。全程在「终端」App 里完成（<code>⌘ + 空格</code>
+搜 Terminal 打开）。</p>
+<h2 id="第-1-步安装-homebrew">第 1 步：安装 Homebrew</h2>
+<p>Homebrew 是命令行世界的「App Store」（详见第一课·话题
+4）。粘贴执行：</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/bin/bash</span> <span class="at">-c</span> <span class="st">&quot;</span><span class="va">$(</span><span class="ex">curl</span> <span class="at">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="va">)</span><span class="st">&quot;</span></span></code></pre></div>
+<ul>
+<li>过程中会要求输入<strong>开机密码</strong>（输入时屏幕不显示任何字符，是正常的，输完回车）。</li>
+<li>国内网络如果卡住，先开代理，或使用中科大镜像安装脚本（搜「Homebrew
+中科大镜像」）。</li>
+<li>装完后按提示把 brew 加入 PATH（安装器最后会打印两行以
+<code>echo</code> 开头的命令，照着粘贴执行）。</li>
+</ul>
+<p>验证：<code>brew --version</code> 能打印版本号即成功。</p>
+<h2 id="第-2-步安装工具三件套">第 2 步：安装工具三件套</h2>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install git gh node          <span class="co"># git 版本管理 / gh GitHub 命令行 / node 运行环境</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">-g</span> @anthropic-ai/claude-code   <span class="co"># Claude Code 本体</span></span></code></pre></div>
+<p>逐个说明：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>装了什么</th>
+<th>干什么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git</code></td>
+<td>版本管理工具</td>
+<td>记录文件的每一次修改，把代码推到 GitHub</td>
+</tr>
+<tr>
+<td><code>gh</code></td>
+<td>GitHub 官方命令行</td>
+<td>在终端里登录 GitHub、建仓库、开 Pages</td>
+</tr>
+<tr>
+<td><code>node</code></td>
+<td>JavaScript 运行环境</td>
+<td>Claude Code 和很多网页工具（如 Slidev）的地基</td>
+</tr>
+<tr>
+<td><code>claude-code</code></td>
+<td>AI 编程助手</td>
+<td>本课主角，能真正操作你的电脑干活</td>
+</tr>
+</tbody>
+</table>
+<p>验证：<code>claude --version</code> 有输出即成功。</p>
+<h2 id="第-3-步配置-api课堂代理方案">第 3 步：配置
+API（课堂代理方案）</h2>
+<p>Claude 官方 API
+在国内无法直接访问，课堂提供代理服务器。在终端执行（<strong>秘钥向老师索取</strong>，不要使用别人的、也不要把自己的发到网上）：</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">ANTHROPIC_BASE_URL</span><span class="op">=</span><span class="st">&quot;https://crs.sat1600ap5.online/api&quot;</span>   <span class="co"># 把请求发到代理服务器</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">ANTHROPIC_AUTH_TOKEN</span><span class="op">=</span><span class="st">&quot;cr_********************************&quot;</span>  <span class="co"># 你自己的秘钥</span></span></code></pre></div>
+<p>两行命令的含义：</p>
+<ul>
+<li><code>export</code>
+是设置<strong>环境变量</strong>——当前这个终端窗口里的「便签」，程序启动时会来读。</li>
+<li><code>ANTHROPIC_BASE_URL</code> 告诉 Claude Code「去哪个服务器要
+AI」；</li>
+<li><code>ANTHROPIC_AUTH_TOKEN</code>
+是你的通行证，代理靠它识别你、计费。</li>
+</ul>
+<p>⚠️ <strong><code>export</code>
+只对当前窗口有效</strong>，关掉终端就失效。想永久生效，把这两行追加到
+<code>~/.zshrc</code>
+文件末尾（<code>echo 'export ...' &gt;&gt; ~/.zshrc</code>），以后每个新终端窗口自动加载。</p>
+<p>⚠️
+<strong>秘钥是敏感信息</strong>：等同于「能花你钱的密码」。不要发群里、不要写进要公开的代码仓库、不要出现在截图里。本站所有示例都做了打码。</p>
+<h2 id="第-4-步启动-claude-code">第 4 步：启动 Claude Code</h2>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/Projects/my-first-project    <span class="co"># 先进入你的项目文件夹（没有就 mkdir 一个）</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">claude</span> <span class="at">--dangerously-skip-permissions</span></span></code></pre></div>
+<p>关于
+<code>--dangerously-skip-permissions</code>（跳过权限确认模式）：</p>
+<ul>
+<li><strong>默认模式</strong>下，Claude
+每次要改文件、跑命令都会先请求你批准——安全，但频繁点确认很打断节奏。</li>
+<li><strong>加了这个参数</strong>，它就不再逐条询问，自主干活——课堂演示用它是为了流畅，但它名字里的
+dangerously 是认真的：AI 可以不经确认地修改、删除文件。</li>
+<li><strong>给新手的建议</strong>：只在专门的项目文件夹里用这个模式（别在桌面、别在文档目录），重要文件先备份；等熟练后改用默认模式
++ 按需批准，或在设置里精细配置白名单。</li>
+</ul>
+<p>常用启动变体：</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">claude</span>                                        <span class="co"># 默认模式（每步询问，最安全）</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">claude</span> <span class="at">--dangerously-skip-permissions</span>         <span class="co"># 跳过确认（快，风险自负）</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">claude</span> <span class="at">--dangerously-skip-permissions</span> <span class="at">--continue</span>   <span class="co"># 接着上一次对话继续</span></span></code></pre></div>
+<p><code>--continue</code> 非常实用：Claude Code
+的对话是有记忆的，关掉终端后用它可以<strong>恢复上次聊到一半的工作</strong>，不必从头解释。</p>
+<h2 id="完成检查清单">完成检查清单</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" /><code>brew --version</code>
+有输出</label></li>
+<li><label><input
+type="checkbox" /><code>git --version</code>、<code>gh --version</code>、<code>node --version</code>
+都有输出</label></li>
+<li><label><input type="checkbox" /><code>claude --version</code>
+有输出</label></li>
+<li><label><input type="checkbox" />在项目文件夹里启动
+<code>claude</code>，随便问它一句话，能正常回答</label></li>
+</ul>
+<p>下一章：GitHub 账号与 gh 命令行登录。</p>
+
+  </article>
+  <aside class="toc"><div class="t-title">本页目录</div><a class="lvl2" href="#第-1-步安装-homebrew">第 1 步：安装 Homebrew</a>
+<a class="lvl2" href="#第-2-步安装工具三件套">第 2 步：安装工具三件套</a>
+<a class="lvl2" href="#第-3-步配置-api课堂代理方案">第 3 步：配置
+API（课堂代理方案）</a>
+<a class="lvl2" href="#第-4-步启动-claude-code">第 4 步：启动 Claude Code</a>
+<a class="lvl2" href="#完成检查清单">完成检查清单</a></aside>
+</div>
+
+<nav class="pager">
+  <a href="c01-overview.html"><span class="lab">← 上一篇</span><span class="ttl">课程总览：一个下午三个网站</span></a>
+  <a class="next" href="c03-windows-setup.html"><span class="lab">下一篇 →</span><span class="ttl">Windows 方案（WSL2）</span></a>
+</nav>
+
+  </div>
+</div>
+<script src="assets/nav.js"></script>
+<script src="assets/toc.js"></script>
+</body>
+</html>

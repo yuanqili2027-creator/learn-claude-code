@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LaTeX & Overleaf · 和 AI 一起用电脑</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="backdrop" id="backdrop"></div>
+<aside class="sidebar" id="sidebar">
+  <a class="s-brand" href="index.html"><span class="s-logo"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 6 16"/><line x1="12" y1="16" x2="18" y2="16"/></svg></span><span class="s-name">和 AI 一起用电脑</span></a>
+  <div class="s-search"><span class="s-search-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.6" y2="16.6"/></svg></span><input id="navFilter" type="text" placeholder="筛选章节…" autocomplete="off"></div>
+  <nav class="s-scroll">
+    <div class="s-group"><a class="s-item" href="index.html"><span class="s-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a2 2 0 0 0-2 2z"/><path d="M6 20a2 2 0 0 1-2-2"/></svg></span><span class="s-txt">总览</span></a></div>
+    <div id="topicGroup"><div class="s-group"><div class="s-label">第一课 · 电脑基本功</div><a class="s-item" href="topic1.html" data-name="操作系统 & 终端"><span class="s-num">01</span><span class="s-txt">操作系统 & 终端</span></a><a class="s-item" href="topic2.html" data-name="命令行核心命令"><span class="s-num">02</span><span class="s-txt">命令行核心命令</span></a><a class="s-item" href="topic3.html" data-name="文件系统 & 组织"><span class="s-num">03</span><span class="s-txt">文件系统 & 组织</span></a><a class="s-item" href="topic4.html" data-name="Homebrew"><span class="s-num">04</span><span class="s-txt">Homebrew</span></a><a class="s-item" href="topic5.html" data-name="Claude Code 初识"><span class="s-num">05</span><span class="s-txt">Claude Code 初识</span></a><a class="s-item" href="topic6.html" data-name="Markdown"><span class="s-num">06</span><span class="s-txt">Markdown</span></a><a class="s-item active" href="topic7.html" data-name="LaTeX & Overleaf"><span class="s-num">07</span><span class="s-txt">LaTeX & Overleaf</span></a><a class="s-item" href="topic8.html" data-name="VS Code & Python"><span class="s-num">08</span><span class="s-txt">VS Code & Python</span></a></div><div class="s-group"><div class="s-label">第二课 · Claude Code 实战</div><a class="s-item" href="c01-overview.html" data-name="课程总览"><span class="s-num">09</span><span class="s-txt">课程总览</span></a><a class="s-item" href="c02-mac-setup.html" data-name="Mac 安装配置"><span class="s-num">10</span><span class="s-txt">Mac 安装配置</span></a><a class="s-item" href="c03-windows-setup.html" data-name="Windows 方案"><span class="s-num">11</span><span class="s-txt">Windows 方案</span></a><a class="s-item" href="c04-github-gh.html" data-name="GitHub & gh"><span class="s-num">12</span><span class="s-txt">GitHub & gh</span></a><a class="s-item" href="c05-github-pages.html" data-name="GitHub Pages"><span class="s-num">13</span><span class="s-txt">GitHub Pages</span></a><a class="s-item" href="c06-web-slides.html" data-name="网页幻灯片"><span class="s-num">14</span><span class="s-txt">网页幻灯片</span></a><a class="s-item" href="c07-prompt-skills.html" data-name="提问的艺术"><span class="s-num">15</span><span class="s-txt">提问的艺术</span></a><a class="s-item" href="c08-best-practices.html" data-name="案例与最佳实践"><span class="s-num">16</span><span class="s-txt">案例与最佳实践</span></a><a class="s-item" href="c09-prompt-patterns.html" data-name="任务型 Prompt"><span class="s-num">17</span><span class="s-txt">任务型 Prompt</span></a><a class="s-item" href="c10-cheatsheet.html" data-name="命令速查表"><span class="s-num">18</span><span class="s-txt">命令速查表</span></a><a class="s-item" href="c11-prompts.html" data-name="Prompt 模板"><span class="s-num">19</span><span class="s-txt">Prompt 模板</span></a></div></div>
+    <div class="s-empty" id="navEmpty" hidden>没有匹配的章节</div>
+  </nav>
+  <div class="s-foot">2026-07-13 实战课 · 综合笔记</div>
+</aside>
+<div class="content">
+  <div class="mtop">
+    <button class="burger" id="burger" aria-label="菜单"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <a class="m-brand" href="index.html">和 AI 一起用电脑</a>
+  </div>
+  <div class="page">
+
+<div class="doc-head">
+  <div class="crumb">第一课 · 07 / 19</div>
+  <h1>LaTeX & Overleaf</h1>
+  <p class="sub">专业排版与数学公式、用模板做简历、Overleaf 上手</p>
+</div>
+
+<div class="doc-layout">
+  <article class="article md">
+<h1 id="latex-专业排版与-overleaf">LaTeX 专业排版与 Overleaf</h1>
+<h2 id="一latex-是什么">一、LaTeX 是什么</h2>
+<p>LaTeX 是一套专业的<strong>排版系统</strong>（typesetting
+system），专门用来生成印刷级质量的文档——学术论文、数学书籍、简历、幻灯片都能做。它不是一款「软件」那么简单，而是一门用纯文本描述文档的「语言」加上一套负责把文本变成精美
+PDF 的引擎。</p>
+<p><strong>读音</strong>：读作 "lay-tech" 或 "lah-tech"。结尾的 "tech"
+来自希腊词根 τέχνη（technē，也是 technology 的来源），发的是「科技」的
+tech 音，<strong>不读成 "lay-tecks"</strong>（不是复数 techs）。</p>
+<p><strong>和 TeX 的关系</strong>：底层引擎叫 TeX，由高德纳（Donald
+Knuth）在 1978 年为排版自己的书而创造。TeX 功能强大但命令繁琐。1980 年代
+Leslie Lamport 在 TeX 之上封装了一套更好用的高层命令，取名 LaTeX（La
+来自 Lamport）。你平时写的就是 LaTeX，它最终仍由 TeX 引擎编译。</p>
+<p><strong>主要用途</strong>：数学/物理/计算机等理工科的学术论文、含大量公式的教材与专著、格式规范的简历/CV、会议幻灯片（Beamer）。凡是对公式、排版一致性、参考文献要求高的场景，LaTeX
+都是首选。</p>
+<h2 id="二内容与排版分离vs-word所见即所得">二、「内容与排版分离」vs
+Word「所见即所得」</h2>
+<p>Word 是 <strong>WYSIWYG</strong>（所见即所得，What You See Is What
+You
+Get）：你一边敲字一边手动调字号、加粗、行距，屏幕上长什么样，打印出来就是什么样。好处是直观，坏处是你被迫时刻分心去管样式，且长文档里格式极易前后不一致。</p>
+<p>LaTeX
+是<strong>标记式（markup）<strong>思路：你只负责写</strong>内容</strong>并用命令标注它的<strong>语义</strong>——「这是一个章节标题」「这是一段引用」「这是一个公式」——具体怎么排版（标题多大、目录怎么生成、公式怎么居中编号）交给
+LaTeX 自动完成。</p>
+<p>学术界偏爱 LaTeX 的三大原因：</p>
+<ul>
+<li><strong>数学公式</strong>：复杂公式的排版能力无出其右，源码即所写即所得的数学语义。</li>
+<li><strong>参考文献</strong>：配合
+BibTeX/BibLaTeX，引用和文献列表自动生成、自动编号、自动按期刊格式调整。</li>
+<li><strong>排版一致性</strong>：全文标题、字体、间距由文档类统一控制，几百页也不会跑偏；换个期刊模板，内容一字不改就能换装。</li>
+</ul>
+<h2 id="三最小可运行文档结构">三、最小可运行文档结构</h2>
+<p>一份 LaTeX 文件分两大块：<strong>导言区（preamble）</strong>
+和<strong>正文（document 环境）</strong>。</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode latex"><code class="sourceCode latex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">\documentclass</span>{<span class="ex">article</span>}      <span class="co">% 文档类：article/report/book/beamer</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">amsmath</span>}         <span class="co">% 导言区：加载宏包，做全局设置</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\title</span>{我的第一篇文档}</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">\author</span>{张三}</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">\date</span>{<span class="fu">\today</span>}                <span class="co">% \today 自动填今天日期</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">document</span>}             <span class="co">% 正文开始</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">\maketitle</span>                   <span class="co">% 根据上面的 title/author/date 生成标题块</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>Hello, <span class="fu">\LaTeX</span>!</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">document</span>}               <span class="co">% 正文结束</span></span></code></pre></div>
+<p>逐条说明：</p>
+<ul>
+<li><code>\documentclass{article}</code>：<strong>必需的第一行</strong>，声明文档类型。<code>article</code>（短文/论文）、<code>report</code>（含章
+chapter
+的报告）、<code>book</code>（书籍）、<code>beamer</code>（幻灯片）。可带参数，如
+<code>\documentclass[12pt,a4paper]{article}</code>。</li>
+<li><strong>导言区</strong>：从 <code>\documentclass</code> 到
+<code>\begin{document}</code> 之间的部分，用来
+<code>\usepackage{}</code> 加载功能宏包、定义全局设置。例如
+<code>\usepackage{amsmath}</code>
+加载数学增强包，<code>\usepackage{graphicx}</code> 用于插图。</li>
+<li><code>\title{} \author{} \date{}</code>：登记标题、作者、日期这三项元信息（只是登记，还没显示）。</li>
+<li><code>\begin{document} ... \end{document}</code>：正文只能写在这对命令之间，之外的内容不会出现在
+PDF 里。</li>
+<li><code>\maketitle</code>：把前面登记的 title/author/date
+真正排版成标题块。</li>
+</ul>
+<blockquote>
+<p>中文提示：要排版中文，把文档类换成 <code>ctexart</code>（或加
+<code>\usepackage{ctex}</code>），并用 <strong>XeLaTeX</strong> 编译。在
+Overleaf 里可在菜单 Menu → Compiler 选 XeLaTeX。</p>
+</blockquote>
+<h2 id="四常用命令">四、常用命令</h2>
+<p><strong>章节与目录</strong></p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode latex"><code class="sourceCode latex"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\section</span>{引言}          <span class="co">% 一级标题（自动编号）</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">\subsection</span>{研究背景}   <span class="co">% 二级标题</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\tableofcontents</span>        <span class="co">% 自动生成目录（放在正文开头）</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">\newpage</span>                <span class="co">% 强制换页</span></span></code></pre></div>
+<p><strong>文字格式</strong></p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode latex"><code class="sourceCode latex"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">\textbf</span>{加粗}   <span class="fu">\textit</span>{斜体}   <span class="fu">\texttt</span>{等宽字体（代码风格）}</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>段末空一行 = 新段落；行内强制换行用 <span class="fu">\\</span></span></code></pre></div>
+<p><strong>列表</strong></p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode latex"><code class="sourceCode latex"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">itemize</span>}          <span class="co">% 无序列表（圆点）</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\item</span> 第一点</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\item</span> 第二点</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">itemize</span>}</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">enumerate</span>}        <span class="co">% 有序列表（自动编号 1. 2. 3.）</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\item</span> 第一步</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\item</span> 第二步</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">enumerate</span>}</span></code></pre></div>
+<p><strong>需要转义的特殊字符</strong>：这十个字符在 LaTeX
+里有特殊含义，直接打会出错或效果异常，要在前面加反斜杠：</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode latex"><code class="sourceCode latex"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">\#</span>  <span class="fu">\$</span>  <span class="fu">\%</span>  <span class="fu">\&amp;</span>  <span class="fu">\_</span>  <span class="fu">\{</span>  <span class="fu">\}</span>   <span class="co">% 这七个直接反斜杠转义</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\textasciitilde</span>  <span class="fu">\textasciicircum</span>  <span class="fu">\textbackslash</span>   <span class="co">% ~ ^ \ 需用命令</span></span></code></pre></div>
+<p>比如你想在正文里打个井号 <code>#</code>，必须写成
+<code>\#</code>，否则报错。</p>
+<h2 id="五数学公式">五、数学公式</h2>
+<p>数学要写在<strong>数学模式</strong>里，模式内空格被忽略、字符自动获得恰当间距。</p>
+<ul>
+<li><strong>行内公式</strong>：用一对 <code>$</code>
+包住，与文字同行。如 <code>质能方程 $E=mc^2$ 揭示……</code></li>
+<li><strong>行间公式</strong>：用 <code>\[ ... \]</code>
+单独成行居中；要<strong>带编号</strong>用 <code>equation</code>
+环境。</li>
+<li><strong>上标 <code>^</code>、下标
+<code>_</code></strong>：多于一个字符时用花括号包起来，如
+<code>x^{2n}</code>、<code>a_{ij}</code>。</li>
+</ul>
+<p>常见符号：<code>\frac{分子}{分母}</code> 分式、<code>\sum</code>
+求和、<code>\int</code> 积分、<code>\sqrt{}</code> 根号、希腊字母
+<code>\alpha \beta \pi \theta</code>、<code>\infty</code> 无穷。</p>
+<p>完整例子一（行内 + 分式 + 希腊字母）：</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode latex"><code class="sourceCode latex"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>圆的面积为 <span class="ss">$S = </span><span class="sc">\pi</span><span class="ss"> r^2$</span>，其中 <span class="ss">$r$</span> 为半径，比值 <span class="ss">$</span><span class="sc">\frac</span><span class="ss">{S}{r^2}=</span><span class="sc">\pi</span><span class="ss">$</span>。</span></code></pre></div>
+<p>完整例子二（带编号的行间公式，求和与积分）：</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode latex"><code class="sourceCode latex"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ss">\[</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ss">  </span><span class="sc">\sum</span><span class="ss">_{i=1}^{n} i = </span><span class="sc">\frac</span><span class="ss">{n(n+1)}{2}</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ss">\]</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">equation</span>}</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="ss">  </span><span class="sc">\int</span><span class="ss">_{0}^{1} x^2 </span><span class="sc">\,</span><span class="ss"> </span><span class="sc">\mathrm</span><span class="ss">{d}x = </span><span class="sc">\frac</span><span class="ss">{1}{3}</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">equation</span>}</span></code></pre></div>
+<h2 id="六overleaf-上手">六、Overleaf 上手</h2>
+<p><strong>Overleaf</strong> 是一个<strong>在线 LaTeX
+编辑器</strong>，网址 <a
+href="https://www.overleaf.com"><span>https://www.overleaf.com</span></a>。强烈推荐新手先用它，原因：</p>
+<ul>
+<li><strong>免安装</strong>：本地装完整 TeX 发行版（如 TeX
+Live/MacTeX）要 4–7 GB 甚至十几 GB，还要配环境；Overleaf
+浏览器打开即用。</li>
+<li><strong>实时预览</strong>：左边写源码，右边看 PDF。</li>
+<li><strong>协作</strong>：像 Google Docs
+一样多人同时编辑，适合论文合作。</li>
+</ul>
+<p>操作步骤：</p>
+<ol type="1">
+<li>注册登录 → 点 <strong>New Project</strong>（新建项目）。</li>
+<li>选 <strong>Blank Project</strong>（空白）或 <strong>Example
+Project</strong>，也可从模板库选。</li>
+<li>界面分两栏：<strong>左边编辑区</strong>写 LaTeX 源码，<strong>右边
+PDF 区</strong>显示排版结果。</li>
+<li>改完点绿色的
+<strong>Recompile</strong>（重新编译）按钮，几秒后右侧刷新出新
+PDF。</li>
+<li>编译失败时，看报错日志里的行号，通常是漏了
+<code>}</code>、拼错命令或忘了转义特殊字符。</li>
+</ol>
+<h2 id="七用模板做简历">七、用模板做简历</h2>
+<p>简历特别适合用 LaTeX：排版整齐、留白讲究、导出 PDF
+到哪都不变形。做法是「照着模板替换」而非从零写：</p>
+<ol type="1">
+<li>打开 Overleaf 模板库 <a
+href="https://www.overleaf.com/latex/templates"><span>https://www.overleaf.com/latex/templates</span></a>，搜索
+<strong>CV</strong> 或 <strong>Resume</strong>。</li>
+<li>挑一个喜欢的（如经典的 <em>Awesome-CV</em>、<em>Deedy
+Resume</em>），点 <strong>Open as Template</strong>
+复制到自己账户。</li>
+<li>在源码里找到姓名、邮箱、教育经历、工作经历等字段，把里面的示例文字<strong>逐段换成你自己的信息</strong>，结构命令不用动。</li>
+<li>点 Recompile，右侧就是你的简历 PDF，直接下载。</li>
+</ol>
+<p>不懂每条命令没关系——模板已经把排版调好，你只填内容。</p>
+<h2 id="八现代用法让-ai-生成-latex">八、现代用法：让 AI 生成 LaTeX</h2>
+<p>你甚至不必手写命令。可以让 AI（如 Claude、Claude Code）直接生成 LaTeX
+源码：描述你要的文档——「帮我写一份含公式的实验报告」「生成一份软件工程师简历的
+LaTeX 代码」——AI 输出源码，你粘进 Overleaf 点 Recompile 即得 PDF。需要
+Word 版时，再用
+Pandoc（<code>pandoc report.tex -o report.docx</code>）转换。这样你专注内容，格式和命令都交给
+AI 与编译器。</p>
+<h2 id="常用命令速查表">常用命令速查表</h2>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\documentclass{article}</code></td>
+<td>声明文档类型（必需，第一行）</td>
+</tr>
+<tr>
+<td><code>\usepackage{amsmath}</code></td>
+<td>导言区加载宏包</td>
+</tr>
+<tr>
+<td><code>\begin{document}...\end{document}</code></td>
+<td>正文区</td>
+</tr>
+<tr>
+<td><code>\title{} \author{} \date{}</code> <code>\maketitle</code></td>
+<td>登记并生成标题块</td>
+</tr>
+<tr>
+<td><code>\section{} \subsection{}</code></td>
+<td>章节标题（自动编号）</td>
+</tr>
+<tr>
+<td><code>\tableofcontents</code></td>
+<td>自动生成目录</td>
+</tr>
+<tr>
+<td><code>\newpage</code></td>
+<td>强制换页</td>
+</tr>
+<tr>
+<td><code>\textbf{} \textit{} \texttt{}</code></td>
+<td>加粗 / 斜体 / 等宽</td>
+</tr>
+<tr>
+<td><code>\\</code></td>
+<td>行内强制换行</td>
+</tr>
+<tr>
+<td><code>itemize / enumerate</code></td>
+<td>无序 / 有序列表</td>
+</tr>
+<tr>
+<td><code>$...$</code> / <code>\[...\]</code></td>
+<td>行内 / 行间公式</td>
+</tr>
+<tr>
+<td><code>^  _</code></td>
+<td>上标 / 下标</td>
+</tr>
+<tr>
+<td><code>\frac \sum \int \sqrt</code></td>
+<td>分式 / 求和 / 积分 / 根号</td>
+</tr>
+<tr>
+<td><code>\#  \$  \%  \&amp;  \_  \{  \}</code></td>
+<td>转义特殊字符</td>
+</tr>
+</tbody>
+</table>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li><a href="https://www.overleaf.com">Overleaf 官网</a> —— 在线 LaTeX
+编辑器主页，免安装、可协作，新手首选。</li>
+<li><a
+href="https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes">Learn
+LaTeX in 30 minutes（Overleaf）</a> —— Overleaf 官方 30
+分钟入门教程，零基础，几乎每个示例都能一键在 Overleaf 打开编辑。</li>
+<li><a href="https://www.overleaf.com/learn">Overleaf Learn 文档中心</a>
+——
+官方知识库，涵盖数学公式、参考文献、图表、模板等各主题的权威说明。</li>
+<li><a href="https://www.overleaf.com/latex/templates">Overleaf
+模板库</a> —— 海量现成模板，含大量
+CV/Resume、论文、幻灯片模板，可「照着替换」。</li>
+<li><a href="https://oi-wiki.org/tools/latex/">LaTeX 入门 —— OI Wiki</a>
+—— 对中文用户友好的入门教程，讲清引擎、宏包、中文支持与数学符号。</li>
+<li><a href="https://www.cnblogs.com/1024th/p/11623258.html">LaTeX
+公式手册（博客园）</a> ——
+号称「全网最全」的数学符号命令速查，写公式时随手对照。</li>
+<li><a
+href="https://www.overleaf.com/learn/latex/LaTeX_video_tutorial_for_beginners_(video_1)">LaTeX
+video tutorial for beginners（Overleaf 视频）</a> ——
+官方新手视频系列，跟着从零建文档。</li>
+</ul>
+
+  </article>
+  <aside class="toc"><div class="t-title">本页目录</div><a class="lvl2" href="#一latex-是什么">一、LaTeX 是什么</a>
+<a class="lvl2" href="#二内容与排版分离vs-word所见即所得">二、「内容与排版分离」vs
+Word「所见即所得」</a>
+<a class="lvl2" href="#三最小可运行文档结构">三、最小可运行文档结构</a>
+<a class="lvl2" href="#四常用命令">四、常用命令</a>
+<a class="lvl2" href="#五数学公式">五、数学公式</a>
+<a class="lvl2" href="#六overleaf-上手">六、Overleaf 上手</a>
+<a class="lvl2" href="#七用模板做简历">七、用模板做简历</a>
+<a class="lvl2" href="#八现代用法让-ai-生成-latex">八、现代用法：让 AI 生成 LaTeX</a>
+<a class="lvl2" href="#常用命令速查表">常用命令速查表</a>
+<a class="lvl2" href="#参考资料">参考资料</a></aside>
+</div>
+
+<nav class="pager">
+  <a href="topic6.html"><span class="lab">← 上一篇</span><span class="ttl">Markdown</span></a>
+  <a class="next" href="topic8.html"><span class="lab">下一篇 →</span><span class="ttl">VS Code & Python</span></a>
+</nav>
+
+  </div>
+</div>
+<script src="assets/nav.js"></script>
+<script src="assets/toc.js"></script>
+</body>
+</html>

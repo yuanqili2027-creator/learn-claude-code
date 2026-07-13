@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitHub Pages 发布 · 和 AI 一起用电脑</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="backdrop" id="backdrop"></div>
+<aside class="sidebar" id="sidebar">
+  <a class="s-brand" href="index.html"><span class="s-logo"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 6 16"/><line x1="12" y1="16" x2="18" y2="16"/></svg></span><span class="s-name">和 AI 一起用电脑</span></a>
+  <div class="s-search"><span class="s-search-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.6" y2="16.6"/></svg></span><input id="navFilter" type="text" placeholder="筛选章节…" autocomplete="off"></div>
+  <nav class="s-scroll">
+    <div class="s-group"><a class="s-item" href="index.html"><span class="s-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a2 2 0 0 0-2 2z"/><path d="M6 20a2 2 0 0 1-2-2"/></svg></span><span class="s-txt">总览</span></a></div>
+    <div id="topicGroup"><div class="s-group"><div class="s-label">第一课 · 电脑基本功</div><a class="s-item" href="topic1.html" data-name="操作系统 & 终端"><span class="s-num">01</span><span class="s-txt">操作系统 & 终端</span></a><a class="s-item" href="topic2.html" data-name="命令行核心命令"><span class="s-num">02</span><span class="s-txt">命令行核心命令</span></a><a class="s-item" href="topic3.html" data-name="文件系统 & 组织"><span class="s-num">03</span><span class="s-txt">文件系统 & 组织</span></a><a class="s-item" href="topic4.html" data-name="Homebrew"><span class="s-num">04</span><span class="s-txt">Homebrew</span></a><a class="s-item" href="topic5.html" data-name="Claude Code 初识"><span class="s-num">05</span><span class="s-txt">Claude Code 初识</span></a><a class="s-item" href="topic6.html" data-name="Markdown"><span class="s-num">06</span><span class="s-txt">Markdown</span></a><a class="s-item" href="topic7.html" data-name="LaTeX & Overleaf"><span class="s-num">07</span><span class="s-txt">LaTeX & Overleaf</span></a><a class="s-item" href="topic8.html" data-name="VS Code & Python"><span class="s-num">08</span><span class="s-txt">VS Code & Python</span></a></div><div class="s-group"><div class="s-label">第二课 · Claude Code 实战</div><a class="s-item" href="c01-overview.html" data-name="课程总览"><span class="s-num">09</span><span class="s-txt">课程总览</span></a><a class="s-item" href="c02-mac-setup.html" data-name="Mac 安装配置"><span class="s-num">10</span><span class="s-txt">Mac 安装配置</span></a><a class="s-item" href="c03-windows-setup.html" data-name="Windows 方案"><span class="s-num">11</span><span class="s-txt">Windows 方案</span></a><a class="s-item" href="c04-github-gh.html" data-name="GitHub & gh"><span class="s-num">12</span><span class="s-txt">GitHub & gh</span></a><a class="s-item active" href="c05-github-pages.html" data-name="GitHub Pages"><span class="s-num">13</span><span class="s-txt">GitHub Pages</span></a><a class="s-item" href="c06-web-slides.html" data-name="网页幻灯片"><span class="s-num">14</span><span class="s-txt">网页幻灯片</span></a><a class="s-item" href="c07-prompt-skills.html" data-name="提问的艺术"><span class="s-num">15</span><span class="s-txt">提问的艺术</span></a><a class="s-item" href="c08-best-practices.html" data-name="案例与最佳实践"><span class="s-num">16</span><span class="s-txt">案例与最佳实践</span></a><a class="s-item" href="c09-prompt-patterns.html" data-name="任务型 Prompt"><span class="s-num">17</span><span class="s-txt">任务型 Prompt</span></a><a class="s-item" href="c10-cheatsheet.html" data-name="命令速查表"><span class="s-num">18</span><span class="s-txt">命令速查表</span></a><a class="s-item" href="c11-prompts.html" data-name="Prompt 模板"><span class="s-num">19</span><span class="s-txt">Prompt 模板</span></a></div></div>
+    <div class="s-empty" id="navEmpty" hidden>没有匹配的章节</div>
+  </nav>
+  <div class="s-foot">2026-07-13 实战课 · 综合笔记</div>
+</aside>
+<div class="content">
+  <div class="mtop">
+    <button class="burger" id="burger" aria-label="菜单"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <a class="m-brand" href="index.html">和 AI 一起用电脑</a>
+  </div>
+  <div class="page">
+
+<div class="doc-head">
+  <div class="crumb">第二课 · 13 / 19</div>
+  <h1>GitHub Pages 发布</h1>
+  <p class="sub">把文件夹变成网站：两种站点、两种开启方式、三个坑</p>
+</div>
+
+<div class="doc-layout">
+  <article class="article md">
+<h1 id="github-pages把文件夹变成全世界可访问的网站">GitHub
+Pages：把文件夹变成全世界可访问的网站</h1>
+<h2 id="原理一句话">原理一句话</h2>
+<p>GitHub Pages = GitHub 免费帮你把仓库里的 HTML
+文件<strong>原样挂到互联网上</strong>。没有服务器要买，没有域名要备案，推送后约
+30–60 秒生效。</p>
+<p>先认识三个部署平台（课堂笔记原文）：</p>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>定位</th>
+<th>适合</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GitHub Pages</strong></td>
+<td>代码分享平台附带的静态托管</td>
+<td>个人主页、文档、幻灯片（本课路线）</td>
+</tr>
+<tr>
+<td><strong>Vercel</strong></td>
+<td>全栈网站开发平台</td>
+<td>需要后端逻辑的动态网站</td>
+</tr>
+<tr>
+<td><strong>Cloudflare</strong></td>
+<td>网络分发和安全平台</td>
+<td>需要访问控制、国内访问优化</td>
+</tr>
+</tbody>
+</table>
+<p>新手先用 GitHub Pages 就够了——它和你的代码仓库天然一体。</p>
+<h2 id="两种站点网址不同">两种站点，网址不同</h2>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>仓库名</th>
+<th>网址</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>用户主站</strong></td>
+<td>必须叫 <code>用户名.github.io</code></td>
+<td><code>https://用户名.github.io/</code></td>
+<td>个人主页，一人一个</td>
+</tr>
+<tr>
+<td><strong>项目站</strong></td>
+<td>任意名字</td>
+<td><code>https://用户名.github.io/仓库名/</code></td>
+<td>每个项目一个，数量不限</td>
+</tr>
+</tbody>
+</table>
+<p>今天实战里：个人主页用了用户主站；两个幻灯片各占一个项目站。<strong>推荐这种「一个作品一个仓库」的组织方式</strong>，互不干扰，删改自由。</p>
+<h2
+id="开启方式一网页操作新手友好">开启方式一：网页操作（新手友好）</h2>
+<p>仓库页面 → <strong>Settings</strong> → 左栏 <strong>Pages</strong> →
+Source 选 <code>Deploy from a branch</code> → Branch 选
+<code>main</code>、目录选 <code>/ (root)</code> 或 <code>/docs</code> →
+Save。等一分钟，页面顶部会显示你的网址。</p>
+<h2
+id="开启方式二命令行claude-code-用的就是这个">开启方式二：命令行（Claude
+Code 用的就是这个）</h2>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api repos/用户名/仓库名/pages <span class="at">-X</span> POST <span class="dt">\</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-f</span> <span class="st">&quot;source[branch]=main&quot;</span> <span class="at">-f</span> <span class="st">&quot;source[path]=/&quot;</span></span></code></pre></div>
+<p>解释：<code>gh api</code> 是直接调用 GitHub
+的开放接口（API）；<code>-X POST</code> 表示「创建」；两个
+<code>-f</code>
+参数指定从哪个分支、哪个目录发布。用户主站（<code>用户名.github.io</code>
+仓库）通常推送后自动开启，这条命令会返回「已存在」，无妨。</p>
+<h2 id="根目录还是-docs">根目录还是 /docs？</h2>
+<ul>
+<li><strong>纯手写的网站</strong>（如个人主页）：文件就在根目录，选
+<code>/ (root)</code>。</li>
+<li><strong>需要构建的项目</strong>（如 Slidev
+幻灯片）：源码在根目录，构建产物输出到 <code>docs/</code>，Pages 选
+<code>/docs</code>。这样一个仓库同时保存「原料」和「成品」。</li>
+</ul>
+<h2 id="验证是否上线">验证是否上线</h2>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> <span class="at">-o</span> /dev/null <span class="at">-w</span> <span class="st">&quot;%{http_code}&quot;</span> https://用户名.github.io/仓库名/</span></code></pre></div>
+<p><code>curl</code>
+是命令行浏览器；这条命令只取回<strong>状态码</strong>：<code>200</code>
+= 正常上线，<code>404</code> =
+还没生效（等一会）或路径错误。今天的实战里，每次发布后 Claude Code
+都用它自动轮询确认，而不是口头说「应该好了」。</p>
+<h2 id="三个今天踩过--绕过的坑">三个今天踩过 / 绕过的坑</h2>
+<ol type="1">
+<li><strong>子路径问题</strong>：项目站的网址带 <code>/仓库名/</code>
+前缀，网页里所有资源路径必须考虑这个前缀（构建工具一般有
+<code>--base</code> 参数）。忘了就是「页面全白、资源 404」。</li>
+<li><strong>Pages 是公开的</strong>：免费版 Pages
+<strong>没有访问控制</strong>，私有仓库发的 Pages
+站点依然全网可见。别把不想公开的东西（尤其是密钥）放上去。</li>
+<li><strong>发布有延迟</strong>：推送后 30–60
+秒才生效。改完看不到变化，先强制刷新（<code>⌘⇧R</code>），再怀疑人生。</li>
+</ol>
+<h2 id="对-claude-code-说的话">对 Claude Code 说的话</h2>
+<blockquote>
+<p>「帮我把这个文件夹发布成 GitHub Pages 网站，建一个叫 ___
+的公开仓库，发布后验证能正常访问，把网址给我。」</p>
+</blockquote>
+<p>一句话包含了：动作（发布）、仓库名（你定）、验收（验证 +
+给网址）。这就是全部。</p>
+
+  </article>
+  <aside class="toc"><div class="t-title">本页目录</div><a class="lvl2" href="#原理一句话">原理一句话</a>
+<a class="lvl2" href="#两种站点网址不同">两种站点，网址不同</a>
+<a class="lvl2" href="#根目录还是-docs">根目录还是 /docs？</a>
+<a class="lvl2" href="#验证是否上线">验证是否上线</a>
+<a class="lvl2" href="#三个今天踩过--绕过的坑">三个今天踩过 / 绕过的坑</a>
+<a class="lvl2" href="#对-claude-code-说的话">对 Claude Code 说的话</a></aside>
+</div>
+
+<nav class="pager">
+  <a href="c04-github-gh.html"><span class="lab">← 上一篇</span><span class="ttl">GitHub 与 gh 命令行</span></a>
+  <a class="next" href="c06-web-slides.html"><span class="lab">下一篇 →</span><span class="ttl">网页就是幻灯片</span></a>
+</nav>
+
+  </div>
+</div>
+<script src="assets/nav.js"></script>
+<script src="assets/toc.js"></script>
+</body>
+</html>

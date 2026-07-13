@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>网页就是幻灯片 · 和 AI 一起用电脑</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="backdrop" id="backdrop"></div>
+<aside class="sidebar" id="sidebar">
+  <a class="s-brand" href="index.html"><span class="s-logo"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 6 16"/><line x1="12" y1="16" x2="18" y2="16"/></svg></span><span class="s-name">和 AI 一起用电脑</span></a>
+  <div class="s-search"><span class="s-search-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.6" y2="16.6"/></svg></span><input id="navFilter" type="text" placeholder="筛选章节…" autocomplete="off"></div>
+  <nav class="s-scroll">
+    <div class="s-group"><a class="s-item" href="index.html"><span class="s-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a2 2 0 0 0-2 2z"/><path d="M6 20a2 2 0 0 1-2-2"/></svg></span><span class="s-txt">总览</span></a></div>
+    <div id="topicGroup"><div class="s-group"><div class="s-label">第一课 · 电脑基本功</div><a class="s-item" href="topic1.html" data-name="操作系统 & 终端"><span class="s-num">01</span><span class="s-txt">操作系统 & 终端</span></a><a class="s-item" href="topic2.html" data-name="命令行核心命令"><span class="s-num">02</span><span class="s-txt">命令行核心命令</span></a><a class="s-item" href="topic3.html" data-name="文件系统 & 组织"><span class="s-num">03</span><span class="s-txt">文件系统 & 组织</span></a><a class="s-item" href="topic4.html" data-name="Homebrew"><span class="s-num">04</span><span class="s-txt">Homebrew</span></a><a class="s-item" href="topic5.html" data-name="Claude Code 初识"><span class="s-num">05</span><span class="s-txt">Claude Code 初识</span></a><a class="s-item" href="topic6.html" data-name="Markdown"><span class="s-num">06</span><span class="s-txt">Markdown</span></a><a class="s-item" href="topic7.html" data-name="LaTeX & Overleaf"><span class="s-num">07</span><span class="s-txt">LaTeX & Overleaf</span></a><a class="s-item" href="topic8.html" data-name="VS Code & Python"><span class="s-num">08</span><span class="s-txt">VS Code & Python</span></a></div><div class="s-group"><div class="s-label">第二课 · Claude Code 实战</div><a class="s-item" href="c01-overview.html" data-name="课程总览"><span class="s-num">09</span><span class="s-txt">课程总览</span></a><a class="s-item" href="c02-mac-setup.html" data-name="Mac 安装配置"><span class="s-num">10</span><span class="s-txt">Mac 安装配置</span></a><a class="s-item" href="c03-windows-setup.html" data-name="Windows 方案"><span class="s-num">11</span><span class="s-txt">Windows 方案</span></a><a class="s-item" href="c04-github-gh.html" data-name="GitHub & gh"><span class="s-num">12</span><span class="s-txt">GitHub & gh</span></a><a class="s-item" href="c05-github-pages.html" data-name="GitHub Pages"><span class="s-num">13</span><span class="s-txt">GitHub Pages</span></a><a class="s-item active" href="c06-web-slides.html" data-name="网页幻灯片"><span class="s-num">14</span><span class="s-txt">网页幻灯片</span></a><a class="s-item" href="c07-prompt-skills.html" data-name="提问的艺术"><span class="s-num">15</span><span class="s-txt">提问的艺术</span></a><a class="s-item" href="c08-best-practices.html" data-name="案例与最佳实践"><span class="s-num">16</span><span class="s-txt">案例与最佳实践</span></a><a class="s-item" href="c09-prompt-patterns.html" data-name="任务型 Prompt"><span class="s-num">17</span><span class="s-txt">任务型 Prompt</span></a><a class="s-item" href="c10-cheatsheet.html" data-name="命令速查表"><span class="s-num">18</span><span class="s-txt">命令速查表</span></a><a class="s-item" href="c11-prompts.html" data-name="Prompt 模板"><span class="s-num">19</span><span class="s-txt">Prompt 模板</span></a></div></div>
+    <div class="s-empty" id="navEmpty" hidden>没有匹配的章节</div>
+  </nav>
+  <div class="s-foot">2026-07-13 实战课 · 综合笔记</div>
+</aside>
+<div class="content">
+  <div class="mtop">
+    <button class="burger" id="burger" aria-label="菜单"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <a class="m-brand" href="index.html">和 AI 一起用电脑</a>
+  </div>
+  <div class="page">
+
+<div class="doc-head">
+  <div class="crumb">第二课 · 14 / 19</div>
+  <h1>网页就是幻灯片</h1>
+  <p class="sub">为什么放弃 PPT、Slidev 路线、今天踩过的四个坑与质量纪律</p>
+</div>
+
+<div class="doc-layout">
+  <article class="article md">
+<h1 id="网页就是幻灯片告别-ppt-的-slidev-路线">网页就是幻灯片：告别 PPT
+的 Slidev 路线</h1>
+<h2 id="为什么不用-powerpoint--google-slides">为什么不用 PowerPoint /
+Google Slides</h2>
+<p>课堂笔记里那行「HTML ↔︎ Microsoft PowerPoint, Google
+Slides」说的就是这个选择题。结论：<strong>当制作者是 AI 时，HTML
+是碾压性的选择。</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>HTML（本课路线）</th>
+<th>PowerPoint</th>
+<th>Google Slides</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI 能否直接生成</td>
+<td>✅ 就是文本文件，AI 的主场</td>
+<td>勉强（专用库，效果差）</td>
+<td>差（API 不支持自定义图形和字体）</td>
+</tr>
+<tr>
+<td>美观上限</td>
+<td>无上限（逐像素控制）</td>
+<td>中</td>
+<td>低</td>
+</tr>
+<tr>
+<td>数学公式</td>
+<td>✅ KaTeX 完美渲染</td>
+<td>麻烦</td>
+<td>麻烦</td>
+</tr>
+<tr>
+<td>分发</td>
+<td>发一个链接</td>
+<td>传文件，字体易变形</td>
+<td>发链接</td>
+</tr>
+<tr>
+<td>别人可编辑</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>PPT 家族唯一的真优势是「别人能改」。如果你不需要——个人展示、课堂
+pre、论文汇报——就没有理由忍受它的天花板。</p>
+<h2 id="slidev给-html-幻灯片一个成熟的壳">Slidev：给 HTML
+幻灯片一个成熟的壳</h2>
+<p>裸写 HTML 也行，但 <a href="https://sli.dev/">Slidev</a>
+白送太多东西：<strong>Markdown 写内容、CSS
+管样式、演讲者模式（备注+计时+下一页预览）、PDF/PNG
+导出、一键构建成静态网站</strong>。今天两个 deck 都是这条路线：</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install @slidev/cli @slidev/theme-default   <span class="co"># 装（版本需 ≥ 52.17.0）</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> slidev                                       <span class="co"># 本地写作预览</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> slidev build <span class="at">--base</span> /仓库名/ <span class="at">--out</span> docs      <span class="co"># 构建，产物进 docs/</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 然后 git push + 开 Pages（/docs 目录）即上线</span></span></code></pre></div>
+<p><code>--base /仓库名/</code>
+就是上一章说的子路径前缀，<strong>项目站必须加</strong>，忘了就全白屏。</p>
+<h2
+id="今天真实踩过的四个坑每个都消耗了真实时间">今天真实踩过的四个坑（每个都消耗了真实时间）</h2>
+<ol type="1">
+<li><strong>KaTeX 公式在 HTML 块里不渲染</strong>。Slidev 的 Markdown
+里如果用 <code>&lt;div&gt;</code> 排版，块内的 <code>$$公式$$</code>
+会原样显示。解法：公式前后留空行，让它回到 Markdown
+上下文；图注里的下标改用 HTML <code>&lt;sub&gt;</code> 标签。</li>
+<li><strong>图片放 <code>public/</code>
+用绝对路径会构建报错</strong>（被当成模块导入）。解法：图片放项目内目录，用相对路径
+<code>./images/xxx.png</code>，构建工具自动处理哈希和 base 前缀。</li>
+<li><strong>本地预览服务器不支持路由</strong>：直接访问
+<code>.../5</code> 这种深链接
+404，要从入口页进去再翻页。线上没这个问题（构建产物带 404 回退）。</li>
+<li><strong>截图截到过渡动画</strong>：自动化检查时，翻页后要等 1–2
+秒再截图，否则截到两页叠影，误判为排版事故。</li>
+</ol>
+<h2 id="质量纪律来自另一个-slides-项目的血泪经验">质量纪律（来自另一个
+slides 项目的血泪经验）</h2>
+<p>这些规则来自更早的一个演示文稿项目，已被反复验证：</p>
+<ul>
+<li><strong>硬字数预算 +
+装不下就拆页</strong>。绝不用「自动缩小字号」凑合——页与页字号忽大忽小，一眼机器味。</li>
+<li><strong>写完必须截图检查，且要派一个独立的 AI
+审阅</strong>。写代码的 AI
+自己看自己，会「看到自以为写了的东西」，对着有 bug
+的页面自我祝贺。独立审阅的开场白要写：「假设这里面有问题——把它们找出来。」</li>
+<li><strong>给审阅者加反向约束</strong>：禁止为了通过检查而删设计、简化排版。有真实案例是
+AI 为了消除「内容溢出」警告，把版面一点点啃光，40 轮不收敛。</li>
+<li><strong>标题写结论，不写主题</strong>。「法英两国控制了非洲三分之二的土地」远胜「殖民地分布」。听众扫一眼标题就能带走信息。</li>
+<li><strong>图表配色要过校验</strong>（对比度
+≥3:1、色盲可区分），别凭感觉挑颜色。</li>
+<li><strong>中文字体</strong>：Slidev 默认从 Google Fonts
+拉字体，国内观众打开会退化成系统字体。要么锁定系统字体栈（<code>fonts: provider: none</code>），要么本地打包字体文件。</li>
+</ul>
+<h2 id="从一篇论文到一个-deck-的实操流程">从一篇论文到一个 deck
+的实操流程</h2>
+<p>今天把一篇高中数学论文（LaTeX 源码 + 23 张图）变成了 14
+页幻灯片，流程可复制：</p>
+<ol type="1">
+<li>把论文文件夹路径给 Claude Code：「读一读，研究一下」；</li>
+<li>交代保真要求：「尽可能多地保留原文的关键内容、概念、图片、引用」；</li>
+<li>交代风格：「红白黑配色，无衬线字体，瑞士设计」；</li>
+<li>AI 产出 → 截图检查 → 部署 → 你线上翻一遍做最终验收。</li>
+</ol>
+<p>完整提示词见「Prompt 模板」页。</p>
+
+  </article>
+  <aside class="toc"><div class="t-title">本页目录</div><a class="lvl2" href="#为什么不用-powerpoint--google-slides">为什么不用 PowerPoint /
+Google Slides</a>
+<a class="lvl2" href="#slidev给-html-幻灯片一个成熟的壳">Slidev：给 HTML
+幻灯片一个成熟的壳</a>
+<a class="lvl2" href="#质量纪律来自另一个-slides-项目的血泪经验">质量纪律（来自另一个
+slides 项目的血泪经验）</a>
+<a class="lvl2" href="#从一篇论文到一个-deck-的实操流程">从一篇论文到一个 deck
+的实操流程</a></aside>
+</div>
+
+<nav class="pager">
+  <a href="c05-github-pages.html"><span class="lab">← 上一篇</span><span class="ttl">GitHub Pages 发布</span></a>
+  <a class="next" href="c07-prompt-skills.html"><span class="lab">下一篇 →</span><span class="ttl">向 AI 提问的艺术</span></a>
+</nav>
+
+  </div>
+</div>
+<script src="assets/nav.js"></script>
+<script src="assets/toc.js"></script>
+</body>
+</html>

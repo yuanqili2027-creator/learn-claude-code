@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homebrew 包管理器 · 和 AI 一起用电脑</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="backdrop" id="backdrop"></div>
+<aside class="sidebar" id="sidebar">
+  <a class="s-brand" href="index.html"><span class="s-logo"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 6 16"/><line x1="12" y1="16" x2="18" y2="16"/></svg></span><span class="s-name">和 AI 一起用电脑</span></a>
+  <div class="s-search"><span class="s-search-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.6" y2="16.6"/></svg></span><input id="navFilter" type="text" placeholder="筛选章节…" autocomplete="off"></div>
+  <nav class="s-scroll">
+    <div class="s-group"><a class="s-item" href="index.html"><span class="s-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a2 2 0 0 0-2 2z"/><path d="M6 20a2 2 0 0 1-2-2"/></svg></span><span class="s-txt">总览</span></a></div>
+    <div id="topicGroup"><div class="s-group"><div class="s-label">第一课 · 电脑基本功</div><a class="s-item" href="topic1.html" data-name="操作系统 & 终端"><span class="s-num">01</span><span class="s-txt">操作系统 & 终端</span></a><a class="s-item" href="topic2.html" data-name="命令行核心命令"><span class="s-num">02</span><span class="s-txt">命令行核心命令</span></a><a class="s-item" href="topic3.html" data-name="文件系统 & 组织"><span class="s-num">03</span><span class="s-txt">文件系统 & 组织</span></a><a class="s-item active" href="topic4.html" data-name="Homebrew"><span class="s-num">04</span><span class="s-txt">Homebrew</span></a><a class="s-item" href="topic5.html" data-name="Claude Code 初识"><span class="s-num">05</span><span class="s-txt">Claude Code 初识</span></a><a class="s-item" href="topic6.html" data-name="Markdown"><span class="s-num">06</span><span class="s-txt">Markdown</span></a><a class="s-item" href="topic7.html" data-name="LaTeX & Overleaf"><span class="s-num">07</span><span class="s-txt">LaTeX & Overleaf</span></a><a class="s-item" href="topic8.html" data-name="VS Code & Python"><span class="s-num">08</span><span class="s-txt">VS Code & Python</span></a></div><div class="s-group"><div class="s-label">第二课 · Claude Code 实战</div><a class="s-item" href="c01-overview.html" data-name="课程总览"><span class="s-num">09</span><span class="s-txt">课程总览</span></a><a class="s-item" href="c02-mac-setup.html" data-name="Mac 安装配置"><span class="s-num">10</span><span class="s-txt">Mac 安装配置</span></a><a class="s-item" href="c03-windows-setup.html" data-name="Windows 方案"><span class="s-num">11</span><span class="s-txt">Windows 方案</span></a><a class="s-item" href="c04-github-gh.html" data-name="GitHub & gh"><span class="s-num">12</span><span class="s-txt">GitHub & gh</span></a><a class="s-item" href="c05-github-pages.html" data-name="GitHub Pages"><span class="s-num">13</span><span class="s-txt">GitHub Pages</span></a><a class="s-item" href="c06-web-slides.html" data-name="网页幻灯片"><span class="s-num">14</span><span class="s-txt">网页幻灯片</span></a><a class="s-item" href="c07-prompt-skills.html" data-name="提问的艺术"><span class="s-num">15</span><span class="s-txt">提问的艺术</span></a><a class="s-item" href="c08-best-practices.html" data-name="案例与最佳实践"><span class="s-num">16</span><span class="s-txt">案例与最佳实践</span></a><a class="s-item" href="c09-prompt-patterns.html" data-name="任务型 Prompt"><span class="s-num">17</span><span class="s-txt">任务型 Prompt</span></a><a class="s-item" href="c10-cheatsheet.html" data-name="命令速查表"><span class="s-num">18</span><span class="s-txt">命令速查表</span></a><a class="s-item" href="c11-prompts.html" data-name="Prompt 模板"><span class="s-num">19</span><span class="s-txt">Prompt 模板</span></a></div></div>
+    <div class="s-empty" id="navEmpty" hidden>没有匹配的章节</div>
+  </nav>
+  <div class="s-foot">2026-07-13 实战课 · 综合笔记</div>
+</aside>
+<div class="content">
+  <div class="mtop">
+    <button class="burger" id="burger" aria-label="菜单"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <a class="m-brand" href="index.html">和 AI 一起用电脑</a>
+  </div>
+  <div class="page">
+
+<div class="doc-head">
+  <div class="crumb">第一课 · 04 / 19</div>
+  <h1>Homebrew 包管理器</h1>
+  <p class="sub">命令行「应用商店」：安装、brew install、国内网络与镜像</p>
+</div>
+
+<div class="doc-layout">
+  <article class="article md">
+<h1 id="homebrewmacos-的命令行应用商店">Homebrew：macOS
+的命令行「应用商店」</h1>
+<p>在 Mac 上装软件，大多数人习惯去官网下载一个
+<code>.dmg</code>，拖进「应用程序」文件夹。这套流程对付图形软件够用，但如果你想装命令行工具（比如
+<code>python3</code>、<code>wget</code>、<code>git</code>），就会发现无处下载、无处安装。Homebrew
+就是解决这个问题的工具，它是 macOS
+上最流行的<strong>命令行包管理器</strong>。macOS
+不自带它，必须自己装一次。</p>
+<h2
+id="一什么是包管理器为什么需要它">一、什么是「包管理器」，为什么需要它</h2>
+<p>想象你要装一个命令行工具，手动做法是：去官网找下载链接 → 下载压缩包 →
+解压 → 把可执行文件放到系统能找到的目录 → 配置环境变量 →
+如果它依赖别的库，还得把依赖也一个个装好。装 3
+个软件就够你折腾一下午，而且卸载、升级同样麻烦。</p>
+<p><strong>包管理器</strong>把这一切自动化了。你只需一句话：「帮我装
+wget」，它就自动下载、解压、安装、连同依赖一起处理好，还记录了装过什么、装在哪，方便日后升级和卸载。</p>
+<p>用「应用商店」类比很贴切，但有两点区别：</p>
+<ul>
+<li>应用商店是图形界面点点鼠标，Homebrew
+是在<strong>终端里敲命令</strong>。</li>
+<li>应用商店主要给普通用户装图形 App，Homebrew
+更擅长装<strong>开发者和极客用的命令行工具</strong>（当然它也能装图形软件）。</li>
+</ul>
+<h2 id="二homebrew-能装什么formula-vs-cask">二、Homebrew
+能装什么：formula vs cask</h2>
+<p>Homebrew 里有两类「软件包」，理解这个区别很重要：</p>
+<ul>
+<li><strong>formula（公式）</strong>：命令行工具，比如
+<code>python3</code>、<code>node</code>、<code>git</code>、<code>ffmpeg</code>。用
+<code>brew install xxx</code> 安装。</li>
+<li><strong>cask（酒桶）</strong>：图形界面的 macOS 应用，比如 VS
+Code、Chrome、微信。用 <code>brew install --cask xxx</code>
+安装，效果等同于你自己下载 <code>.dmg</code>
+拖进「应用程序」，只是全自动。</li>
+</ul>
+<p>一句话：<code>brew install</code>
+装命令行工具，<code>brew install --cask</code> 装图形 App。</p>
+<h2 id="三安装-homebrew">三、安装 Homebrew</h2>
+<h3 id="第-1-步装-xcode-command-line-tools命令行工具">第 1 步：装 Xcode
+Command Line Tools（命令行工具）</h3>
+<p>Homebrew
+编译和安装软件时需要一套苹果官方的开发者基础工具（编译器、<code>git</code>
+等），叫 <strong>Command Line Tools（CLT）</strong>。首次安装 Homebrew
+时它通常会自动帮你装；你也可以提前手动装：</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">xcode-select</span> <span class="at">--install</span></span></code></pre></div>
+<p>回车后会弹窗，点「安装」等它下载完即可。它不是完整的
+Xcode（那个有十几 GB），只是一小套命令行必需组件。</p>
+<h3 id="第-2-步运行官方安装命令">第 2 步：运行官方安装命令</h3>
+<p>打开「终端」（在「启动台」搜 Terminal），粘贴 <a
+href="https://brew.sh">官网 brew.sh</a> 首页那条命令并回车：</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/bin/bash</span> <span class="at">-c</span> <span class="st">&quot;</span><span class="va">$(</span><span class="ex">curl</span> <span class="at">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="va">)</span><span class="st">&quot;</span></span></code></pre></div>
+<p>这条命令在做什么？拆开看：<code>curl -fsSL 一个网址</code> 是从
+Homebrew
+官方仓库<strong>下载一个安装脚本</strong>，<code>/bin/bash -c "..."</code>
+是<strong>用 bash
+运行这个脚本</strong>。脚本会先告诉你它准备做什么，然后暂停等你确认，是很透明的。</p>
+<p><strong>为什么要输开机密码、而且输入时屏幕不动？</strong>
+安装过程需要在系统目录创建文件，属于管理员权限操作，所以要验证你的身份。终端里输密码时<strong>不显示任何字符（连圆点都没有）是
+macOS
+的正常安全设计</strong>，不是卡住了——你正常盲打，打完回车即可。</p>
+<h2 id="四apple-siliconm-系列芯片的特殊之处">四、Apple Silicon（M
+系列芯片）的特殊之处</h2>
+<p>如果你的 Mac 是 M1/M2/M3 等 Apple Silicon 芯片，Homebrew 会装在
+<strong><code>/opt/homebrew</code></strong>（老的 Intel 芯片装在
+<code>/usr/local</code>）。问题是：系统默认不知道去
+<code>/opt/homebrew</code> 找命令，所以装完后你直接敲 <code>brew</code>
+可能会报 <code>command not found</code>。</p>
+<p>解决办法是把 Homebrew 加进
+<strong>PATH</strong>（系统搜索命令的路径清单）。安装脚本结束时会提示你运行两行命令，照抄即可：</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&#39;eval &quot;$(/opt/homebrew/bin/brew shellenv)&quot;&#39;</span> <span class="op">&gt;&gt;</span> ~/.zprofile</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">eval</span> <span class="st">&quot;</span><span class="va">$(</span><span class="ex">/opt/homebrew/bin/brew</span> shellenv<span class="va">)</span><span class="st">&quot;</span></span></code></pre></div>
+<p>第一行把配置<strong>永久写入</strong>你的终端配置文件
+<code>~/.zprofile</code>，第二行让它<strong>在当前窗口立即生效</strong>。这也是为什么很多教程让你「装完重开一个终端窗口」——重开后配置文件会被自动加载，<code>brew</code>
+命令才能被认出来。</p>
+<h2 id="五国内网络问题专题重要">五、国内网络问题专题（重要）</h2>
+<p>Homebrew 的软件从 GitHub 和境外服务器下载。在国内<strong>不挂代理/VPN
+的情况下，几乎会卡住或失败</strong>。而且要特别注意：<strong>给浏览器开了代理，不等于终端也走代理</strong>——命令行的流量需要单独配置。两种思路：</p>
+<p><strong>思路一：让终端走代理。</strong> 假设你的代理软件在本机
+<code>7890</code> 端口（具体端口看你的软件设置），在终端执行：</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">https_proxy</span><span class="op">=</span>http://127.0.0.1:7890 <span class="va">http_proxy</span><span class="op">=</span>http://127.0.0.1:7890</span></code></pre></div>
+<p>这只对当前窗口有效。之后再跑安装命令或 <code>brew install</code>
+就会走代理。</p>
+<p><strong>思路二：换成国内镜像源。</strong>
+用国内高校的镜像服务器替代境外源，不需要代理，速度快。以 <a
+href="https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/">清华 TUNA
+镜像</a> 为例，首次安装前先设置环境变量：</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">HOMEBREW_BREW_GIT_REMOTE</span><span class="op">=</span><span class="st">&quot;https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git&quot;</span></span></code></pre></div>
+<p>再运行安装脚本即可。已经装好的用户，也可以换成中科大源（见参考资料）。</p>
+<blockquote>
+<p><strong>安全提醒</strong>：安装命令务必<strong>从官网 brew.sh
+复制</strong>，镜像配置从清华/中科大等可信镜像站的官方帮助页复制。网上来路不明的「一键脚本」可能夹带私货，往终端粘贴前一定要看清楚它是什么——终端命令权限很大，别乱执行。</p>
+</blockquote>
+<h2 id="六常见坑">六、常见坑</h2>
+<ul>
+<li><strong><code>command not found: brew</code></strong>：几乎都是 PATH
+没配好。回到第四节，重新运行那两行 <code>brew shellenv</code>
+命令，然后重开终端。</li>
+<li><strong>权限问题 / sudo</strong>：Homebrew 装在自己的目录里，日常用
+<code>brew</code> 命令<strong>不需要也不应该加
+<code>sudo</code></strong>。如果提示权限报错，通常是目录属主不对，可用
+<code>brew doctor</code> 诊断，按它给的建议修。</li>
+</ul>
+<h2 id="七核心命令讲透">七、核心命令讲透</h2>
+<p>装好后，日常就是这几条命令。下面每条都给例子和预期效果：</p>
+<ul>
+<li><code>brew install python3</code>：装命令行工具。跑完你敲
+<code>python3 --version</code> 能看到版本号。</li>
+<li><code>brew install --cask visual-studio-code</code>：装图形
+App。跑完「应用程序」里会出现 VS Code。</li>
+<li><code>brew uninstall wget</code>：卸载 wget。</li>
+<li><code>brew list</code>：列出你已经装了哪些包，检查「我装过什么」。</li>
+<li><code>brew search node</code>：搜索有没有叫 node
+相关的包，装之前先确认名字。</li>
+<li><code>brew info wget</code>：查看某个包的说明、版本、依赖、官网。</li>
+<li><code>brew update</code>：更新 Homebrew
+自身和软件清单（不升级你装的软件）。</li>
+<li><code>brew upgrade</code>：把你装的所有软件升级到最新版；<code>brew upgrade wget</code>
+只升级指定的一个。</li>
+<li><code>brew doctor</code>：体检命令。出问题时先跑它，它会指出隐患并给修复建议。</li>
+</ul>
+<p>一个典型流程：<code>brew update</code>（先刷新清单）→
+<code>brew search 名字</code>（确认包名）→
+<code>brew install 名字</code>（安装）→ 用一阵子后
+<code>brew upgrade</code>（升级）。</p>
+<h2 id="常用命令速查表">常用命令速查表</h2>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>brew install &lt;名字&gt;</code></td>
+<td>安装命令行工具（formula）</td>
+<td><code>brew install python3</code></td>
+</tr>
+<tr>
+<td><code>brew install --cask &lt;名字&gt;</code></td>
+<td>安装图形应用（cask）</td>
+<td><code>brew install --cask visual-studio-code</code></td>
+</tr>
+<tr>
+<td><code>brew uninstall &lt;名字&gt;</code></td>
+<td>卸载软件</td>
+<td><code>brew uninstall wget</code></td>
+</tr>
+<tr>
+<td><code>brew list</code></td>
+<td>列出已安装的包</td>
+<td><code>brew list</code></td>
+</tr>
+<tr>
+<td><code>brew search &lt;关键词&gt;</code></td>
+<td>搜索软件包</td>
+<td><code>brew search node</code></td>
+</tr>
+<tr>
+<td><code>brew info &lt;名字&gt;</code></td>
+<td>查看包的详细信息</td>
+<td><code>brew info ffmpeg</code></td>
+</tr>
+<tr>
+<td><code>brew update</code></td>
+<td>更新 Homebrew 和软件清单</td>
+<td><code>brew update</code></td>
+</tr>
+<tr>
+<td><code>brew upgrade</code></td>
+<td>升级已安装的软件</td>
+<td><code>brew upgrade</code></td>
+</tr>
+<tr>
+<td><code>brew doctor</code></td>
+<td>检查环境、诊断问题</td>
+<td><code>brew doctor</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li><a href="https://brew.sh">Homebrew 官网 brew.sh</a> —
+官方主页，首页即提供权威安装命令，一切以此为准。</li>
+<li><a href="https://docs.brew.sh/Installation">Homebrew 官方安装文档
+docs.brew.sh/Installation</a> — 英文官方文档，详解安装路径（Apple
+Silicon 为 <code>/opt/homebrew</code>）、PATH 配置与前置条件。</li>
+<li><a
+href="https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/">清华大学 TUNA
+镜像 · Homebrew 帮助</a> — 国内首选镜像，环境变量方式，对 M
+系列芯片有专门说明，首次安装最全。</li>
+<li><a
+href="https://www.zzxworld.com/posts/available-cn-mirrors-for-homebrew">中科大
+USTC 镜像换源方法</a> — 已装好 Homebrew 后用 git
+换源，附国内各镜像源对比与选择建议。</li>
+<li><a href="https://cloud.tencent.com/developer/article/2486985">2025
+Homebrew 国内镜像源配置指南（腾讯云社区）</a> —
+中文图文教程，覆盖清华/中科大/阿里云多种镜像与常见问题。</li>
+<li><a href="https://brew-cn.mintimate.cn/">Homebrew CN
+一键安装（社区工具）</a> —
+内置多镜像的一键安装脚本，适合怕折腾的新手（使用前请核对来源）。</li>
+</ul>
+
+  </article>
+  <aside class="toc"><div class="t-title">本页目录</div><a class="lvl2" href="#二homebrew-能装什么formula-vs-cask">二、Homebrew
+能装什么：formula vs cask</a>
+<a class="lvl2" href="#三安装-homebrew">三、安装 Homebrew</a>
+<a class="lvl3" href="#第-1-步装-xcode-command-line-tools命令行工具">第 1 步：装 Xcode
+Command Line Tools（命令行工具）</a>
+<a class="lvl3" href="#第-2-步运行官方安装命令">第 2 步：运行官方安装命令</a>
+<a class="lvl2" href="#四apple-siliconm-系列芯片的特殊之处">四、Apple Silicon（M
+系列芯片）的特殊之处</a>
+<a class="lvl2" href="#五国内网络问题专题重要">五、国内网络问题专题（重要）</a>
+<a class="lvl2" href="#六常见坑">六、常见坑</a>
+<a class="lvl2" href="#七核心命令讲透">七、核心命令讲透</a>
+<a class="lvl2" href="#常用命令速查表">常用命令速查表</a>
+<a class="lvl2" href="#参考资料">参考资料</a></aside>
+</div>
+
+<nav class="pager">
+  <a href="topic3.html"><span class="lab">← 上一篇</span><span class="ttl">文件系统 & 组织</span></a>
+  <a class="next" href="topic5.html"><span class="lab">下一篇 →</span><span class="ttl">Claude Code 初识</span></a>
+</nav>
+
+  </div>
+</div>
+<script src="assets/nav.js"></script>
+<script src="assets/toc.js"></script>
+</body>
+</html>

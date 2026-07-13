@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>命令速查表 · 和 AI 一起用电脑</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="backdrop" id="backdrop"></div>
+<aside class="sidebar" id="sidebar">
+  <a class="s-brand" href="index.html"><span class="s-logo"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 6 16"/><line x1="12" y1="16" x2="18" y2="16"/></svg></span><span class="s-name">和 AI 一起用电脑</span></a>
+  <div class="s-search"><span class="s-search-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.6" y2="16.6"/></svg></span><input id="navFilter" type="text" placeholder="筛选章节…" autocomplete="off"></div>
+  <nav class="s-scroll">
+    <div class="s-group"><a class="s-item" href="index.html"><span class="s-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a2 2 0 0 0-2 2z"/><path d="M6 20a2 2 0 0 1-2-2"/></svg></span><span class="s-txt">总览</span></a></div>
+    <div id="topicGroup"><div class="s-group"><div class="s-label">第一课 · 电脑基本功</div><a class="s-item" href="topic1.html" data-name="操作系统 & 终端"><span class="s-num">01</span><span class="s-txt">操作系统 & 终端</span></a><a class="s-item" href="topic2.html" data-name="命令行核心命令"><span class="s-num">02</span><span class="s-txt">命令行核心命令</span></a><a class="s-item" href="topic3.html" data-name="文件系统 & 组织"><span class="s-num">03</span><span class="s-txt">文件系统 & 组织</span></a><a class="s-item" href="topic4.html" data-name="Homebrew"><span class="s-num">04</span><span class="s-txt">Homebrew</span></a><a class="s-item" href="topic5.html" data-name="Claude Code 初识"><span class="s-num">05</span><span class="s-txt">Claude Code 初识</span></a><a class="s-item" href="topic6.html" data-name="Markdown"><span class="s-num">06</span><span class="s-txt">Markdown</span></a><a class="s-item" href="topic7.html" data-name="LaTeX & Overleaf"><span class="s-num">07</span><span class="s-txt">LaTeX & Overleaf</span></a><a class="s-item" href="topic8.html" data-name="VS Code & Python"><span class="s-num">08</span><span class="s-txt">VS Code & Python</span></a></div><div class="s-group"><div class="s-label">第二课 · Claude Code 实战</div><a class="s-item" href="c01-overview.html" data-name="课程总览"><span class="s-num">09</span><span class="s-txt">课程总览</span></a><a class="s-item" href="c02-mac-setup.html" data-name="Mac 安装配置"><span class="s-num">10</span><span class="s-txt">Mac 安装配置</span></a><a class="s-item" href="c03-windows-setup.html" data-name="Windows 方案"><span class="s-num">11</span><span class="s-txt">Windows 方案</span></a><a class="s-item" href="c04-github-gh.html" data-name="GitHub & gh"><span class="s-num">12</span><span class="s-txt">GitHub & gh</span></a><a class="s-item" href="c05-github-pages.html" data-name="GitHub Pages"><span class="s-num">13</span><span class="s-txt">GitHub Pages</span></a><a class="s-item" href="c06-web-slides.html" data-name="网页幻灯片"><span class="s-num">14</span><span class="s-txt">网页幻灯片</span></a><a class="s-item" href="c07-prompt-skills.html" data-name="提问的艺术"><span class="s-num">15</span><span class="s-txt">提问的艺术</span></a><a class="s-item" href="c08-best-practices.html" data-name="案例与最佳实践"><span class="s-num">16</span><span class="s-txt">案例与最佳实践</span></a><a class="s-item" href="c09-prompt-patterns.html" data-name="任务型 Prompt"><span class="s-num">17</span><span class="s-txt">任务型 Prompt</span></a><a class="s-item active" href="c10-cheatsheet.html" data-name="命令速查表"><span class="s-num">18</span><span class="s-txt">命令速查表</span></a><a class="s-item" href="c11-prompts.html" data-name="Prompt 模板"><span class="s-num">19</span><span class="s-txt">Prompt 模板</span></a></div></div>
+    <div class="s-empty" id="navEmpty" hidden>没有匹配的章节</div>
+  </nav>
+  <div class="s-foot">2026-07-13 实战课 · 综合笔记</div>
+</aside>
+<div class="content">
+  <div class="mtop">
+    <button class="burger" id="burger" aria-label="菜单"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <a class="m-brand" href="index.html">和 AI 一起用电脑</a>
+  </div>
+  <div class="page">
+
+<div class="doc-head">
+  <div class="crumb">第二课 · 18 / 19</div>
+  <h1>命令速查表</h1>
+  <p class="sub">今天出现过的每一条命令，逐条人话解释</p>
+</div>
+
+<div class="doc-layout">
+  <article class="article md">
+<h1
+id="命令速查表今天出现过的每一条命令">命令速查表：今天出现过的每一条命令</h1>
+<p>按场景分组。左边是命令，右边是人话解释。看不懂的名词回第一课查。</p>
+<h2 id="环境安装">环境安装</h2>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/bin/bash</span> <span class="at">-c</span> <span class="st">&quot;</span><span class="va">$(</span><span class="ex">curl</span> <span class="at">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="va">)</span><span class="st">&quot;</span></span></code></pre></div>
+<p>安装 Homebrew。<code>curl</code> 下载安装脚本，<code>bash -c</code>
+立即执行它。</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install git gh node        <span class="co"># 一次装多个软件</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">-g</span> @anthropic-ai/claude-code   <span class="co"># -g = 全局安装，任何目录都能用 claude 命令</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--install</span>                   <span class="co"># （Windows）一条命令装好 WSL2 + Ubuntu</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install git            <span class="co"># （Ubuntu）apt 是 Ubuntu 的 brew；sudo = 以管理员身份</span></span></code></pre></div>
+<h2 id="claude-code">Claude Code</h2>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">ANTHROPIC_BASE_URL</span><span class="op">=</span><span class="st">&quot;https://…/api&quot;</span>    <span class="co"># 设置环境变量：API 服务器地址</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">ANTHROPIC_AUTH_TOKEN</span><span class="op">=</span><span class="st">&quot;cr_…&quot;</span>           <span class="co"># 设置环境变量：你的秘钥（保密！）</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">claude</span>                                       <span class="co"># 默认模式启动（每个操作请求批准）</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">claude</span> <span class="at">--dangerously-skip-permissions</span>        <span class="co"># 跳过批准，全自动（风险自担）</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">claude</span> <span class="at">--dangerously-skip-permissions</span> <span class="at">--continue</span>   <span class="co"># 恢复上一次对话</span></span></code></pre></div>
+<p>在 Claude Code 对话中还有斜杠命令：<code>/model</code>
+换模型、<code>/clear</code> 清空重来、<code>!命令</code>
+直接执行一条终端命令并把结果带进对话。</p>
+<h2 id="github-身份与登录">GitHub 身份与登录</h2>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> auth login                    <span class="co"># 交互式登录（选 HTTPS + 浏览器授权 + Yes 授权 git）</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> auth status                   <span class="co"># 查看登录状态、当前账号、token 权限</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> auth switch <span class="at">-u</span> 用户名          <span class="co"># 多账号切换</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api user <span class="at">--jq</span> .login          <span class="co"># 调 GitHub API 读自己的用户名（--jq 提取字段）</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api user <span class="at">--jq</span> .id             <span class="co"># 读数字 ID（拼 noreply 邮箱用）</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name  <span class="st">&quot;名字&quot;</span>   <span class="co"># 全局提交署名</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">&quot;邮箱&quot;</span>   <span class="co"># 推荐用 ID+用户名@users.noreply.github.com</span></span></code></pre></div>
+<h2 id="仓库日常">仓库日常</h2>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init <span class="at">-b</span> main                 <span class="co"># 把当前文件夹初始化为仓库，主分支叫 main</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">-A</span>                       <span class="co"># 暂存全部修改（A = all）</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;说明&quot;</span>              <span class="co"># 记录一次快照</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push                         <span class="co"># 上传到 GitHub</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin main          <span class="co"># 第一次推送（-u 记住对应关系，以后裸 push 即可）</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo create 名字 <span class="at">--public</span>                     <span class="co"># 建远程仓库</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo create 名字 <span class="at">--public</span> <span class="at">--source</span> . <span class="at">--push</span>   <span class="co"># 建仓 + 绑定当前目录 + 直接推</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo delete 名字 <span class="at">--yes</span>                        <span class="co"># 删仓库（不可逆！）</span></span></code></pre></div>
+<h2 id="github-pages">GitHub Pages</h2>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api repos/用户/仓库/pages <span class="at">-X</span> POST <span class="at">-f</span> <span class="st">&quot;source[branch]=main&quot;</span> <span class="at">-f</span> <span class="st">&quot;source[path]=/&quot;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 开启 Pages：从 main 分支根目录发布；path 也可以是 /docs</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> <span class="at">-o</span> /dev/null <span class="at">-w</span> <span class="st">&quot;%{http_code}&quot;</span> https://用户.github.io/仓库/</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 探测网站状态码：200=已上线 404=未生效或路径错</span></span></code></pre></div>
+<h2 id="slidev-幻灯片">Slidev 幻灯片</h2>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install @slidev/cli @slidev/theme-default   <span class="co"># 装进当前项目</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> slidev                                      <span class="co"># 本地预览（写作时开着）</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> slidev build <span class="at">--base</span> /仓库名/ <span class="at">--out</span> docs      <span class="co"># 构建静态站到 docs/</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> slidev export <span class="at">--format</span> png <span class="at">--per-slide</span>      <span class="co"># 逐页导出 PNG（AI 自查用）</span></span></code></pre></div>
+<h2 id="常用小工具">常用小工具</h2>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span> / ls / cd 目录 / mkdir 目录     <span class="co"># 我在哪 / 有什么 / 去哪 / 建文件夹（第一课·话题 2）</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&#39;一行文字&#39;</span> <span class="op">&gt;&gt;</span> 文件              <span class="co"># 把文字追加到文件末尾（配置 .zshrc 用）</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> 文件                            <span class="co"># 打印文件内容</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="ex">open</span> .                              <span class="co"># （Mac）用访达打开当前目录</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="ex">explorer.exe</span> .                      <span class="co"># （WSL）用 Windows 资源管理器打开当前目录</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span> 命令名                         <span class="co"># 查一个命令装在哪、装没装</span></span></code></pre></div>
+
+  </article>
+  <aside class="toc"><div class="t-title">本页目录</div><a class="lvl2" href="#环境安装">环境安装</a>
+<a class="lvl2" href="#claude-code">Claude Code</a>
+<a class="lvl2" href="#github-身份与登录">GitHub 身份与登录</a>
+<a class="lvl2" href="#仓库日常">仓库日常</a>
+<a class="lvl2" href="#github-pages">GitHub Pages</a>
+<a class="lvl2" href="#slidev-幻灯片">Slidev 幻灯片</a>
+<a class="lvl2" href="#常用小工具">常用小工具</a></aside>
+</div>
+
+<nav class="pager">
+  <a href="c09-prompt-patterns.html"><span class="lab">← 上一篇</span><span class="ttl">分任务型 Prompt 经验</span></a>
+  <a class="next" href="c11-prompts.html"><span class="lab">下一篇 →</span><span class="ttl">Prompt 模板库</span></a>
+</nav>
+
+  </div>
+</div>
+<script src="assets/nav.js"></script>
+<script src="assets/toc.js"></script>
+</body>
+</html>

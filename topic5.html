@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Code 初识 · 和 AI 一起用电脑</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="backdrop" id="backdrop"></div>
+<aside class="sidebar" id="sidebar">
+  <a class="s-brand" href="index.html"><span class="s-logo"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 6 16"/><line x1="12" y1="16" x2="18" y2="16"/></svg></span><span class="s-name">和 AI 一起用电脑</span></a>
+  <div class="s-search"><span class="s-search-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.6" y2="16.6"/></svg></span><input id="navFilter" type="text" placeholder="筛选章节…" autocomplete="off"></div>
+  <nav class="s-scroll">
+    <div class="s-group"><a class="s-item" href="index.html"><span class="s-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a2 2 0 0 0-2 2z"/><path d="M6 20a2 2 0 0 1-2-2"/></svg></span><span class="s-txt">总览</span></a></div>
+    <div id="topicGroup"><div class="s-group"><div class="s-label">第一课 · 电脑基本功</div><a class="s-item" href="topic1.html" data-name="操作系统 & 终端"><span class="s-num">01</span><span class="s-txt">操作系统 & 终端</span></a><a class="s-item" href="topic2.html" data-name="命令行核心命令"><span class="s-num">02</span><span class="s-txt">命令行核心命令</span></a><a class="s-item" href="topic3.html" data-name="文件系统 & 组织"><span class="s-num">03</span><span class="s-txt">文件系统 & 组织</span></a><a class="s-item" href="topic4.html" data-name="Homebrew"><span class="s-num">04</span><span class="s-txt">Homebrew</span></a><a class="s-item active" href="topic5.html" data-name="Claude Code 初识"><span class="s-num">05</span><span class="s-txt">Claude Code 初识</span></a><a class="s-item" href="topic6.html" data-name="Markdown"><span class="s-num">06</span><span class="s-txt">Markdown</span></a><a class="s-item" href="topic7.html" data-name="LaTeX & Overleaf"><span class="s-num">07</span><span class="s-txt">LaTeX & Overleaf</span></a><a class="s-item" href="topic8.html" data-name="VS Code & Python"><span class="s-num">08</span><span class="s-txt">VS Code & Python</span></a></div><div class="s-group"><div class="s-label">第二课 · Claude Code 实战</div><a class="s-item" href="c01-overview.html" data-name="课程总览"><span class="s-num">09</span><span class="s-txt">课程总览</span></a><a class="s-item" href="c02-mac-setup.html" data-name="Mac 安装配置"><span class="s-num">10</span><span class="s-txt">Mac 安装配置</span></a><a class="s-item" href="c03-windows-setup.html" data-name="Windows 方案"><span class="s-num">11</span><span class="s-txt">Windows 方案</span></a><a class="s-item" href="c04-github-gh.html" data-name="GitHub & gh"><span class="s-num">12</span><span class="s-txt">GitHub & gh</span></a><a class="s-item" href="c05-github-pages.html" data-name="GitHub Pages"><span class="s-num">13</span><span class="s-txt">GitHub Pages</span></a><a class="s-item" href="c06-web-slides.html" data-name="网页幻灯片"><span class="s-num">14</span><span class="s-txt">网页幻灯片</span></a><a class="s-item" href="c07-prompt-skills.html" data-name="提问的艺术"><span class="s-num">15</span><span class="s-txt">提问的艺术</span></a><a class="s-item" href="c08-best-practices.html" data-name="案例与最佳实践"><span class="s-num">16</span><span class="s-txt">案例与最佳实践</span></a><a class="s-item" href="c09-prompt-patterns.html" data-name="任务型 Prompt"><span class="s-num">17</span><span class="s-txt">任务型 Prompt</span></a><a class="s-item" href="c10-cheatsheet.html" data-name="命令速查表"><span class="s-num">18</span><span class="s-txt">命令速查表</span></a><a class="s-item" href="c11-prompts.html" data-name="Prompt 模板"><span class="s-num">19</span><span class="s-txt">Prompt 模板</span></a></div></div>
+    <div class="s-empty" id="navEmpty" hidden>没有匹配的章节</div>
+  </nav>
+  <div class="s-foot">2026-07-13 实战课 · 综合笔记</div>
+</aside>
+<div class="content">
+  <div class="mtop">
+    <button class="burger" id="burger" aria-label="菜单"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <a class="m-brand" href="index.html">和 AI 一起用电脑</a>
+  </div>
+  <div class="page">
+
+<div class="doc-head">
+  <div class="crumb">第一课 · 05 / 19</div>
+  <h1>Claude Code 初识</h1>
+  <p class="sub">能真正操作电脑的 AI：权限、token、模型与订阅计费</p>
+</div>
+
+<div class="doc-layout">
+  <article class="article md">
+<h1 id="claude-code能直接操作你电脑的-ai-命令行工具">Claude
+Code：能直接操作你电脑的 AI 命令行工具</h1>
+<h2
+id="一它到底是什么会动手干活的-ai">一、它到底是什么：会「动手干活」的
+AI</h2>
+<p>我们平时用的网页版
+Claude、ChatGPT，本质是一个「聊天框」——你问它答，它只会输出文字，看不到也碰不到你电脑里的任何东西。你想让它帮你改一份文件，只能自己复制粘贴进去、再把结果复制出来。</p>
+<p><strong>Claude Code
+不一样。它是一个运行在「终端」（Terminal，就是那个黑色的命令行窗口）里的
+AI 助手，最大的区别是：它能真正操作你的电脑。</strong>
+按官方说法，它是一个「agentic（自主代理式）」工具——你给一句自然语言指令，它会自己规划步骤、自己调用工具、一步步把事做完，中途不需要你手把手带。</p>
+<p>课堂上老师的演示就是最好的例子：把一份考卷丢进文件夹，一句「用 LaTeX
+写出完整解答并编译成 PDF」，Claude Code 就自己去执行
+<code>ls</code>（列目录）、读文件、检查电脑上有没有装 LaTeX 工具、写出
+<code>.tex</code> 源文件、再运行编译命令生成
+PDF——全程它自己动手。这在网页版里是绝对做不到的。</p>
+<p>一句话总结区别：<strong>网页版 Claude 是「隔着玻璃跟你聊天」，Claude
+Code 是「坐到你电脑前帮你干活」。</strong></p>
+<h2 id="二它能干什么远不止写代码">二、它能干什么：远不止写代码</h2>
+<p>虽然名字里有「Code」，但它的能力对非程序员一样有用。官方列出的核心能力包括：读写文件、运行命令、联网查资料、连续多轮自主完成任务、管理整个项目文件夹。落到日常场景：</p>
+<ul>
+<li><strong>整理资料</strong>：把一堆杂乱文件按规则批量重命名、归类到不同文件夹。</li>
+<li><strong>读 PDF
+做总结</strong>：把几十页的报告或论文丢给它，让它读完写摘要、提要点。</li>
+<li><strong>排版作业 / 文档</strong>：像演示里那样，用 LaTeX 或 Markdown
+排版，直接生成 PDF。</li>
+<li><strong>做简历、写文案</strong>：给它素材，让它生成并反复修改成品文件。</li>
+<li><strong>上网查证</strong>：让它联网搜最新信息，再整理成一份文档。</li>
+</ul>
+<p>因为它能「看到」并管理你整个项目目录，处理跨几十个文件的大任务时，比网页版复制粘贴强太多。</p>
+<h2 id="三安装与启动">三、安装与启动</h2>
+<p>前提：一台 Mac、Linux 或 Windows
+电脑。以下为官方推荐的安装方式（请以官方文档为准）：</p>
+<ul>
+<li><strong>原生安装脚本（官方首选）</strong>——macOS / Linux
+终端里粘贴： <code>curl -fsSL https://claude.ai/install.sh | bash</code>
+（这种方式会在后台自动更新到最新版。）</li>
+<li><strong>Homebrew（Mac
+用户常用）</strong>：<code>brew install --cask claude-code</code></li>
+<li>Windows 用户可用 PowerShell 脚本或
+<code>winget install Anthropic.ClaudeCode</code>。</li>
+</ul>
+<p>装好后，用 <code>cd</code>
+命令进入你要处理的项目文件夹，输入一个词回车即可启动：</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> 你的项目文件夹</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">claude</span></span></code></pre></div>
+<p><strong>首次使用</strong>它会提示你登录（用你的 Claude
+账号授权），登录一次以后就记住了。除了终端，Claude Code 现在也有桌面
+App、VS Code 插件和网页版，但终端版功能最全。</p>
+<h2 id="四权限与授权机制安全是核心">四、权限与授权机制：安全是核心</h2>
+<p>「AI 能操作我电脑」听起来有点吓人——万一它删错文件怎么办？Claude Code
+的设计正是为此：<strong>做任何有风险的操作（写文件、删文件、运行命令）之前，它会停下来向你请求许可</strong>，屏幕上弹出「是否允许执行
+XXX」，你确认了它才动手。</p>
+<p>所谓「授予权限」，就是你在为这一步操作点头。安全建议：</p>
+<ul>
+<li>一开始逐条看清楚再批准，别无脑一路回车。</li>
+<li>对「读文件、列目录」这类安全操作可以放心;对「删除、覆盖、联网发送」多留个心眼。</li>
+<li>在重要资料的文件夹里操作前，先备份;或先在测试文件夹里熟悉它的脾气。</li>
+</ul>
+<h2 id="五常用交互怎么跟它对话">五、常用交互：怎么跟它对话</h2>
+<ul>
+<li><strong>给指令</strong>：直接用大白话打字，中文英文都行。想让它全程说中文，开头说一句「请全程用中文回答」即可。</li>
+<li><strong>斜杠命令</strong>：输入 <code>/</code>
+开头的命令控制程序本身。最常用的是
+<code>/help</code>（查看所有命令）；此外还有清空对话、切换模型、查看用量等命令。</li>
+<li><strong>中断</strong>：它跑偏了或你想喊停，按 <code>Esc</code>
+打断当前动作；<code>Ctrl+C</code> 强制中止。</li>
+<li><strong>退出</strong>：输入 <code>/exit</code>，或按两次
+<code>Ctrl+C</code>。</li>
+</ul>
+<h2 id="六token-与上下文窗口">六、token 与上下文窗口</h2>
+<p><strong>token（词元）是 AI
+眼里的「字」</strong>，是它计量和收费的基本单位。粗略换算：一个中文字大约
+1 个 token，一个英文单词大约 1–2 个
+token。你发的问题、它给的回答，都会被拆成一个个 token 来计数。</p>
+<p><strong>上下文窗口（context window）</strong>，可以理解成 AI
+的「短期记忆容量」——它一次对话里最多能「记住」多少
+token。目前旗舰模型的窗口已达上百万
+token（约等于好几本书），但也不是无限。对话拉得太长会占满窗口，这时它会自动「压缩」早期内容来腾地方。所以任务做完了开个新对话（清空上下文），既省额度也更清爽。</p>
+<h2 id="七模型与订阅计费">七、模型与订阅计费</h2>
+<p><strong>模型</strong>：Claude 家族按能力从低到高分
+Haiku（快而省）、Sonnet（均衡主力）、Opus（旗舰）几档。老师课上说的「Opus
+是旗舰」基本没错——当前旗舰是 <strong>Opus 4.8</strong>；不过 2026
+年官方在 Opus 之上还推出了更强的 <strong>Fable
+5</strong>。日常够用的默认模型是 Sonnet
+5。（模型迭代很快，<strong>具体请以官方页面为准</strong>。）</p>
+<p><strong>计费——两种模式别搞混</strong>：</p>
+<ol type="1">
+<li><strong>订阅制（推荐新手）</strong>：按月付固定费用，Claude 网页版和
+Claude Code 共用同一份额度。</li>
+<li><strong>API 按量计费</strong>：按实际用掉的 token
+付费，适合开发者接程序。注意：如果你电脑里设了
+<code>ANTHROPIC_API_KEY</code> 环境变量，Claude Code 会走 API
+扣费，容易「意外收到账单」——想用订阅额度，就别设这个变量。</li>
+</ol>
+<p><strong>订阅档位（价格以 <a
+href="https://claude.com/pricing">官方定价页</a> 为准）</strong>：</p>
+<ul>
+<li><strong>Pro，约
+$20/月</strong>：适合轻度、短时使用，官方定位「小项目短时冲刺」。</li>
+<li><strong>Max，约 $100/月（5 倍用量）与 $200/月（20
+倍用量）</strong>：重度使用、输出上限更高、高峰期优先。</li>
+</ul>
+<p><strong>为什么有额度限制</strong>：官方采用「滚动 5 小时窗口 +
+每周额度」的双层机制。用超了不是当天封死，而是等下一个时间窗口刷新（通常几十分钟）。官方<strong>只公布倍数（Pro
+1×、Max 5×/20×），不公布精确 token 数</strong>——网上任何「每窗口 X 个
+token」都是第三方估算，别当准。</p>
+<p><strong>务实建议</strong>：先花 $20 上 Pro
+用满一周正常工作量，<strong>一周内只偶尔撞到几次上限就够用</strong>；如果频繁被限流，再升
+Max 5×;Max 20× 只有整天高强度、多开会话的人才需要。</p>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li><a href="https://code.claude.com/docs/en/overview">Claude Code
+官方文档 · Overview</a> — 官方总览：安装方式（脚本 / Homebrew /
+winget）、<code>claude</code> 启动、能力清单，最权威入口。</li>
+<li><a
+href="https://github.com/anthropics/claude-code">anthropics/claude-code
+· GitHub</a> — 官方仓库，对「运行在终端里的 agentic
+工具」的定义与更新记录。</li>
+<li><a href="https://claude.com/pricing">Claude 官方定价页</a> — Pro /
+Max 各档价格与定位的权威来源，价格以此页为准。</li>
+<li><a
+href="https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan">用
+Pro/Max 订阅使用 Claude Code · 官方帮助中心</a> — 说明订阅与 Claude Code
+如何共用额度、API Key 意外扣费等。</li>
+<li><a
+href="https://platform.claude.com/docs/en/about-claude/models/overview">Claude
+模型总览 · 官方文档</a> — Haiku / Sonnet / Opus / Fable
+各模型定位与最新型号，核实模型名请看这里。</li>
+<li><a
+href="https://support.claude.com/en/articles/11049741-what-is-the-max-plan">What
+is the Max plan · 官方帮助中心</a> — Max 档的每周额度、5
+小时窗口等限额机制官方说明。</li>
+</ul>
+
+  </article>
+  <aside class="toc"><div class="t-title">本页目录</div><a class="lvl2" href="#二它能干什么远不止写代码">二、它能干什么：远不止写代码</a>
+<a class="lvl2" href="#三安装与启动">三、安装与启动</a>
+<a class="lvl2" href="#四权限与授权机制安全是核心">四、权限与授权机制：安全是核心</a>
+<a class="lvl2" href="#五常用交互怎么跟它对话">五、常用交互：怎么跟它对话</a>
+<a class="lvl2" href="#六token-与上下文窗口">六、token 与上下文窗口</a>
+<a class="lvl2" href="#七模型与订阅计费">七、模型与订阅计费</a>
+<a class="lvl2" href="#参考资料">参考资料</a></aside>
+</div>
+
+<nav class="pager">
+  <a href="topic4.html"><span class="lab">← 上一篇</span><span class="ttl">Homebrew 包管理器</span></a>
+  <a class="next" href="topic6.html"><span class="lab">下一篇 →</span><span class="ttl">Markdown</span></a>
+</nav>
+
+  </div>
+</div>
+<script src="assets/nav.js"></script>
+<script src="assets/toc.js"></script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VS Code & Python · 和 AI 一起用电脑</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="backdrop" id="backdrop"></div>
+<aside class="sidebar" id="sidebar">
+  <a class="s-brand" href="index.html"><span class="s-logo"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 6 16"/><line x1="12" y1="16" x2="18" y2="16"/></svg></span><span class="s-name">和 AI 一起用电脑</span></a>
+  <div class="s-search"><span class="s-search-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.6" y2="16.6"/></svg></span><input id="navFilter" type="text" placeholder="筛选章节…" autocomplete="off"></div>
+  <nav class="s-scroll">
+    <div class="s-group"><a class="s-item" href="index.html"><span class="s-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a2 2 0 0 0-2 2z"/><path d="M6 20a2 2 0 0 1-2-2"/></svg></span><span class="s-txt">总览</span></a></div>
+    <div id="topicGroup"><div class="s-group"><div class="s-label">第一课 · 电脑基本功</div><a class="s-item" href="topic1.html" data-name="操作系统 & 终端"><span class="s-num">01</span><span class="s-txt">操作系统 & 终端</span></a><a class="s-item" href="topic2.html" data-name="命令行核心命令"><span class="s-num">02</span><span class="s-txt">命令行核心命令</span></a><a class="s-item" href="topic3.html" data-name="文件系统 & 组织"><span class="s-num">03</span><span class="s-txt">文件系统 & 组织</span></a><a class="s-item" href="topic4.html" data-name="Homebrew"><span class="s-num">04</span><span class="s-txt">Homebrew</span></a><a class="s-item" href="topic5.html" data-name="Claude Code 初识"><span class="s-num">05</span><span class="s-txt">Claude Code 初识</span></a><a class="s-item" href="topic6.html" data-name="Markdown"><span class="s-num">06</span><span class="s-txt">Markdown</span></a><a class="s-item" href="topic7.html" data-name="LaTeX & Overleaf"><span class="s-num">07</span><span class="s-txt">LaTeX & Overleaf</span></a><a class="s-item active" href="topic8.html" data-name="VS Code & Python"><span class="s-num">08</span><span class="s-txt">VS Code & Python</span></a></div><div class="s-group"><div class="s-label">第二课 · Claude Code 实战</div><a class="s-item" href="c01-overview.html" data-name="课程总览"><span class="s-num">09</span><span class="s-txt">课程总览</span></a><a class="s-item" href="c02-mac-setup.html" data-name="Mac 安装配置"><span class="s-num">10</span><span class="s-txt">Mac 安装配置</span></a><a class="s-item" href="c03-windows-setup.html" data-name="Windows 方案"><span class="s-num">11</span><span class="s-txt">Windows 方案</span></a><a class="s-item" href="c04-github-gh.html" data-name="GitHub & gh"><span class="s-num">12</span><span class="s-txt">GitHub & gh</span></a><a class="s-item" href="c05-github-pages.html" data-name="GitHub Pages"><span class="s-num">13</span><span class="s-txt">GitHub Pages</span></a><a class="s-item" href="c06-web-slides.html" data-name="网页幻灯片"><span class="s-num">14</span><span class="s-txt">网页幻灯片</span></a><a class="s-item" href="c07-prompt-skills.html" data-name="提问的艺术"><span class="s-num">15</span><span class="s-txt">提问的艺术</span></a><a class="s-item" href="c08-best-practices.html" data-name="案例与最佳实践"><span class="s-num">16</span><span class="s-txt">案例与最佳实践</span></a><a class="s-item" href="c09-prompt-patterns.html" data-name="任务型 Prompt"><span class="s-num">17</span><span class="s-txt">任务型 Prompt</span></a><a class="s-item" href="c10-cheatsheet.html" data-name="命令速查表"><span class="s-num">18</span><span class="s-txt">命令速查表</span></a><a class="s-item" href="c11-prompts.html" data-name="Prompt 模板"><span class="s-num">19</span><span class="s-txt">Prompt 模板</span></a></div></div>
+    <div class="s-empty" id="navEmpty" hidden>没有匹配的章节</div>
+  </nav>
+  <div class="s-foot">2026-07-13 实战课 · 综合笔记</div>
+</aside>
+<div class="content">
+  <div class="mtop">
+    <button class="burger" id="burger" aria-label="菜单"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <a class="m-brand" href="index.html">和 AI 一起用电脑</a>
+  </div>
+  <div class="page">
+
+<div class="doc-head">
+  <div class="crumb">第一课 · 08 / 19</div>
+  <h1>VS Code & Python</h1>
+  <p class="sub">编辑器上手、code 命令联动、写下第一个 Python 程序</p>
+</div>
+
+<div class="doc-layout">
+  <article class="article md">
+<h1 id="vs-code-编辑器-与-python-基础入门">VS Code 编辑器 与 Python
+基础入门</h1>
+<p>这一讲把两件事讲透：一个是<strong>写代码的工具</strong>（VS
+Code），一个是<strong>能运行的编程语言</strong>（Python）。学会它俩，你就能在电脑上真正「动手」了。</p>
+<h2 id="一vs-code-是什么">一、VS Code 是什么</h2>
+<p>VS Code（全名 Visual Studio
+Code）是微软出的一款<strong>免费、开源</strong>的代码/文本编辑器。你可以把它理解成一个「加强版的记事本」：</p>
+<ul>
+<li>和<strong>记事本 / TextEdit</strong> 比：VS Code
+会给代码上色（语法高亮）、能开多个文件、内置终端、能装插件，功能强太多。</li>
+<li>和 <strong>Word</strong> 比：Word
+是排版工具，会往文件里塞一堆格式信息；写代码要的是「纯文本」，VS Code
+存的就是干干净净的纯文本。</li>
+<li>和 <strong>PyCharm 这类 IDE</strong>
+比：IDE（集成开发环境）是「全家桶」，重、功能全、启动慢；VS Code
+是「轻量但强大」，装了插件后照样能干专业开发的活，启动快、上手快，非常适合新手。</li>
+</ul>
+<p>一句话：写代码、记 Markdown 笔记、改配置文件、看日志……只要是文本，VS
+Code 都能干。</p>
+<h2 id="二安装-vs-code">二、安装 VS Code</h2>
+<p>两种方式，任选其一：</p>
+<ul>
+<li><strong>官网下载</strong>：打开 <a
+href="https://code.visualstudio.com/">code.visualstudio.com</a>，点
+Download，把下载的 App 拖进「应用程序」文件夹即可。</li>
+<li><strong>命令行安装（推荐会用终端的人）</strong>：</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install <span class="at">--cask</span> visual-studio-code</span></code></pre></div>
+<p>首次打开会看到欢迎页（Welcome），可以先关掉，我们直接上手。</p>
+<h2 id="三界面导览小白向">三、界面导览（小白向）</h2>
+<p>打开后从左到右、从上到下认几个区域：</p>
+<ol type="1">
+<li><strong>资源管理器 /
+文件树</strong>（最左边的图标）：显示你打开的文件夹里有哪些文件，点一下就能打开。</li>
+<li><strong>编辑区</strong>（中间大块）：真正写字、写代码的地方。</li>
+<li><strong>命令面板</strong>：按
+<code>Cmd+Shift+P</code>，弹出一个搜索框，几乎所有功能都能在这里搜名字执行——记不住快捷键时就靠它。</li>
+<li><strong>集成终端</strong>：菜单栏「终端 → 新建终端」，或按
+<code>Ctrl+`</code>，一个内置的命令行直接嵌在窗口下方，不用再切到别的
+App。</li>
+<li><strong>设置</strong>：<code>Cmd+,</code>
+打开，改主题、字号等。</li>
+</ol>
+<h2 id="四code-命令让命令行和编辑器联动">四、code
+命令：让命令行和编辑器联动</h2>
+<p>装好 App 后，还要装一个 <code>code</code>
+命令，才能在终端里用它。做法：</p>
+<ol type="1">
+<li>按 <code>Cmd+Shift+P</code> 打开命令面板；</li>
+<li>输入 <code>shell command</code>，选择 <strong>Shell Command: Install
+'code' command in PATH</strong>；</li>
+<li><strong>重启终端</strong>让设置生效。</li>
+</ol>
+<p>之后就能这样用：</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> .          <span class="co"># 用 VS Code 打开「当前文件夹」（. 表示当前目录）</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> hello.py   <span class="co"># 打开某个具体文件</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> <span class="at">--help</span>     <span class="co"># 查看所有用法</span></span></code></pre></div>
+<p>这就是「命令行 ↔︎ 编辑器」的联动：你在终端 <code>cd</code>
+到某个项目文件夹，敲
+<code>code .</code>，整个文件夹就在编辑器里打开了。不想用命令也行——<strong>直接把文件夹拖进
+VS Code 窗口</strong>同样能打开。左上角文件树顶部还有「新建文件 /
+新建文件夹」的小按钮，点一下就能建。</p>
+<h2 id="五必装扩展小白向">五、必装扩展（小白向）</h2>
+<p>扩展就是插件。点左侧那个「四个方块」图标（扩展市场），搜名字后点
+Install 即可。新手建议先装这三个：</p>
+<ul>
+<li><strong>Chinese (Simplified)
+中文语言包</strong>：把菜单界面变成中文。</li>
+<li><strong>Python</strong>（微软官方）：写 Python
+时的语法高亮、补全、一键运行。</li>
+<li><strong>Markdown 相关</strong>：VS Code 自带 Markdown
+支持，写笔记很方便。</li>
+</ul>
+<h2 id="六markdown-预览">六、Markdown 预览</h2>
+<p>Markdown 是一种用简单符号写格式的纯文本（<code>#</code>
+是标题，<code>-</code> 是列表）。写好一个 <code>.md</code> 文件后：</p>
+<ul>
+<li>按 <code>Cmd+K</code> 松开，再按
+<code>V</code>：在<strong>右侧并排</strong>打开预览；</li>
+<li>或点编辑区<strong>右上角的预览小图标</strong>。</li>
+</ul>
+<p>左边改字，右边实时看效果，写文档非常爽。</p>
+<h2 id="七python-基础">七、Python 基础</h2>
+<h3 id="python-是什么">Python 是什么</h3>
+<p>Python
+是一门<strong>易学、强大</strong>的编程语言，语法接近自然英语，广泛用于数据分析、人工智能、网站后端、自动化脚本等。它是很多零基础者的第一门语言。</p>
+<h3 id="系统自带-vs-homebrew-安装">系统自带 vs Homebrew 安装</h3>
+<p>Mac 一般自带一个
+python3，但那是「系统在用」的，版本旧、不方便管理。<strong>开发建议自己装一个独立版</strong>：</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install python3</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">--version</span>   <span class="co"># 查看版本，能打印出版本号就说明装好了</span></span></code></pre></div>
+<p>为什么要独立版？避免动到系统的 Python
+把系统搞坏，同时你能自由升级、装库。</p>
+<h3 id="写第一个程序-hellopy">写第一个程序 hello.py</h3>
+<p>在 VS Code 里新建文件 <code>hello.py</code>，输入：</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;hello world&quot;</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;第&quot;</span>, i, <span class="st">&quot;次循环&quot;</span>)</span></code></pre></div>
+<p>说明：<code>print(...)</code> 是打印到屏幕；<code>range(3)</code>
+生成 0、1、2 三个数；<code>for</code> 会把它们依次取出。注意
+<code>for</code> 下面那行<strong>前面要有缩进</strong>（4
+个空格）——Python 靠缩进区分代码层级，这点很重要。</p>
+<p>保存后，在终端运行：</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> hello.py</span></code></pre></div>
+<p>你会看到：</p>
+<pre><code>hello world
+第 0 次循环
+第 1 次循环
+第 2 次循环</code></pre>
+<h3 id="交互式-repl即时试验场">交互式 REPL（即时试验场）</h3>
+<p>在终端直接输入 <code>python3</code> 回车，就进入了交互式环境（叫
+REPL，「读取-求值-输出」循环），敲一行立刻出结果，特别适合试语法：</p>
+<pre><code>&gt;&gt;&gt; 1 + 2
+3
+&gt;&gt;&gt; print(&quot;hi&quot;)
+hi
+&gt;&gt;&gt; exit()</code></pre>
+<p>输入 <code>exit()</code>
+回车即可退出，回到普通终端。想写完整程序时，还是用 <code>.py</code>
+文件更好。</p>
+<h3 id="一句话认识-pip-和-venv">一句话认识 pip 和 venv</h3>
+<ul>
+<li><strong>pip</strong>：Python
+的「应用商店」，装别人写好的第三方库，比如
+<code>pip3 install requests</code>。</li>
+<li><strong>venv</strong>：虚拟环境，给每个项目单独一套库，互不干扰。现在知道有这俩东西就行，用到时再细学。</li>
+</ul>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li><a href="https://vscode.js.cn/docs/setup/mac">在 macOS 上安装 VS
+Code（官方中文文档）</a> — 安装步骤与 <code>code</code>
+命令的权威说明。</li>
+<li><a href="https://code.visualstudio.com/docs/editor/command-line">VS
+Code 命令行界面 CLI（官方文档）</a> —
+<code>code .</code>、<code>code --help</code> 等命令用法。</li>
+<li><a href="https://www.runoob.com/vscode/vscode-terminal.html">VSCode
+集成终端（菜鸟教程）</a> — 内置终端的中文图文讲解。</li>
+<li><a href="https://docs.python.org/zh-cn/3/tutorial/index.html">Python
+官方中文教程</a> — 最权威的入门材料，含 print、循环、REPL。</li>
+<li><a
+href="https://liaoxuefeng.com/books/python/basic/index.html">廖雪峰
+Python 教程</a> — 面向小白的中文入门，for/while 循环讲得清楚。</li>
+<li><a
+href="https://www.runoob.com/python3/python3-tutorial.html">菜鸟教程
+Python3</a> — 含 pip、venv 虚拟环境等专题，可随查随用。</li>
+</ul>
+
+  </article>
+  <aside class="toc"><div class="t-title">本页目录</div><a class="lvl2" href="#一vs-code-是什么">一、VS Code 是什么</a>
+<a class="lvl2" href="#二安装-vs-code">二、安装 VS Code</a>
+<a class="lvl2" href="#三界面导览小白向">三、界面导览（小白向）</a>
+<a class="lvl2" href="#四code-命令让命令行和编辑器联动">四、code
+命令：让命令行和编辑器联动</a>
+<a class="lvl2" href="#五必装扩展小白向">五、必装扩展（小白向）</a>
+<a class="lvl2" href="#六markdown-预览">六、Markdown 预览</a>
+<a class="lvl2" href="#七python-基础">七、Python 基础</a>
+<a class="lvl3" href="#python-是什么">Python 是什么</a>
+<a class="lvl3" href="#系统自带-vs-homebrew-安装">系统自带 vs Homebrew 安装</a>
+<a class="lvl3" href="#写第一个程序-hellopy">写第一个程序 hello.py</a>
+<a class="lvl3" href="#交互式-repl即时试验场">交互式 REPL（即时试验场）</a>
+<a class="lvl3" href="#一句话认识-pip-和-venv">一句话认识 pip 和 venv</a>
+<a class="lvl2" href="#参考资料">参考资料</a></aside>
+</div>
+
+<nav class="pager">
+  <a href="topic7.html"><span class="lab">← 上一篇</span><span class="ttl">LaTeX & Overleaf</span></a>
+  <a class="next" href="c01-overview.html"><span class="lab">下一篇 →</span><span class="ttl">课程总览：一个下午三个网站</span></a>
+</nav>
+
+  </div>
+</div>
+<script src="assets/nav.js"></script>
+<script src="assets/toc.js"></script>
+</body>
+</html>

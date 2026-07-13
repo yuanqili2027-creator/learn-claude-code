@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>分任务型 Prompt 经验 · 和 AI 一起用电脑</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="backdrop" id="backdrop"></div>
+<aside class="sidebar" id="sidebar">
+  <a class="s-brand" href="index.html"><span class="s-logo"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 6 16"/><line x1="12" y1="16" x2="18" y2="16"/></svg></span><span class="s-name">和 AI 一起用电脑</span></a>
+  <div class="s-search"><span class="s-search-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.6" y2="16.6"/></svg></span><input id="navFilter" type="text" placeholder="筛选章节…" autocomplete="off"></div>
+  <nav class="s-scroll">
+    <div class="s-group"><a class="s-item" href="index.html"><span class="s-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a2 2 0 0 0-2 2z"/><path d="M6 20a2 2 0 0 1-2-2"/></svg></span><span class="s-txt">总览</span></a></div>
+    <div id="topicGroup"><div class="s-group"><div class="s-label">第一课 · 电脑基本功</div><a class="s-item" href="topic1.html" data-name="操作系统 & 终端"><span class="s-num">01</span><span class="s-txt">操作系统 & 终端</span></a><a class="s-item" href="topic2.html" data-name="命令行核心命令"><span class="s-num">02</span><span class="s-txt">命令行核心命令</span></a><a class="s-item" href="topic3.html" data-name="文件系统 & 组织"><span class="s-num">03</span><span class="s-txt">文件系统 & 组织</span></a><a class="s-item" href="topic4.html" data-name="Homebrew"><span class="s-num">04</span><span class="s-txt">Homebrew</span></a><a class="s-item" href="topic5.html" data-name="Claude Code 初识"><span class="s-num">05</span><span class="s-txt">Claude Code 初识</span></a><a class="s-item" href="topic6.html" data-name="Markdown"><span class="s-num">06</span><span class="s-txt">Markdown</span></a><a class="s-item" href="topic7.html" data-name="LaTeX & Overleaf"><span class="s-num">07</span><span class="s-txt">LaTeX & Overleaf</span></a><a class="s-item" href="topic8.html" data-name="VS Code & Python"><span class="s-num">08</span><span class="s-txt">VS Code & Python</span></a></div><div class="s-group"><div class="s-label">第二课 · Claude Code 实战</div><a class="s-item" href="c01-overview.html" data-name="课程总览"><span class="s-num">09</span><span class="s-txt">课程总览</span></a><a class="s-item" href="c02-mac-setup.html" data-name="Mac 安装配置"><span class="s-num">10</span><span class="s-txt">Mac 安装配置</span></a><a class="s-item" href="c03-windows-setup.html" data-name="Windows 方案"><span class="s-num">11</span><span class="s-txt">Windows 方案</span></a><a class="s-item" href="c04-github-gh.html" data-name="GitHub & gh"><span class="s-num">12</span><span class="s-txt">GitHub & gh</span></a><a class="s-item" href="c05-github-pages.html" data-name="GitHub Pages"><span class="s-num">13</span><span class="s-txt">GitHub Pages</span></a><a class="s-item" href="c06-web-slides.html" data-name="网页幻灯片"><span class="s-num">14</span><span class="s-txt">网页幻灯片</span></a><a class="s-item" href="c07-prompt-skills.html" data-name="提问的艺术"><span class="s-num">15</span><span class="s-txt">提问的艺术</span></a><a class="s-item" href="c08-best-practices.html" data-name="案例与最佳实践"><span class="s-num">16</span><span class="s-txt">案例与最佳实践</span></a><a class="s-item active" href="c09-prompt-patterns.html" data-name="任务型 Prompt"><span class="s-num">17</span><span class="s-txt">任务型 Prompt</span></a><a class="s-item" href="c10-cheatsheet.html" data-name="命令速查表"><span class="s-num">18</span><span class="s-txt">命令速查表</span></a><a class="s-item" href="c11-prompts.html" data-name="Prompt 模板"><span class="s-num">19</span><span class="s-txt">Prompt 模板</span></a></div></div>
+    <div class="s-empty" id="navEmpty" hidden>没有匹配的章节</div>
+  </nav>
+  <div class="s-foot">2026-07-13 实战课 · 综合笔记</div>
+</aside>
+<div class="content">
+  <div class="mtop">
+    <button class="burger" id="burger" aria-label="菜单"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <a class="m-brand" href="index.html">和 AI 一起用电脑</a>
+  </div>
+  <div class="page">
+
+<div class="doc-head">
+  <div class="crumb">第二课 · 17 / 19</div>
+  <h1>分任务型 Prompt 经验</h1>
+  <p class="sub">编程 / 写作 / 研究 / 幻灯片 / 自动化，各任务型的提问模式</p>
+</div>
+
+<div class="doc-layout">
+  <article class="article md">
+<h1 id="不同任务类型的-prompt-经验">不同任务类型的 Prompt 经验</h1>
+<blockquote>
+<p>好提示词的共同点：具体、可验证、给足上下文。下面按任务类型给出可以直接照抄或套用的模式，每条附"为什么有效"。</p>
+</blockquote>
+<h2 id="一编程">一、编程</h2>
+<h3 id="模式-1从模糊求助改写成文件--场景--验证步骤">模式
+1：从"模糊求助"改写成"文件 + 场景 + 验证步骤"</h3>
+<p><a href="https://code.claude.com/docs/en/best-practices">官方
+Before/After 示例</a>：</p>
+<ul>
+<li>差：<code>fix the login bug</code>（修一下登录 bug）</li>
+<li>好：<code>users report that login fails after session timeout. check the auth flow in src/auth/, especially token refresh. write a failing test that reproduces the issue, then fix it</code>（用户反馈会话超时后登录失败。检查
+src/auth/ 的鉴权流程，尤其是 token
+刷新。先写一个能复现问题的失败测试，再修复它。）</li>
+</ul>
+<p><strong>为什么有效</strong>：指定了文件范围、触发场景和"先复现再修"的验证顺序，Claude
+不必大范围扫描猜测，且修复有测试兜底。</p>
+<h3 id="模式-2指向代码库里的既有范式">模式
+2：指向代码库里的既有范式</h3>
+<p><a
+href="https://code.claude.com/docs/en/best-practices">官方示例</a>：<code>look at how existing widgets are implemented on the home page. HotDogWidget.php is a good example. follow the pattern to implement a new calendar widget</code>（看看首页现有组件怎么实现的，HotDogWidget.php
+是个好例子，照这个模式实现一个日历组件。）</p>
+<p><strong>为什么有效</strong>：与其凭空描述风格要求，不如给一个真实样板——Claude
+模仿现成代码比理解抽象描述准确得多。<a
+href="https://simonwillison.net/2025/Mar/11/using-llms-for-code/">Simon
+Willison 的经验</a>同理：把几个相关的现成例子贴进去，然后说 "use them as
+inspiration"。</p>
+<h3 id="模式-3内置可运行的验证目标">模式 3：内置可运行的验证目标</h3>
+<p><a
+href="https://code.claude.com/docs/en/best-practices">官方示例</a>：不要说
+"implement a function that validates email addresses"，而要说
+<code>write a validateEmail function. example test cases: user@example.com is true, invalid is false. run the tests after implementing</code>（写一个
+validateEmail 函数。测试样例：<a
+href="mailto:user@example.com">user@example.com</a> 为真，invalid
+为假。实现后运行测试。）</p>
+<p><strong>为什么有效</strong>：给了 Claude
+自己能跑的判分标准，它可以迭代到通过为止，把"看起来完成"变成"检查通过才算完成"。进阶版是
+<a
+href="https://alexop.dev/posts/custom-tdd-workflow-claude-code-vue/">TDD
+提示</a>："用 TDD 实现
+X：先写一个会失败的测试并运行确认它失败，贴出失败输出，然后再写最小实现"——必须真的看到红色才能写代码，防止代理幻觉测试结果。</p>
+<h3 id="模式-4大功能先被面试产出-spec-再执行">模式
+4：大功能先"被面试"，产出 spec 再执行</h3>
+<p><a
+href="https://code.claude.com/docs/en/best-practices">官方模板</a>：<code>I want to build [X]. Interview me in detail using the AskUserQuestion tool... Keep interviewing until we've covered everything, then write a complete spec to SPEC.md.</code>
+<a
+href="https://harper.blog/2025/02/16/my-llm-codegen-workflow-atm/">Harper
+Reed
+的变体</a>：<code>Ask me one question at a time so we can develop a thorough, step-by-step spec for this idea.</code>
+之后开新会话干净地执行 spec。</p>
+<p><strong>为什么有效</strong>：一次只问一个问题，逼你把没想清楚的需求想清楚；spec
+落成文件后，执行会话不必背负讨论过程的全部上下文。整个流程约 15
+分钟，但能防止代理在大任务上跑偏。</p>
+<h2 id="二写作与文档">二、写作与文档</h2>
+<h3 id="模式-1先讨论后产出的思考伙伴式提示">模式
+1：先讨论、后产出的"思考伙伴"式提示</h3>
+<p>来自 <a
+href="https://departmentofproduct.substack.com/p/how-to-use-claude-code-for-non-engineering">Department
+of Product 的非工程用法</a>：不要一上来就说"写一份
+PRD"，而是先和它讨论思路、让它读你的资料文件夹，再让它产出需求文档和任务工单。</p>
+<p><strong>为什么有效</strong>：把 Claude Code
+当思考伙伴而非生成器，产出会基于你的真实材料而不是通用模板。</p>
+<h3 id="模式-2访谈式收敛--汇总成文">模式 2：访谈式收敛 + 汇总成文</h3>
+<p><a
+href="https://harper.blog/2025/02/16/my-llm-codegen-workflow-atm/">Harper
+Reed 的两段式</a>：先
+<code>Ask me one question at a time...</code>（一次问我一个问题，把这个想法打磨成详尽的分步规格），结束后
+<code>compile our findings into a comprehensive, developer-ready specification</code>（把我们的讨论汇总成一份完整的规格文档）。</p>
+<p><strong>为什么有效</strong>：写作最难的是把脑中的模糊想法externalize——让
+AI 提问比让你自己空想更快抵达结构。</p>
+<h3 id="模式-3让-claude-反复批评修改自己的稿子">模式 3：让 Claude
+反复"批评—修改"自己的稿子</h3>
+<p>来自<a
+href="https://github.com/pedrohcgs/claude-code-my-workflow">学术写作模板仓库</a>：用
+<code>/review-paper</code>
+模拟同行评审，让审阅代理走"实现→验证→审查→修复"循环，直到质量达标。</p>
+<p><strong>为什么有效</strong>：单次生成的初稿质量有限，多轮对抗式自审能系统性抬高下限——这也是该仓库内置
+18 个审阅代理的原因。</p>
+<h2 id="三研究与数据">三、研究与数据</h2>
+<h3 id="模式-1用自然语言描述数据--想回答的问题">模式
+1：用自然语言描述"数据 + 想回答的问题"</h3>
+<p><a
+href="https://technofile.substack.com/p/data-analysis-with-claude-code-and">Alan
+Jones 分析伦敦 78
+年气象记录</a>的全部输入，就是用英语描述数据是什么、想回答什么问题——产出是完整的书面报告、统计分析和多张图表，全程没写一行代码。</p>
+<p><strong>为什么有效</strong>：把 Claude Code
+当"会执行的分析师"而非"代码生成器"，你的核心技能从编程变成了清晰地描述数据和提问。</p>
+<h3 id="模式-2多来源对照综述要求注明出处">模式
+2：多来源对照综述，要求注明出处</h3>
+<p>可照抄的提示词（<a
+href="https://ccforeveryone.com/guides/claude-code-for-non-developers">CC
+for Everyone</a>）："读完这个文件夹里的所有资料，写一个
+compare.md：差异对照表、每个来源的观点、证据倾向哪边，并注明出处文件名。"</p>
+<p><strong>为什么有效</strong>：指定了输出文件、结构（对照表）和溯源要求，结论可以逐条核查而不是一团模糊的总结。</p>
+<h3 id="模式-3信任但核查-主动管理上下文">模式 3："信任但核查"+
+主动管理上下文</h3>
+<p><a
+href="https://paulgp.substack.com/p/getting-started-with-claude-code">耶鲁经济学家
+Paul Goldsmith-Pinkham
+的经验</a>：统计方法的输出必须亲自核查关键数字；读的文件越多、对话越长，输出质量下降越明显，要主动
+<code>/compact</code> 而不是被动等它塞满。另一条铁律：受 IRB
+保护的数据和个人身份信息绝不进入 Claude Code。</p>
+<p><strong>为什么有效</strong>：研究场景里错误代价高，上下文窗口是"隐形杀手"——提示词再好，也救不了被污染的长会话。</p>
+<h2 id="四幻灯片与排版">四、幻灯片与排版</h2>
+<h3 id="模式-1先面试再出初稿">模式 1：先"面试"再出初稿</h3>
+<p><a
+href="https://www.freecodecamp.org/news/how-to-use-claude-code-and-marp-to-think-through-presentations/">Omer
+Rosenbaum 的 Marp 工作流</a>：他的 <code>/create-marp-deck</code>
+技能先问他目标、听众、要点，再生成 Marp Markdown
+初稿供他反应和修改。</p>
+<p><strong>为什么有效</strong>：幻灯片最难的是叙事结构，不是排版——先被提问逼着想清楚"讲给谁、讲什么"，初稿才不会跑偏；Markdown
+幻灯片的强约束还逼你精简表达。</p>
+<h3 id="模式-2对话级微调版式">模式 2：对话级微调版式</h3>
+<p>同一来源的迭代方式："第 6
+页太密了，把算法对比拆成两页"、"给第一页加一个『为什么选令牌桶』的标注"。</p>
+<p><strong>为什么有效</strong>：用自然语言直接指挥改版式，比在 PPT
+里手动拖拽快，且改动范围明确、可逐条验收；最终可一键导出 md/html/pptx
+三种格式。</p>
+<h3 id="模式-3用-latexbeamer-换取专业排版">模式 3：用 LaTeX/Beamer
+换取专业排版</h3>
+<p><a
+href="https://towardsdatascience.com/how-to-apply-claude-code-to-non-technical-tasks/">Towards
+Data Science 的技巧</a>：让 Claude Code 写 LaTeX/Beamer 代码生成 PDF
+演示文稿，比让它直接做 PPT 更可控、排版更专业。写课件的还可以直接用 <a
+href="https://github.com/pedrohcgs/claude-code-my-workflow">claude-code-my-workflow
+仓库</a>的 <code>/create-lecture</code> 命令。</p>
+<p><strong>为什么有效</strong>：代码化的排版是 Claude
+的强项——每处改动都是可审查的文本 diff，而不是黑盒的所见即所得操作。</p>
+<h3 id="模式-4把历史作品放同一文件夹当风格参照">模式
+4：把历史作品放同一文件夹当风格参照</h3>
+<p><a
+href="https://towardsdatascience.com/how-to-apply-claude-code-to-non-technical-tasks/">同一来源</a>：把所有演示文稿放在一个文件夹里，Claude
+能参考你以前的作品，自动保持公司模板和风格一致。</p>
+<p><strong>为什么有效</strong>：这是排版版的"指向既有范式"——给样板比描述风格准确得多。</p>
+<h2 id="五日常自动化">五、日常自动化</h2>
+<h3 id="模式-1账单转报表一句话搞定">模式 1：账单转报表，一句话搞定</h3>
+<p>可照抄的提示词（<a
+href="https://every.to/source-code/how-to-use-claude-code-for-everyday-tasks-no-programming-required">Every.to</a>）：下载信用卡账单
+CSV
+后说"<strong>把上周的所有支出按类别整理成一个简单的网页报表</strong>"，Claude
+会自动生成可以直接打开的 HTML 页面。</p>
+<p><strong>为什么有效</strong>：说清输入（CSV）、处理方式（按类别）和输出形态（网页报表），Claude
+自己补齐全部技术细节。配套习惯：为每类事务建专门文件夹（如"报销"），在其中启动
+Claude Code，上下文干净又不会误读无关文件。</p>
+<h3 id="模式-2批量整理文件先出计划明令禁删">模式
+2：批量整理文件——先出计划、明令禁删</h3>
+<p>可照抄的提示词（<a
+href="https://ccforeveryone.com/guides/claude-code-for-non-developers">CC
+for
+Everyone</a>）："看看我桌面上的截图，根据每张图的内容重命名"；"提出一个按类型和年份分子文件夹的整理方案，<strong>先给我看完整计划再动手，永远不要删除任何东西</strong>"。</p>
+<p><strong>为什么有效</strong>："先计划后执行 +
+明确禁删"给批量操作加了双保险——模糊的"帮我清理"可能被理解成删除，具体的边界指令不会。</p>
+<h3 id="模式-3票据转结构化数据允许不确定禁止硬猜">模式
+3：票据转结构化数据——允许"不确定"，禁止硬猜</h3>
+<p>可照抄的提示词（<a
+href="https://ccforeveryone.com/guides/claude-code-for-non-developers">同上</a>）："读取每张收据，生成
+expenses.csv，列为：日期、商家、金额、类别；<strong>读不清的单独列出来，不要猜</strong>。"</p>
+<p><strong>为什么有效</strong>：明确给了输出 schema，并给了 Claude
+一个"承认不确定"的出口——否则它会为了完成任务而编造数字。</p>
+<h3 id="模式-4养成这事能不能让-claude-code-做的反射">模式
+4：养成"这事能不能让 Claude Code 做"的反射</h3>
+<p><a
+href="https://towardsdatascience.com/how-to-apply-claude-code-to-non-technical-tasks/">Towards
+Data Science
+的建议</a>：遇到任何电脑上的重复劳动，先问自己"这件事能不能让 Claude
+Code
+做"；配置好邮箱、Notion、云盘的访问权限后，一句话可以同时搜索多个平台；并且在旧项目基础上迭代，而不是每次从零开始。</p>
+<p><strong>为什么有效</strong>：自动化的最大门槛不是提示词技巧，而是想不起来用——而复用旧项目让每次的提示词越来越短。</p>
+
+  </article>
+  <aside class="toc"><div class="t-title">本页目录</div><a class="lvl2" href="#一编程">一、编程</a>
+<a class="lvl3" href="#模式-1从模糊求助改写成文件--场景--验证步骤">模式
+1：从&quot;模糊求助&quot;改写成&quot;文件 + 场景 + 验证步骤&quot;</a>
+<a class="lvl3" href="#模式-2指向代码库里的既有范式">模式
+2：指向代码库里的既有范式</a>
+<a class="lvl3" href="#模式-3内置可运行的验证目标">模式 3：内置可运行的验证目标</a>
+<a class="lvl3" href="#模式-4大功能先被面试产出-spec-再执行">模式
+4：大功能先&quot;被面试&quot;，产出 spec 再执行</a>
+<a class="lvl2" href="#二写作与文档">二、写作与文档</a>
+<a class="lvl3" href="#模式-1先讨论后产出的思考伙伴式提示">模式
+1：先讨论、后产出的&quot;思考伙伴&quot;式提示</a>
+<a class="lvl3" href="#模式-2访谈式收敛--汇总成文">模式 2：访谈式收敛 + 汇总成文</a>
+<a class="lvl3" href="#模式-3让-claude-反复批评修改自己的稿子">模式 3：让 Claude
+反复&quot;批评—修改&quot;自己的稿子</a>
+<a class="lvl2" href="#三研究与数据">三、研究与数据</a>
+<a class="lvl3" href="#模式-1用自然语言描述数据--想回答的问题">模式
+1：用自然语言描述&quot;数据 + 想回答的问题&quot;</a>
+<a class="lvl3" href="#模式-2多来源对照综述要求注明出处">模式
+2：多来源对照综述，要求注明出处</a>
+<a class="lvl3" href="#模式-3信任但核查-主动管理上下文">模式 3：&quot;信任但核查&quot;+
+主动管理上下文</a>
+<a class="lvl2" href="#四幻灯片与排版">四、幻灯片与排版</a>
+<a class="lvl3" href="#模式-1先面试再出初稿">模式 1：先&quot;面试&quot;再出初稿</a>
+<a class="lvl3" href="#模式-2对话级微调版式">模式 2：对话级微调版式</a>
+<a class="lvl3" href="#模式-3用-latexbeamer-换取专业排版">模式 3：用 LaTeX/Beamer
+换取专业排版</a>
+<a class="lvl3" href="#模式-4把历史作品放同一文件夹当风格参照">模式
+4：把历史作品放同一文件夹当风格参照</a>
+<a class="lvl2" href="#五日常自动化">五、日常自动化</a>
+<a class="lvl3" href="#模式-1账单转报表一句话搞定">模式 1：账单转报表，一句话搞定</a>
+<a class="lvl3" href="#模式-2批量整理文件先出计划明令禁删">模式
+2：批量整理文件——先出计划、明令禁删</a>
+<a class="lvl3" href="#模式-3票据转结构化数据允许不确定禁止硬猜">模式
+3：票据转结构化数据——允许&quot;不确定&quot;，禁止硬猜</a>
+<a class="lvl3" href="#模式-4养成这事能不能让-claude-code-做的反射">模式
+4：养成&quot;这事能不能让 Claude Code 做&quot;的反射</a></aside>
+</div>
+
+<nav class="pager">
+  <a href="c08-best-practices.html"><span class="lab">← 上一篇</span><span class="ttl">实战案例与最佳实践</span></a>
+  <a class="next" href="c10-cheatsheet.html"><span class="lab">下一篇 →</span><span class="ttl">命令速查表</span></a>
+</nav>
+
+  </div>
+</div>
+<script src="assets/nav.js"></script>
+<script src="assets/toc.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prompt 模板库 · 和 AI 一起用电脑</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="backdrop" id="backdrop"></div>
+<aside class="sidebar" id="sidebar">
+  <a class="s-brand" href="index.html"><span class="s-logo"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 6 16"/><line x1="12" y1="16" x2="18" y2="16"/></svg></span><span class="s-name">和 AI 一起用电脑</span></a>
+  <div class="s-search"><span class="s-search-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.6" y2="16.6"/></svg></span><input id="navFilter" type="text" placeholder="筛选章节…" autocomplete="off"></div>
+  <nav class="s-scroll">
+    <div class="s-group"><a class="s-item" href="index.html"><span class="s-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a2 2 0 0 0-2 2z"/><path d="M6 20a2 2 0 0 1-2-2"/></svg></span><span class="s-txt">总览</span></a></div>
+    <div id="topicGroup"><div class="s-group"><div class="s-label">第一课 · 电脑基本功</div><a class="s-item" href="topic1.html" data-name="操作系统 & 终端"><span class="s-num">01</span><span class="s-txt">操作系统 & 终端</span></a><a class="s-item" href="topic2.html" data-name="命令行核心命令"><span class="s-num">02</span><span class="s-txt">命令行核心命令</span></a><a class="s-item" href="topic3.html" data-name="文件系统 & 组织"><span class="s-num">03</span><span class="s-txt">文件系统 & 组织</span></a><a class="s-item" href="topic4.html" data-name="Homebrew"><span class="s-num">04</span><span class="s-txt">Homebrew</span></a><a class="s-item" href="topic5.html" data-name="Claude Code 初识"><span class="s-num">05</span><span class="s-txt">Claude Code 初识</span></a><a class="s-item" href="topic6.html" data-name="Markdown"><span class="s-num">06</span><span class="s-txt">Markdown</span></a><a class="s-item" href="topic7.html" data-name="LaTeX & Overleaf"><span class="s-num">07</span><span class="s-txt">LaTeX & Overleaf</span></a><a class="s-item" href="topic8.html" data-name="VS Code & Python"><span class="s-num">08</span><span class="s-txt">VS Code & Python</span></a></div><div class="s-group"><div class="s-label">第二课 · Claude Code 实战</div><a class="s-item" href="c01-overview.html" data-name="课程总览"><span class="s-num">09</span><span class="s-txt">课程总览</span></a><a class="s-item" href="c02-mac-setup.html" data-name="Mac 安装配置"><span class="s-num">10</span><span class="s-txt">Mac 安装配置</span></a><a class="s-item" href="c03-windows-setup.html" data-name="Windows 方案"><span class="s-num">11</span><span class="s-txt">Windows 方案</span></a><a class="s-item" href="c04-github-gh.html" data-name="GitHub & gh"><span class="s-num">12</span><span class="s-txt">GitHub & gh</span></a><a class="s-item" href="c05-github-pages.html" data-name="GitHub Pages"><span class="s-num">13</span><span class="s-txt">GitHub Pages</span></a><a class="s-item" href="c06-web-slides.html" data-name="网页幻灯片"><span class="s-num">14</span><span class="s-txt">网页幻灯片</span></a><a class="s-item" href="c07-prompt-skills.html" data-name="提问的艺术"><span class="s-num">15</span><span class="s-txt">提问的艺术</span></a><a class="s-item" href="c08-best-practices.html" data-name="案例与最佳实践"><span class="s-num">16</span><span class="s-txt">案例与最佳实践</span></a><a class="s-item" href="c09-prompt-patterns.html" data-name="任务型 Prompt"><span class="s-num">17</span><span class="s-txt">任务型 Prompt</span></a><a class="s-item" href="c10-cheatsheet.html" data-name="命令速查表"><span class="s-num">18</span><span class="s-txt">命令速查表</span></a><a class="s-item active" href="c11-prompts.html" data-name="Prompt 模板"><span class="s-num">19</span><span class="s-txt">Prompt 模板</span></a></div></div>
+    <div class="s-empty" id="navEmpty" hidden>没有匹配的章节</div>
+  </nav>
+  <div class="s-foot">2026-07-13 实战课 · 综合笔记</div>
+</aside>
+<div class="content">
+  <div class="mtop">
+    <button class="burger" id="burger" aria-label="菜单"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <a class="m-brand" href="index.html">和 AI 一起用电脑</a>
+  </div>
+  <div class="page">
+
+<div class="doc-head">
+  <div class="crumb">第二课 · 19 / 19</div>
+  <h1>Prompt 模板库</h1>
+  <p class="sub">实战验证过的提示词模板，Markdown 原文可下载</p>
+</div>
+
+<div class="doc-layout">
+  <article class="article md">
+<h1 id="prompt-模板库直接下载改用">Prompt 模板库：直接下载改用</h1>
+<p>以下模板全部来自本次课程的真实对话，每个都实战验证过。点击文件名下载
+Markdown 原文，方括号处换成你自己的信息即可使用。</p>
+<h2 id="模板列表">模板列表</h2>
+<table>
+<thead>
+<tr>
+<th>模板</th>
+<th>场景</th>
+<th>下载</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>访谈式需求澄清</strong></td>
+<td>想做东西但需求模糊——让 AI 用选择题采访你</td>
+<td><a href="prompts/interview-me.md">interview-me.md</a></td>
+</tr>
+<tr>
+<td><strong>先研究后动手</strong></td>
+<td>手里有参考资料/教程/旧项目，照着做</td>
+<td><a href="prompts/research-first.md">research-first.md</a></td>
+</tr>
+<tr>
+<td><strong>论文转幻灯片</strong></td>
+<td>把论文/报告变成漂亮的网页幻灯片</td>
+<td><a href="prompts/make-slides.md">make-slides.md</a></td>
+</tr>
+<tr>
+<td><strong>建站与发布</strong></td>
+<td>把任何东西发布成公开网站 + 后续更新</td>
+<td><a href="prompts/publish-site.md">publish-site.md</a></td>
+</tr>
+<tr>
+<td><strong>并行干活</strong></td>
+<td>外派 subagent 施工 / 派 agent 出去调研</td>
+<td><a
+href="prompts/delegate-and-parallel.md">delegate-and-parallel.md</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="使用模板的三个原则">使用模板的三个原则</h2>
+<ol type="1">
+<li><strong>模板是骨架，上下文是血肉</strong>。同一个模板，给足背景（你是谁、给谁看、目的是什么）和不给背景，产出天差地别。</li>
+<li><strong>别整段照抄不看</strong>。每个模板末尾的「要点」解释了为什么这样写——理解了要点，你很快就不需要模板。</li>
+<li><strong>验收标准永远要有</strong>。所有模板都以「验证后把结果给我」收尾，这是防止
+AI「应该好了」式交差的关键一句。</li>
+</ol>
+
+  </article>
+  <aside class="toc"><div class="t-title">本页目录</div><a class="lvl2" href="#模板列表">模板列表</a>
+<a class="lvl2" href="#使用模板的三个原则">使用模板的三个原则</a></aside>
+</div>
+
+<nav class="pager">
+  <a href="c10-cheatsheet.html"><span class="lab">← 上一篇</span><span class="ttl">命令速查表</span></a>
+  <a class="next" href="index.html"><span class="lab">下一篇 →</span><span class="ttl">返回总览</span></a>
+</nav>
+
+  </div>
+</div>
+<script src="assets/nav.js"></script>
+<script src="assets/toc.js"></script>
+</body>
+</html>

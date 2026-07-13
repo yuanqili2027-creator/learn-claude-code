@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitHub 与 gh 命令行 · 和 AI 一起用电脑</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="backdrop" id="backdrop"></div>
+<aside class="sidebar" id="sidebar">
+  <a class="s-brand" href="index.html"><span class="s-logo"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 6 16"/><line x1="12" y1="16" x2="18" y2="16"/></svg></span><span class="s-name">和 AI 一起用电脑</span></a>
+  <div class="s-search"><span class="s-search-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.6" y2="16.6"/></svg></span><input id="navFilter" type="text" placeholder="筛选章节…" autocomplete="off"></div>
+  <nav class="s-scroll">
+    <div class="s-group"><a class="s-item" href="index.html"><span class="s-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a2 2 0 0 0-2 2z"/><path d="M6 20a2 2 0 0 1-2-2"/></svg></span><span class="s-txt">总览</span></a></div>
+    <div id="topicGroup"><div class="s-group"><div class="s-label">第一课 · 电脑基本功</div><a class="s-item" href="topic1.html" data-name="操作系统 & 终端"><span class="s-num">01</span><span class="s-txt">操作系统 & 终端</span></a><a class="s-item" href="topic2.html" data-name="命令行核心命令"><span class="s-num">02</span><span class="s-txt">命令行核心命令</span></a><a class="s-item" href="topic3.html" data-name="文件系统 & 组织"><span class="s-num">03</span><span class="s-txt">文件系统 & 组织</span></a><a class="s-item" href="topic4.html" data-name="Homebrew"><span class="s-num">04</span><span class="s-txt">Homebrew</span></a><a class="s-item" href="topic5.html" data-name="Claude Code 初识"><span class="s-num">05</span><span class="s-txt">Claude Code 初识</span></a><a class="s-item" href="topic6.html" data-name="Markdown"><span class="s-num">06</span><span class="s-txt">Markdown</span></a><a class="s-item" href="topic7.html" data-name="LaTeX & Overleaf"><span class="s-num">07</span><span class="s-txt">LaTeX & Overleaf</span></a><a class="s-item" href="topic8.html" data-name="VS Code & Python"><span class="s-num">08</span><span class="s-txt">VS Code & Python</span></a></div><div class="s-group"><div class="s-label">第二课 · Claude Code 实战</div><a class="s-item" href="c01-overview.html" data-name="课程总览"><span class="s-num">09</span><span class="s-txt">课程总览</span></a><a class="s-item" href="c02-mac-setup.html" data-name="Mac 安装配置"><span class="s-num">10</span><span class="s-txt">Mac 安装配置</span></a><a class="s-item" href="c03-windows-setup.html" data-name="Windows 方案"><span class="s-num">11</span><span class="s-txt">Windows 方案</span></a><a class="s-item active" href="c04-github-gh.html" data-name="GitHub & gh"><span class="s-num">12</span><span class="s-txt">GitHub & gh</span></a><a class="s-item" href="c05-github-pages.html" data-name="GitHub Pages"><span class="s-num">13</span><span class="s-txt">GitHub Pages</span></a><a class="s-item" href="c06-web-slides.html" data-name="网页幻灯片"><span class="s-num">14</span><span class="s-txt">网页幻灯片</span></a><a class="s-item" href="c07-prompt-skills.html" data-name="提问的艺术"><span class="s-num">15</span><span class="s-txt">提问的艺术</span></a><a class="s-item" href="c08-best-practices.html" data-name="案例与最佳实践"><span class="s-num">16</span><span class="s-txt">案例与最佳实践</span></a><a class="s-item" href="c09-prompt-patterns.html" data-name="任务型 Prompt"><span class="s-num">17</span><span class="s-txt">任务型 Prompt</span></a><a class="s-item" href="c10-cheatsheet.html" data-name="命令速查表"><span class="s-num">18</span><span class="s-txt">命令速查表</span></a><a class="s-item" href="c11-prompts.html" data-name="Prompt 模板"><span class="s-num">19</span><span class="s-txt">Prompt 模板</span></a></div></div>
+    <div class="s-empty" id="navEmpty" hidden>没有匹配的章节</div>
+  </nav>
+  <div class="s-foot">2026-07-13 实战课 · 综合笔记</div>
+</aside>
+<div class="content">
+  <div class="mtop">
+    <button class="burger" id="burger" aria-label="菜单"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <a class="m-brand" href="index.html">和 AI 一起用电脑</a>
+  </div>
+  <div class="page">
+
+<div class="doc-head">
+  <div class="crumb">第二课 · 12 / 19</div>
+  <h1>GitHub 与 gh 命令行</h1>
+  <p class="sub">账号、仓库、gh auth login 全流程、git 身份与隐私技巧</p>
+</div>
+
+<div class="doc-layout">
+  <article class="article md">
+<h1 id="github-与-gh-命令行让-ai-替你管理代码仓库">GitHub 与 gh
+命令行：让 AI 替你管理代码仓库</h1>
+<h2 id="github-是什么">GitHub 是什么</h2>
+<p><strong>GitHub（github.com）是世界最大的代码托管平台</strong>——可以粗糙地理解为「程序员的网盘
++
+朋友圈」：文件放上去有完整的修改历史，可以公开分享，别人能围观、复制、参与你的项目。全球几乎所有开源软件都住在这里。对本课来说，它还有一个杀手级赠品：<strong>免费网站托管（GitHub
+Pages，下一章）</strong>。</p>
+<p>三个高频词先解释：</p>
+<ul>
+<li><strong>仓库（repository /
+repo）</strong>：一个项目一个仓库，本质是「一个带修改历史的文件夹」。</li>
+<li><strong>git</strong>：本地的版本管理工具，负责记录修改、与 GitHub
+同步。GitHub 是网站，git 是工具，两者不是一个东西。</li>
+<li><strong>推送（push）</strong>：把本地的修改上传到 GitHub。</li>
+</ul>
+<h2 id="第-1-步注册账号">第 1 步：注册账号</h2>
+<p>去 <a href="https://github.com/">github.com</a>
+用邮箱注册，记住你的<strong>用户名</strong>——它会出现在你所有网站的网址里（<code>你的用户名.github.io</code>），起名慎重。</p>
+<h2 id="第-2-步命令行登录gh-auth-login">第 2 步：命令行登录（gh auth
+login）</h2>
+<p><code>gh</code> 是 GitHub 官方命令行工具，登录一次，之后 Claude Code
+就能全权替你操作 GitHub。</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> auth login</span></code></pre></div>
+<p>交互式提问按下面选：</p>
+<ol type="1">
+<li><strong>What account do you want to log into?</strong> →
+<code>GitHub.com</code></li>
+<li><strong>Preferred protocol?</strong> → <code>HTTPS</code>（比 SSH
+少配置，gh 自动管理凭证）</li>
+<li><strong>Authenticate Git with your GitHub credentials?</strong> →
+<code>Yes</code>（关键！让 <code>git push</code> 也免密）</li>
+<li><strong>How would you like to authenticate?</strong> →
+<code>Login with a web browser</code></li>
+</ol>
+<p>终端会显示一个 8
+位一次性码，回车后自动打开浏览器，粘贴该码并授权即完成。</p>
+<blockquote>
+<p>这一步必须<strong>你自己</strong>在终端里操作（涉及浏览器授权），是整门课极少数
+AI 无法代劳的步骤之一。</p>
+</blockquote>
+<p>验证：</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> auth status            <span class="co"># 显示已登录账号和权限</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api user <span class="at">--jq</span> .login   <span class="co"># 从 GitHub 服务器读回你的用户名</span></span></code></pre></div>
+<h2 id="第-3-步配置-git-身份">第 3 步：配置 git 身份</h2>
+<p>每次提交（commit）都会署名，全局设置一次：</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">&quot;你的名字&quot;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">&quot;你的邮箱&quot;</span></span></code></pre></div>
+<p><strong>隐私技巧</strong>：不想公开真实邮箱，用 GitHub
+提供的马甲邮箱。格式是
+<code>数字ID+用户名@users.noreply.github.com</code>，数字 ID 可用
+<code>gh api user --jq .id</code> 查到。用它做
+<code>user.email</code>，提交照样正确归属到你的账号，但真实邮箱不泄露。</p>
+<h2
+id="常用命令速览claude-code-会替你敲但你要看得懂">常用命令速览（Claude
+Code 会替你敲，但你要看得懂）</h2>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 仓库</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo create 仓库名 <span class="at">--public</span>          <span class="co"># 建一个公开仓库</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo create 仓库名 <span class="at">--public</span> <span class="at">--source</span> . <span class="at">--push</span>   <span class="co"># 把当前文件夹建成仓库并推上去</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo delete 仓库名 <span class="at">--yes</span>             <span class="co"># 删除仓库（危险，不可逆）</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo list                            <span class="co"># 列出你的所有仓库</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 日常三连（修改 → 记录 → 上传）</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">-A</span>                              <span class="co"># 把所有修改放入「待提交区」</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;说明这次改了什么&quot;</span>          <span class="co"># 记录一次快照</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push                                <span class="co"># 推送到 GitHub</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 其他</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api user                             <span class="co"># 读取账号信息（JSON）</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> auth switch <span class="at">-u</span> 用户名                 <span class="co"># 多账号之间切换</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> auth refresh <span class="at">-s</span> workflow             <span class="co"># 给 token 补充权限（如需要操作 CI）</span></span></code></pre></div>
+<h2 id="和-claude-code-的配合方式">和 Claude Code 的配合方式</h2>
+<p>登录配置完成后，你在 Claude Code 里只需要说人话：</p>
+<ul>
+<li>「帮我把这个文件夹建成一个公开仓库并推送到 GitHub」</li>
+<li>「提交当前所有修改，写好提交说明」</li>
+<li>「帮我看看我的账号下有哪些仓库」</li>
+</ul>
+<p>它会自动组合上面的命令。你的工作是<strong>看它执行前的说明，确认它要做的事符合预期</strong>——尤其是任何带「删除」字样的操作。</p>
+
+  </article>
+  <aside class="toc"><div class="t-title">本页目录</div><a class="lvl2" href="#github-是什么">GitHub 是什么</a>
+<a class="lvl2" href="#第-1-步注册账号">第 1 步：注册账号</a>
+<a class="lvl2" href="#第-2-步命令行登录gh-auth-login">第 2 步：命令行登录（gh auth
+login）</a>
+<a class="lvl2" href="#第-3-步配置-git-身份">第 3 步：配置 git 身份</a>
+<a class="lvl2" href="#和-claude-code-的配合方式">和 Claude Code 的配合方式</a></aside>
+</div>
+
+<nav class="pager">
+  <a href="c03-windows-setup.html"><span class="lab">← 上一篇</span><span class="ttl">Windows 方案（WSL2）</span></a>
+  <a class="next" href="c05-github-pages.html"><span class="lab">下一篇 →</span><span class="ttl">GitHub Pages 发布</span></a>
+</nav>
+
+  </div>
+</div>
+<script src="assets/nav.js"></script>
+<script src="assets/toc.js"></script>
+</body>
+</html>

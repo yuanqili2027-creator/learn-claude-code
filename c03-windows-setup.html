@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Windows 方案（WSL2） · 和 AI 一起用电脑</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="backdrop" id="backdrop"></div>
+<aside class="sidebar" id="sidebar">
+  <a class="s-brand" href="index.html"><span class="s-logo"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 6 16"/><line x1="12" y1="16" x2="18" y2="16"/></svg></span><span class="s-name">和 AI 一起用电脑</span></a>
+  <div class="s-search"><span class="s-search-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.6" y2="16.6"/></svg></span><input id="navFilter" type="text" placeholder="筛选章节…" autocomplete="off"></div>
+  <nav class="s-scroll">
+    <div class="s-group"><a class="s-item" href="index.html"><span class="s-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a2 2 0 0 0-2 2z"/><path d="M6 20a2 2 0 0 1-2-2"/></svg></span><span class="s-txt">总览</span></a></div>
+    <div id="topicGroup"><div class="s-group"><div class="s-label">第一课 · 电脑基本功</div><a class="s-item" href="topic1.html" data-name="操作系统 & 终端"><span class="s-num">01</span><span class="s-txt">操作系统 & 终端</span></a><a class="s-item" href="topic2.html" data-name="命令行核心命令"><span class="s-num">02</span><span class="s-txt">命令行核心命令</span></a><a class="s-item" href="topic3.html" data-name="文件系统 & 组织"><span class="s-num">03</span><span class="s-txt">文件系统 & 组织</span></a><a class="s-item" href="topic4.html" data-name="Homebrew"><span class="s-num">04</span><span class="s-txt">Homebrew</span></a><a class="s-item" href="topic5.html" data-name="Claude Code 初识"><span class="s-num">05</span><span class="s-txt">Claude Code 初识</span></a><a class="s-item" href="topic6.html" data-name="Markdown"><span class="s-num">06</span><span class="s-txt">Markdown</span></a><a class="s-item" href="topic7.html" data-name="LaTeX & Overleaf"><span class="s-num">07</span><span class="s-txt">LaTeX & Overleaf</span></a><a class="s-item" href="topic8.html" data-name="VS Code & Python"><span class="s-num">08</span><span class="s-txt">VS Code & Python</span></a></div><div class="s-group"><div class="s-label">第二课 · Claude Code 实战</div><a class="s-item" href="c01-overview.html" data-name="课程总览"><span class="s-num">09</span><span class="s-txt">课程总览</span></a><a class="s-item" href="c02-mac-setup.html" data-name="Mac 安装配置"><span class="s-num">10</span><span class="s-txt">Mac 安装配置</span></a><a class="s-item active" href="c03-windows-setup.html" data-name="Windows 方案"><span class="s-num">11</span><span class="s-txt">Windows 方案</span></a><a class="s-item" href="c04-github-gh.html" data-name="GitHub & gh"><span class="s-num">12</span><span class="s-txt">GitHub & gh</span></a><a class="s-item" href="c05-github-pages.html" data-name="GitHub Pages"><span class="s-num">13</span><span class="s-txt">GitHub Pages</span></a><a class="s-item" href="c06-web-slides.html" data-name="网页幻灯片"><span class="s-num">14</span><span class="s-txt">网页幻灯片</span></a><a class="s-item" href="c07-prompt-skills.html" data-name="提问的艺术"><span class="s-num">15</span><span class="s-txt">提问的艺术</span></a><a class="s-item" href="c08-best-practices.html" data-name="案例与最佳实践"><span class="s-num">16</span><span class="s-txt">案例与最佳实践</span></a><a class="s-item" href="c09-prompt-patterns.html" data-name="任务型 Prompt"><span class="s-num">17</span><span class="s-txt">任务型 Prompt</span></a><a class="s-item" href="c10-cheatsheet.html" data-name="命令速查表"><span class="s-num">18</span><span class="s-txt">命令速查表</span></a><a class="s-item" href="c11-prompts.html" data-name="Prompt 模板"><span class="s-num">19</span><span class="s-txt">Prompt 模板</span></a></div></div>
+    <div class="s-empty" id="navEmpty" hidden>没有匹配的章节</div>
+  </nav>
+  <div class="s-foot">2026-07-13 实战课 · 综合笔记</div>
+</aside>
+<div class="content">
+  <div class="mtop">
+    <button class="burger" id="burger" aria-label="菜单"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <a class="m-brand" href="index.html">和 AI 一起用电脑</a>
+  </div>
+  <div class="page">
+
+<div class="doc-head">
+  <div class="crumb">第二课 · 11 / 19</div>
+  <h1>Windows 方案（WSL2）</h1>
+  <p class="sub">一条命令装 Ubuntu，之后与 Mac 殊途同归；专属注意事项</p>
+</div>
+
+<div class="doc-layout">
+  <article class="article md">
+<h1 id="windows-方案wsl2--ubuntu">Windows 方案：WSL2 + Ubuntu</h1>
+<p>Windows 和 Mac/Linux 是两套不互通的体系（原因见第一课·话题
+1）。好消息是微软官方提供了 <strong>WSL（Windows Subsystem for
+Linux）</strong>——在 Windows 里原生运行一个真正的
+Linux。装好之后，本课所有 Mac/Linux 命令<strong>原样可用</strong>，你和
+Mac 同学的操作完全一致。</p>
+<h2 id="总览三步走">总览：三步走</h2>
+<ol type="1">
+<li>启用 WSL2 并安装 Ubuntu（微软官方 Linux 发行版渠道）</li>
+<li>在 Ubuntu 里装工具链（对应 Mac 的第 2 步）</li>
+<li>配置并启动 Claude Code（与 Mac 完全相同）</li>
+</ol>
+<h2 id="第-1-步安装-wsl2--ubuntu">第 1 步：安装 WSL2 + Ubuntu</h2>
+<p><strong>要求</strong>：Windows 10 2004 以上或 Windows 11。</p>
+<ol type="1">
+<li>右键开始菜单 →「终端（管理员）」或「PowerShell（管理员）」；</li>
+<li>执行一条命令：</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>wsl <span class="op">--</span>install</span></code></pre></div>
+<p>这条命令会自动完成：启用 WSL 功能 → 安装 WSL2 内核 → 从微软商店安装
+Ubuntu。<strong>重启电脑</strong>。</p>
+<ol start="3" type="1">
+<li>重启后系统会自动打开 Ubuntu 窗口做初始化，让你设置一个 <strong>Linux
+用户名和密码</strong>（和 Windows
+密码无关；输入密码时屏幕不显示，正常）。</li>
+</ol>
+<blockquote>
+<p>如果 <code>wsl --install</code> 报错或商店不可用：打开 Microsoft
+Store，搜索「Ubuntu」，手动安装「Ubuntu 24.04 LTS」，再在管理员
+PowerShell 里跑 <code>wsl --set-default-version 2</code>。</p>
+</blockquote>
+<p>以后每次要用命令行，就从开始菜单打开 <strong>Ubuntu</strong>（或在
+Windows Terminal 里选 Ubuntu 标签）——那就是你的 Linux 终端。</p>
+<h2 id="第-2-步在-ubuntu-里装工具链">第 2 步：在 Ubuntu 里装工具链</h2>
+<p>Ubuntu 用 <code>apt</code> 做包管理（相当于 Mac 的
+brew）。逐条执行：</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update <span class="kw">&amp;&amp;</span> <span class="fu">sudo</span> apt upgrade <span class="at">-y</span>        <span class="co"># 更新软件源（sudo = 用管理员权限执行）</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install <span class="at">-y</span> git curl                  <span class="co"># git 和下载工具</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 安装 gh（GitHub CLI 官方源）</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="bu">type</span> <span class="at">-p</span> wget <span class="op">&gt;</span>/dev/null <span class="kw">||</span> <span class="fu">sudo</span> apt install wget <span class="at">-y</span><span class="kw">)</span> <span class="dt">\</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&amp;&amp;</span> <span class="fu">sudo</span> mkdir <span class="at">-p</span> <span class="at">-m</span> 755 /etc/apt/keyrings <span class="dt">\</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&amp;&amp;</span> <span class="fu">wget</span> <span class="at">-qO-</span> https://cli.github.com/packages/githubcli-archive-keyring.gpg <span class="kw">|</span> <span class="fu">sudo</span> tee /etc/apt/keyrings/githubcli-archive-keyring.gpg <span class="op">&gt;</span> /dev/null <span class="dt">\</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> <span class="st">&quot;deb [arch=</span><span class="va">$(</span><span class="ex">dpkg</span> <span class="at">--print-architecture</span><span class="va">)</span><span class="st"> signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main&quot;</span> <span class="kw">|</span> <span class="fu">sudo</span> tee /etc/apt/sources.list.d/github-cli.list <span class="op">&gt;</span> /dev/null <span class="dt">\</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&amp;&amp;</span> <span class="fu">sudo</span> apt update <span class="kw">&amp;&amp;</span> <span class="fu">sudo</span> apt install gh <span class="at">-y</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 安装 Node.js（用 nvm，避免 apt 里版本太老）</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-o-</span> https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh <span class="kw">|</span> <span class="fu">bash</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> ~/.bashrc</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="ex">nvm</span> install <span class="at">--lts</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 安装 Claude Code</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">-g</span> @anthropic-ai/claude-code</span></code></pre></div>
+<h2 id="第-3-步配置与启动与-mac-相同">第 3 步：配置与启动（与 Mac
+相同）</h2>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">ANTHROPIC_BASE_URL</span><span class="op">=</span><span class="st">&quot;https://crs.sat1600ap5.online/api&quot;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">ANTHROPIC_AUTH_TOKEN</span><span class="op">=</span><span class="st">&quot;cr_********************************&quot;</span>   <span class="co"># 秘钥向老师索取</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">claude</span> <span class="at">--dangerously-skip-permissions</span></span></code></pre></div>
+<p>想永久生效，追加到 <code>~/.bashrc</code>（Ubuntu 默认 shell 是
+bash，不是 zsh）：</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&#39;export ANTHROPIC_BASE_URL=&quot;https://crs.sat1600ap5.online/api&quot;&#39;</span> <span class="op">&gt;&gt;</span> ~/.bashrc</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&#39;export ANTHROPIC_AUTH_TOKEN=&quot;cr_你的秘钥&quot;&#39;</span> <span class="op">&gt;&gt;</span> ~/.bashrc</span></code></pre></div>
+<h2 id="wsl-专属注意事项">WSL 专属注意事项</h2>
+<ul>
+<li><strong>文件放哪</strong>：把项目放在 Linux 侧（如
+<code>~/Projects/</code>），<strong>不要</strong>放在
+<code>/mnt/c/...</code>（即 Windows 的 C
+盘）里干活——跨系统文件读写慢好几倍，还容易出权限问题。</li>
+<li><strong>怎么和 Windows 互传文件</strong>：在 Ubuntu 里执行
+<code>explorer.exe .</code> 会用 Windows 资源管理器打开当前 Linux
+目录，直接拖拽即可。</li>
+<li><strong>VS Code</strong>：在 Windows 装 VS Code +
+「WSL」扩展，然后在 Ubuntu 目录里敲 <code>code .</code>，体验和 Mac
+完全一致。</li>
+<li><strong>代理</strong>：Windows 上开的代理默认不管 WSL 内部流量。如果
+brew/GitHub 连不上，需在代理软件里开启「允许局域网连接」并在 Ubuntu
+里设置 <code>http_proxy</code> 环境变量（各代理软件文档都有 WSL
+教程）。</li>
+</ul>
+<p>装完后，回到第 4 章继续 GitHub 配置——从那里开始，Windows 和 Mac
+殊途同归。</p>
+
+  </article>
+  <aside class="toc"><div class="t-title">本页目录</div><a class="lvl2" href="#总览三步走">总览：三步走</a>
+<a class="lvl2" href="#第-1-步安装-wsl2--ubuntu">第 1 步：安装 WSL2 + Ubuntu</a>
+<a class="lvl2" href="#第-2-步在-ubuntu-里装工具链">第 2 步：在 Ubuntu 里装工具链</a>
+<a class="lvl2" href="#第-3-步配置与启动与-mac-相同">第 3 步：配置与启动（与 Mac
+相同）</a>
+<a class="lvl2" href="#wsl-专属注意事项">WSL 专属注意事项</a></aside>
+</div>
+
+<nav class="pager">
+  <a href="c02-mac-setup.html"><span class="lab">← 上一篇</span><span class="ttl">Mac 安装与配置</span></a>
+  <a class="next" href="c04-github-gh.html"><span class="lab">下一篇 →</span><span class="ttl">GitHub 与 gh 命令行</span></a>
+</nav>
+
+  </div>
+</div>
+<script src="assets/nav.js"></script>
+<script src="assets/toc.js"></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>向 AI 提问的艺术 · 和 AI 一起用电脑</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="backdrop" id="backdrop"></div>
+<aside class="sidebar" id="sidebar">
+  <a class="s-brand" href="index.html"><span class="s-logo"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 10 12 6 16"/><line x1="12" y1="16" x2="18" y2="16"/></svg></span><span class="s-name">和 AI 一起用电脑</span></a>
+  <div class="s-search"><span class="s-search-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.6" y2="16.6"/></svg></span><input id="navFilter" type="text" placeholder="筛选章节…" autocomplete="off"></div>
+  <nav class="s-scroll">
+    <div class="s-group"><a class="s-item" href="index.html"><span class="s-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a2 2 0 0 0-2 2z"/><path d="M6 20a2 2 0 0 1-2-2"/></svg></span><span class="s-txt">总览</span></a></div>
+    <div id="topicGroup"><div class="s-group"><div class="s-label">第一课 · 电脑基本功</div><a class="s-item" href="topic1.html" data-name="操作系统 & 终端"><span class="s-num">01</span><span class="s-txt">操作系统 & 终端</span></a><a class="s-item" href="topic2.html" data-name="命令行核心命令"><span class="s-num">02</span><span class="s-txt">命令行核心命令</span></a><a class="s-item" href="topic3.html" data-name="文件系统 & 组织"><span class="s-num">03</span><span class="s-txt">文件系统 & 组织</span></a><a class="s-item" href="topic4.html" data-name="Homebrew"><span class="s-num">04</span><span class="s-txt">Homebrew</span></a><a class="s-item" href="topic5.html" data-name="Claude Code 初识"><span class="s-num">05</span><span class="s-txt">Claude Code 初识</span></a><a class="s-item" href="topic6.html" data-name="Markdown"><span class="s-num">06</span><span class="s-txt">Markdown</span></a><a class="s-item" href="topic7.html" data-name="LaTeX & Overleaf"><span class="s-num">07</span><span class="s-txt">LaTeX & Overleaf</span></a><a class="s-item" href="topic8.html" data-name="VS Code & Python"><span class="s-num">08</span><span class="s-txt">VS Code & Python</span></a></div><div class="s-group"><div class="s-label">第二课 · Claude Code 实战</div><a class="s-item" href="c01-overview.html" data-name="课程总览"><span class="s-num">09</span><span class="s-txt">课程总览</span></a><a class="s-item" href="c02-mac-setup.html" data-name="Mac 安装配置"><span class="s-num">10</span><span class="s-txt">Mac 安装配置</span></a><a class="s-item" href="c03-windows-setup.html" data-name="Windows 方案"><span class="s-num">11</span><span class="s-txt">Windows 方案</span></a><a class="s-item" href="c04-github-gh.html" data-name="GitHub & gh"><span class="s-num">12</span><span class="s-txt">GitHub & gh</span></a><a class="s-item" href="c05-github-pages.html" data-name="GitHub Pages"><span class="s-num">13</span><span class="s-txt">GitHub Pages</span></a><a class="s-item" href="c06-web-slides.html" data-name="网页幻灯片"><span class="s-num">14</span><span class="s-txt">网页幻灯片</span></a><a class="s-item active" href="c07-prompt-skills.html" data-name="提问的艺术"><span class="s-num">15</span><span class="s-txt">提问的艺术</span></a><a class="s-item" href="c08-best-practices.html" data-name="案例与最佳实践"><span class="s-num">16</span><span class="s-txt">案例与最佳实践</span></a><a class="s-item" href="c09-prompt-patterns.html" data-name="任务型 Prompt"><span class="s-num">17</span><span class="s-txt">任务型 Prompt</span></a><a class="s-item" href="c10-cheatsheet.html" data-name="命令速查表"><span class="s-num">18</span><span class="s-txt">命令速查表</span></a><a class="s-item" href="c11-prompts.html" data-name="Prompt 模板"><span class="s-num">19</span><span class="s-txt">Prompt 模板</span></a></div></div>
+    <div class="s-empty" id="navEmpty" hidden>没有匹配的章节</div>
+  </nav>
+  <div class="s-foot">2026-07-13 实战课 · 综合笔记</div>
+</aside>
+<div class="content">
+  <div class="mtop">
+    <button class="burger" id="burger" aria-label="菜单"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <a class="m-brand" href="index.html">和 AI 一起用电脑</a>
+  </div>
+  <div class="page">
+
+<div class="doc-head">
+  <div class="crumb">第二课 · 15 / 19</div>
+  <h1>向 AI 提问的艺术</h1>
+  <p class="sub">从真实对话提炼的 9 个技巧，每条附当时的原话</p>
+</div>
+
+<div class="doc-layout">
+  <article class="article md">
+<h1 id="向-ai-提问的艺术来自真实对话的-9-个技巧">向 AI
+提问的艺术：来自真实对话的 9 个技巧</h1>
+<p>这一章不是理论，全部技巧都从今天那场真实对话里提炼——每一条都附「当时是怎么说的」。核心结论先说：<strong>你不需要会写「咒语」，你需要像对一个能干但不了解你的新同事一样说话。</strong></p>
+<h2 id="技巧-1让-ai-采访你而不是自己憋需求">技巧 1：让 AI
+采访你，而不是自己憋需求</h2>
+<p>想做个人网站但「还没想得特别清楚」时，原话是：</p>
+<blockquote>
+<p>「对于这个网页的设计和功能，我还没有想得特别清楚。如果有任何问题，请你尽可能多地
+interview 我。争取一口气做好。」</p>
+</blockquote>
+<p>效果：AI
+分三轮提了十几个选择题（板块、发布方式、语言、视觉风格、联系方式……），每题都带选项和推荐。回答选择题远比凭空描述容易。<strong>说不清楚需求时，把提问权交给
+AI。</strong></p>
+<h2 id="技巧-2给参考资料而不是重新描述">技巧
+2：给参考资料，而不是重新描述</h2>
+<p>要做幻灯片时，不是口头描述想要什么，而是直接给了一份别人的完整调研笔记：</p>
+<blockquote>
+<p>「这个是别人通过 claude code 做 slides 并发布到 github pages
+的完整的使用记录和心得。我希望我们也来通过这套方案路线来做。你先去读一读，研究一下。」</p>
+</blockquote>
+<p>效果：AI
+读完后自动继承了整套技术选型和避坑经验，不用再试错一遍。<strong>你手里任何相关的文档、论文、笔记、聊天记录，都直接丢给它。</strong></p>
+<h2 id="技巧-3先让它研究再让它动手">技巧 3：先让它研究，再让它动手</h2>
+<p>注意上一条的结尾：「你先去读一读，研究一下。<strong>然后</strong>，我会给你我的
+slides
+内容方案。」——把「研究」和「动手」拆成两步，中间留一个你确认方向的机会。一步到位的指令往往在错误方向上全速狂奔。</p>
+<h2 id="技巧-4风格用关键词--排除项描述">技巧 4：风格用「关键词 +
+排除项」描述</h2>
+<blockquote>
+<p>「用比较专业、极简、色彩性冷淡的风格，体现我的专业、学术。」 「slides
+换一个风格吧。我喜欢红白黑配色，无衬线字体，瑞士设计。」</p>
+</blockquote>
+<p>不需要会设计术语——「专业 / 极简 / 红白黑 /
+瑞士设计」这种程度的关键词，AI
+就能展开成完整的设计系统。如果说不出关键词，就给它看你喜欢的网站截图。</p>
+<h2 id="技巧-5交代验收标准和数量边界">技巧
+5：交代验收标准和数量边界</h2>
+<blockquote>
+<p>「主题就是研究『近代非洲历史』，要 10
+个页面，有封面有封底。内容要丰富一些。我希望这个 slides
+里面有图、有表。」</p>
+</blockquote>
+<p>页数、必含元素（封面封底）、内容密度（丰富）、素材类型（图、表）——这些硬指标让「做好了」变得可检验。<strong>形容词负责方向，数字负责边界。</strong></p>
+<h2 id="技巧-6明确保留什么防止-ai-自由发挥">技巧
+6：明确「保留什么」，防止 AI 自由发挥</h2>
+<p>论文转幻灯片时的关键一句：</p>
+<blockquote>
+<p>「尽可能多地保留原文的关键内容、概念、图片、引用等。」</p>
+</blockquote>
+<p>没有这句，AI
+很可能「重新创作」一份泛泛的介绍。转换类任务（论文→slides、笔记→文章）务必声明保真要求。</p>
+<h2 id="技巧-7用假设在一台全新的电脑上获得完整教程">技巧
+7：用「假设在一台全新的电脑上」获得完整教程</h2>
+<blockquote>
+<p>「写一下完整的流程（虽然我的电脑上已经登录并且配置好了，但我希望你假设是在一台全新的电脑）。」</p>
+</blockquote>
+<p>这个「假设」非常关键——否则 AI
+会跳过你已完成的步骤，写出的教程缺胳膊少腿。要通用文档，就明确通用的前提。</p>
+<h2 id="技巧-8并行开工派一个-subagent-去工作">技巧 8：并行开工——「派一个
+subagent 去工作」</h2>
+<blockquote>
+<p>「OK，要不你派一个 subagent
+去工作，我还要和你继续一些其他讨论。」</p>
+</blockquote>
+<p>确认完方案后，把施工交给后台代理，主对话继续讨论下一件事。一个下午做成六件事，靠的就是不排队。</p>
+<h2 id="技巧-9管理节奏该快时喊停检查">技巧
+9：管理节奏——该快时喊停检查</h2>
+<p>AI 在逐页截图检查幻灯片时，一句「<strong>别急了，直接先部署到 pages
+再说</strong>」跳过了剩余检查直接上线；而更早做非洲史 deck
+时又允许它完整走完质检流程。<strong>质量流程是可调的</strong>：正式产出多检查，快速试错先上线。相应的代价也要接受——跳过的检查等于把验收责任转回自己手上。</p>
+<h2 id="反面提醒ai-会顺着你错误的话说">反面提醒：AI
+会顺着你错误的话说</h2>
+<p>对话里 AI 数次主动指出问题（论文署名与当前用户名不一致、API token
+不应公开），这是好事——但别指望每次都有。<strong>你给的信息错了，产出就错了</strong>；关键事实（名字、日期、数据）发布前自己过一眼。</p>
+<hr />
+<p>以上技巧对应的可复用提示词，见「Prompt 模板」页，可直接下载 Markdown
+文件改用。</p>
+
+  </article>
+  <aside class="toc"><div class="t-title">本页目录</div><a class="lvl2" href="#技巧-1让-ai-采访你而不是自己憋需求">技巧 1：让 AI
+采访你，而不是自己憋需求</a>
+<a class="lvl2" href="#技巧-2给参考资料而不是重新描述">技巧
+2：给参考资料，而不是重新描述</a>
+<a class="lvl2" href="#技巧-3先让它研究再让它动手">技巧 3：先让它研究，再让它动手</a>
+<a class="lvl2" href="#技巧-4风格用关键词--排除项描述">技巧 4：风格用「关键词 +
+排除项」描述</a>
+<a class="lvl2" href="#技巧-5交代验收标准和数量边界">技巧
+5：交代验收标准和数量边界</a>
+<a class="lvl2" href="#技巧-6明确保留什么防止-ai-自由发挥">技巧
+6：明确「保留什么」，防止 AI 自由发挥</a>
+<a class="lvl2" href="#技巧-7用假设在一台全新的电脑上获得完整教程">技巧
+7：用「假设在一台全新的电脑上」获得完整教程</a>
+<a class="lvl2" href="#技巧-8并行开工派一个-subagent-去工作">技巧 8：并行开工——「派一个
+subagent 去工作」</a>
+<a class="lvl2" href="#技巧-9管理节奏该快时喊停检查">技巧
+9：管理节奏——该快时喊停检查</a>
+<a class="lvl2" href="#反面提醒ai-会顺着你错误的话说">反面提醒：AI
+会顺着你错误的话说</a></aside>
+</div>
+
+<nav class="pager">
+  <a href="c06-web-slides.html"><span class="lab">← 上一篇</span><span class="ttl">网页就是幻灯片</span></a>
+  <a class="next" href="c08-best-practices.html"><span class="lab">下一篇 →</span><span class="ttl">实战案例与最佳实践</span></a>
+</nav>
+
+  </div>
+</div>
+<script src="assets/nav.js"></script>
+<script src="assets/toc.js"></script>
+</body>
+</html>
